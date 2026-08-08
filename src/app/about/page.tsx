@@ -8,7 +8,7 @@ import { siteConfig } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Об эксперте",
-  description: `${siteConfig.expertName} — мастер и преподаватель маникюра в ${siteConfig.city}, ${siteConfig.experienceYears} лет в профессии, ${siteConfig.teachingYears} лет преподавания.`,
+  description: `Я, ${siteConfig.expertName}, — мастер и преподаватель маникюра в ${siteConfig.city}. ${siteConfig.experienceYears} лет в профессии, ${siteConfig.teachingYears} лет преподавания.`,
 };
 
 /**
@@ -20,21 +20,21 @@ const principles = [
   {
     title: "Видеть исходник",
     description:
-      "Сложные исходники — обкусанные, трапециевидные, винтовые ногти — разбираются по логике, а не заучиванием отдельных случаев.",
+      "Разбираю сложные исходники — обкусанные, трапециевидные, винтовые ногти — по логике, а не через заучивание отдельных случаев.",
   },
   {
     title: "Понимать материалы",
     description:
-      "Почему появляются отслойки и сколы, как ведут себя базы, гели и комбинированные системы — осознанный выбор вместо взгляда наугад.",
+      "Объясняю, почему появляются отслойки и сколы, как ведут себя базы, гели и комбинированные системы — учу осознанному выбору вместо взгляда наугад.",
   },
   {
     title: "Работать с архитектурой",
-    description: "Форма, баланс и минимальный опил — принципы, которые работают на любом исходнике.",
+    description: "Учу работать с формой, балансом и минимальным опилом — принципами, которые работают на любом исходнике.",
   },
   {
     title: "Объяснять решение",
     description:
-      "Каждый выбор в работе — почему именно так, а не иначе — часть программы, а не то, что остаётся додумывать самому.",
+      "Объясняю каждое решение в работе — почему именно так, а не иначе — а не оставляю додумывать самому.",
   },
 ];
 
@@ -54,8 +54,8 @@ export default function AboutPage() {
                 <Eyebrow className="mb-4">Об эксперте</Eyebrow>
                 <h1 className="font-display text-4xl lg:text-5xl text-ink">{siteConfig.expertName}</h1>
                 <p className="mt-5 text-lg text-graphite max-w-lg">
-                  Мастер и преподаватель маникюра в {siteConfig.city}. Авторские программы построены
-                  на логике материалов и архитектуры ногтя — не на копировании готовых движений.
+                  Я мастер и преподаватель маникюра в {siteConfig.city}. Строю свои программы на
+                  логике материалов и архитектуры ногтя — а не на копировании готовых движений.
                 </p>
               </Reveal>
             </div>
@@ -84,9 +84,9 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-12 gap-8">
             <p className="lg:col-span-3 text-sm text-graphite uppercase tracking-wide">История</p>
             <p className="lg:col-span-9 text-graphite max-w-2xl">
-              Личная история — путь от мастера до преподавателя с {siteConfig.teachingYears}-летним
-              опытом — будет опубликована отдельным текстом после согласования (раздел 18 ТЗ). Пока
-              делимся только подтверждёнными фактами: {siteConfig.experienceYears} лет в профессии,{" "}
+              Свою историю — путь от мастера до преподавателя с {siteConfig.teachingYears}-летним
+              опытом — опубликую отдельным текстом после согласования (раздел 18 ТЗ). Пока делюсь
+              только подтверждёнными фактами: {siteConfig.experienceYears} лет в профессии,{" "}
               {siteConfig.studentsCount} учеников и {siteConfig.instructorCourses} инструкторских
               курса.
             </p>

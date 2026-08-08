@@ -75,7 +75,7 @@ export function CourseFinder() {
             </div>
           </>
         ) : (
-          <p className="text-graphite mt-2">Не получилось подобрать курс — напишите нам напрямую.</p>
+          <p className="text-graphite mt-2">Не получилось подобрать курс — напишите мне напрямую.</p>
         )}
       </div>
     );

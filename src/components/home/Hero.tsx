@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/content/site";
 
@@ -19,7 +19,7 @@ export function Hero() {
                 Маникюр как система, а не набор движений.
               </h1>
               <p className="mt-6 text-lg text-graphite max-w-md">
-                {siteConfig.expertName} учит видеть исходник, понимать материалы и
+                Я, {siteConfig.expertName}, учу видеть исходник, понимать материалы и
                 архитектуру ногтя, безопасно работать со сложными случаями и уверенно
                 принимать решения.
               </p>
@@ -40,7 +40,7 @@ export function Hero() {
               </div>
 
               <p className="mt-8 text-sm text-graphite">
-                {siteConfig.experienceYears} лет в профессии · {siteConfig.teachingYears} лет преподаёт ·{" "}
+                {siteConfig.experienceYears} лет в профессии · {siteConfig.teachingYears} лет преподаю ·{" "}
                 {siteConfig.studentsCount} учеников
               </p>
             </Reveal>
@@ -54,7 +54,16 @@ export function Hero() {
                   aria-hidden
                   className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-violet/30 via-lavender to-transparent blur-3xl"
                 />
-                <ImagePlaceholder ratio="4:5" label="Портрет Елены в работе или в учебном пространстве" />
+                <div className="relative w-full overflow-hidden rounded-card" style={{ paddingBottom: "125%" }}>
+                  <Image
+                    src="/images/elena-portrait.jpg"
+                    alt={`Портрет ${siteConfig.expertName}`}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 560px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>

@@ -23,8 +23,8 @@ export function FormatChoice() {
               Обучение в {siteConfig.city}
             </h3>
             <p className="text-graphite mt-2">
-              Живая работа на моделях, разбор руки и постановка формы вместе с
-              преподавателем.
+              Живая работа на моделях, разбор руки и постановка формы вместе со
+              мной.
             </p>
             <span className="inline-flex items-center gap-2 text-violet mt-4 group-hover:gap-3 transition-all duration-reveal">
               Оставить заявку →

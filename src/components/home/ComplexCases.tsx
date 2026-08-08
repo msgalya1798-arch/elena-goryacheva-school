@@ -11,8 +11,8 @@ export function ComplexCases() {
       <div className="container max-w-container">
         <h2 className="font-display text-3xl lg:text-4xl text-ink mb-3">Сложные случаи</h2>
         <p className="text-graphite max-w-2xl mb-10">
-          До и после в одинаковом масштабе, свете и ракурсе — с коротким объяснением, почему
-          выбрано именно это решение.
+          До и после в одинаковом масштабе, свете и ракурсе — с коротким объяснением, почему я
+          выбрала именно это решение.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -27,7 +27,7 @@ export function ComplexCases() {
                 <p className="text-sm text-graphite mt-4">
                   {isReal
                     ? item.decisionExplanation
-                    : "Кейс будет добавлен после получения согласия ученика на публикацию."}
+                    : "Добавлю кейс после получения согласия ученика на публикацию."}
                 </p>
               </div>
             );

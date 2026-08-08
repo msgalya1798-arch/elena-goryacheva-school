@@ -8,7 +8,7 @@ import { getCourseBySlug } from "@/content/courses";
 
 export const metadata: Metadata = {
   title: "Отзывы",
-  description: "Отзывы учеников об обучении — публикуются только после получения согласия на публикацию.",
+  description: "Отзывы учеников об обучении — публикую только после получения согласия на публикацию.",
 };
 
 export default function ReviewsPage() {
@@ -22,7 +22,7 @@ export default function ReviewsPage() {
               Что говорят ученики
             </h1>
             <p className="mt-4 text-lg text-graphite max-w-xl">
-              Публикуем отзывы только после получения согласия ученика — без накрутки и
+              Публикую отзывы только после получения согласия ученика — без накрутки и
               отредактированных цитат.
             </p>
           </Reveal>
@@ -37,7 +37,7 @@ export default function ReviewsPage() {
                 <div key={i} className="rounded-card border border-border bg-white p-6 shadow-sm transition-shadow duration-reveal hover:shadow-lg">
                   <ImagePlaceholder ratio="1:1" label="Фото ученика" className="max-w-[64px]" />
                   <p className="text-sm text-graphite mt-4">
-                    Отзыв появится после получения согласия ученика на публикацию.
+                    Опубликую отзыв после получения согласия ученика на публикацию.
                   </p>
                 </div>
               ))}

@@ -19,8 +19,8 @@ export function AboutExpert() {
             <p className="text-graphite mt-4 max-w-lg">
               {siteConfig.experienceYears} лет в профессии, {siteConfig.teachingYears} лет
               преподавания, {siteConfig.studentsCount} учеников и{" "}
-              {siteConfig.instructorCourses} инструкторских курса. Авторские программы построены
-              на логике материалов и архитектуры ногтя, а не на копировании готовых движений.
+              {siteConfig.instructorCourses} инструкторских курса. Строю свои программы на логике
+              материалов и архитектуры ногтя, а не на копировании готовых движений.
             </p>
             <Link
               href="/about"

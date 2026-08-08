@@ -2,7 +2,7 @@ import { siteConfig } from "@/content/site";
 
 const stats = [
   { value: `${siteConfig.experienceYears}`, label: "лет в профессии" },
-  { value: `${siteConfig.teachingYears}`, label: "лет преподаёт" },
+  { value: `${siteConfig.teachingYears}`, label: "лет преподаю" },
   { value: siteConfig.studentsCount, label: "учеников" },
   { value: `${siteConfig.instructorCourses}`, label: "инструкторских курса" },
 ];

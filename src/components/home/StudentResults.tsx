@@ -6,7 +6,7 @@ export function StudentResults() {
       <div className="container max-w-container">
         <h2 className="font-display text-3xl lg:text-4xl text-ink mb-3">Результаты учеников</h2>
         <p className="text-graphite max-w-2xl mb-10">
-          Работы и наблюдаемые изменения в качестве — публикуются только подтверждённые факты.
+          Работы и наблюдаемые изменения в качестве — публикую только подтверждённые факты.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

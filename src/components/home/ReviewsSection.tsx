@@ -13,7 +13,7 @@ export function ReviewsSection() {
               <div key={i} className="rounded-card border border-border p-6 shadow-sm transition-shadow duration-reveal hover:shadow-lg">
                 <ImagePlaceholder ratio="1:1" label="Фото ученика" className="max-w-[64px]" />
                 <p className="text-sm text-graphite mt-4">
-                  Отзыв появится после получения согласия ученика на публикацию.
+                  Опубликую отзыв после получения согласия ученика на публикацию.
                 </p>
               </div>
             ))}

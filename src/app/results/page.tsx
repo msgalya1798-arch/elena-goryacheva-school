@@ -8,7 +8,7 @@ import { beforeAfterCases } from "@/content/home";
 export const metadata: Metadata = {
   title: "Результаты",
   description:
-    "Работы учеников и разбор сложных случаев до и после — публикуются только подтверждённые факты и работы с согласия учеников.",
+    "Работы учеников и разбор сложных случаев до и после — публикую только подтверждённые факты и работы с согласия учеников.",
 };
 
 export default function ResultsPage() {
@@ -26,7 +26,7 @@ export default function ResultsPage() {
               Работы учеников и разбор сложных случаев
             </h1>
             <p className="mt-4 text-lg text-graphite max-w-xl">
-              Публикуем только подтверждённые работы и факты — с согласия учеников, без обещаний
+              Публикую только подтверждённые работы и факты — с согласия учеников, без обещаний
               заработка или гарантированного результата.
             </p>
           </Reveal>
@@ -37,8 +37,8 @@ export default function ResultsPage() {
         <div className="container max-w-container">
           <h2 className="font-display text-3xl lg:text-4xl text-ink mb-3">Сложные случаи</h2>
           <p className="text-graphite max-w-2xl mb-10">
-            До и после в одинаковом масштабе, свете и ракурсе — с коротким объяснением, почему
-            выбрано именно это решение.
+            До и после в одинаковом масштабе, свете и ракурсе — с коротким объяснением, почему я
+            выбрала именно это решение.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -53,7 +53,7 @@ export default function ResultsPage() {
                   <p className="text-sm text-graphite mt-4">
                     {isReal
                       ? item.decisionExplanation
-                      : "Кейс будет добавлен после получения согласия ученика на публикацию."}
+                      : "Добавлю кейс после получения согласия ученика на публикацию."}
                   </p>
                 </div>
               );
