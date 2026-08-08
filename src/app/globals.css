@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Editorial Violet — токены из ТЗ, раздел 6.1 и 21. Не менять без ревизии брифа. */
+  --color-ink: #201c24;
+  --color-paper: #f7f6f4; /* серо-молочный, НЕ бежевый */
+  --color-white: #ffffff;
+  --color-violet: #6b3fa0;
+  --color-violet-deep: #4b286d;
+  --color-lavender: #efe9f7;
+  --color-graphite: #746e78;
+  --color-border: #ded8e3;
+
+  --font-display: var(--font-heading), system-ui, sans-serif;
+  --font-sans: var(--font-body), system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Видимый, контрастный фокус — обязателен по ТЗ (WCAG AA, раздел 16.3) */
+:focus-visible {
+  outline: 2px solid var(--color-violet);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Уважаем prefers-reduced-motion (раздел 6.5) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Плейсхолдер для фото до загрузки реальных материалов (раздел 6.4) */
+.image-placeholder {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-lavender),
+    var(--color-lavender) 10px,
+    var(--color-white) 10px,
+    var(--color-white) 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-graphite);
+  font-size: 0.875rem;
+  text-align: center;
+  border: 1px solid var(--color-border);
+}
