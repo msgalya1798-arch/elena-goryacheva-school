@@ -1,13 +1,23 @@
+import Link from "next/link";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { testimonials } from "@/content/home";
 
 export function ReviewsTeaser() {
+  const preview = testimonials.slice(0, 3);
+
   return (
     <section className="py-10 sm:py-section-sm lg:py-section-lg bg-white">
       <div className="container max-w-container">
-        <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink mb-6 sm:mb-10">Отзывы</h2>
+        <div className="flex items-end justify-between gap-4 mb-6 sm:mb-10">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink">Отзывы</h2>
+          {testimonials.length > 0 && (
+            <Link href="/reviews" className="text-sm text-violet hidden sm:inline-block">
+              Смотреть все →
+            </Link>
+          )}
+        </div>
 
-        {testimonials.length === 0 ? (
+        {preview.length === 0 ? (
           <div className="grid sm:grid-cols-3 gap-5">
             {Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className="rounded-card border border-border p-5 shadow-sm">
@@ -20,7 +30,7 @@ export function ReviewsTeaser() {
           </div>
         ) : (
           <div className="grid sm:grid-cols-3 gap-5">
-            {testimonials.map((t) => (
+            {preview.map((t) => (
               <div key={t.id} className="rounded-card border border-border p-5 shadow-sm">
                 <p className="text-ink text-sm">{t.quote}</p>
                 <p className="text-xs text-graphite mt-3">
