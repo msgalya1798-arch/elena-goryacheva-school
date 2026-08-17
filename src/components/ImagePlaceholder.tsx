@@ -13,8 +13,9 @@ const ratioToPadding: Record<ImagePlaceholderProps["ratio"], string> = {
 };
 
 /**
- * Раздел 6.4 ТЗ: "если фото ещё нет, использовать нейтральные блоки-заглушки
- * с указанным соотношением сторон, а не случайные стоки".
+ * Нейтральный блок-заглушка вместо фото с указанным соотношением сторон.
+ * ТЗ v3.0, раздел 13: техническую подпись формата ("3:2", "1:1"…) пользователю не показывать —
+ * содержательный alt/label остаётся в aria-label и видимом тексте.
  */
 export function ImagePlaceholder({ ratio, label, className = "" }: ImagePlaceholderProps) {
   return (
@@ -24,9 +25,7 @@ export function ImagePlaceholder({ ratio, label, className = "" }: ImagePlacehol
       role="img"
       aria-label={label}
     >
-      <span className="absolute inset-0 flex items-center justify-center px-4 text-center">
-        {label} · {ratio}
-      </span>
+      <span className="absolute inset-0 flex items-center justify-center px-4 text-center">{label}</span>
     </div>
   );
 }

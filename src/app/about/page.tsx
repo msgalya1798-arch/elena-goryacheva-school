@@ -7,8 +7,8 @@ import { FinalCta } from "@/components/home/FinalCta";
 import { siteConfig } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Об эксперте",
-  description: `Я, ${siteConfig.expertName}, — мастер и преподаватель маникюра в ${siteConfig.city}. ${siteConfig.experienceYears} лет в профессии, ${siteConfig.teachingYears} лет преподавания.`,
+  title: "Об Елене",
+  description: `Я, ${siteConfig.expertName}, — мастер и преподаватель маникюра в ${siteConfig.cityPrepositional}. ${siteConfig.experienceYears} лет в профессии, ${siteConfig.teachingYears} лет преподавания.`,
 };
 
 /**
@@ -51,11 +51,12 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
               <Reveal delay={0.08}>
-                <Eyebrow className="mb-4">Об эксперте</Eyebrow>
+                <Eyebrow className="mb-4">Об Елене</Eyebrow>
                 <h1 className="font-display text-4xl lg:text-5xl text-ink">{siteConfig.expertName}</h1>
                 <p className="mt-5 text-lg text-graphite max-w-lg">
-                  Я мастер и преподаватель маникюра в {siteConfig.city}. Строю свои программы на
-                  логике материалов и архитектуры ногтя — а не на копировании готовых движений.
+                  Я мастер и преподаватель маникюра в {siteConfig.cityPrepositional}. Строю свои
+                  программы на логике материалов и архитектуры ногтя — а не на копировании готовых
+                  движений.
                 </p>
               </Reveal>
             </div>
@@ -75,21 +76,6 @@ export default function AboutPage() {
                 <p className="text-graphite mt-3">{principle.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-section-sm lg:py-section-lg">
-        <div className="container max-w-container">
-          <div className="grid lg:grid-cols-12 gap-8">
-            <p className="lg:col-span-3 text-sm text-graphite uppercase tracking-wide">История</p>
-            <p className="lg:col-span-9 text-graphite max-w-2xl">
-              Свою историю — путь от мастера до преподавателя с {siteConfig.teachingYears}-летним
-              опытом — опубликую отдельным текстом после согласования (раздел 18 ТЗ). Пока делюсь
-              только подтверждёнными фактами: {siteConfig.experienceYears} лет в профессии,{" "}
-              {siteConfig.studentsCount} учеников и {siteConfig.instructorCourses} инструкторских
-              курса.
-            </p>
           </div>
         </div>
       </section>

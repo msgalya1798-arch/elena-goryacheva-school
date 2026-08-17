@@ -11,7 +11,7 @@ export function FeaturedCourses() {
     .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   return (
-    <section className="py-section-sm lg:py-section-lg bg-white">
+    <section id="programs" className="py-section-sm lg:py-section-lg bg-white">
       <div className="container max-w-container">
         <div className="flex items-end justify-between gap-4 mb-10">
           <h2 className="font-display text-3xl lg:text-4xl text-ink">Популярные программы</h2>

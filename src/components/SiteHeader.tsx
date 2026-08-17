@@ -29,10 +29,10 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/offline"
+            href="/#finder"
             className="hidden sm:inline-flex items-center rounded-full bg-violet px-5 py-2.5 text-sm text-white shadow-md shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-lg hover:shadow-violet/35"
           >
-            Выбрать обучение
+            Подобрать обучение
           </Link>
 
           <MobileMenu />

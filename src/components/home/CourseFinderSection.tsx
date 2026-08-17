@@ -8,8 +8,8 @@ export function CourseFinderSection() {
           <div className="lg:col-span-4">
             <h2 className="font-display text-3xl text-ink">Не знаете, с чего начать?</h2>
             <p className="text-graphite mt-4">
-              Три коротких вопроса — сразу увидите рекомендацию с объяснением, без
-              обязательного оставления контакта.
+              Ответьте на 3 вопроса — подберём обучение под ваш опыт и задачи. Результат сразу,
+              без номера телефона.
             </p>
           </div>
           <div className="lg:col-span-7 lg:col-start-6">

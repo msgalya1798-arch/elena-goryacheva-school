@@ -42,7 +42,7 @@ export function SiteFooter() {
 
       <div className="border-t border-border">
         <div className="container max-w-container py-6 text-xs text-graphite">
-          © {new Date().getFullYear()} {siteConfig.logoText}. Реквизиты продавца — раздел «Контакты» (уточняется).
+          © {new Date().getFullYear()} {siteConfig.logoText}.
         </div>
       </div>
     </footer>

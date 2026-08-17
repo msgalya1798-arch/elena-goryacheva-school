@@ -23,7 +23,7 @@ export function CourseCard({ course }: { course: Course }) {
       </div>
 
       <span className="inline-flex items-center gap-2 text-violet mt-4 text-sm group-hover:gap-3 transition-all duration-reveal">
-        Подробнее о курсе →
+        Смотреть программу →
       </span>
     </Link>
   );

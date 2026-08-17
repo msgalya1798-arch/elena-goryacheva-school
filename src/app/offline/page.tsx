@@ -7,7 +7,7 @@ import { siteConfig } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Офлайн-обучение",
-  description: `Очные программы маникюра в ${siteConfig.city}: от старта с нуля до сложных исходников и верхних форм.`,
+  description: `Очные программы маникюра в ${siteConfig.cityPrepositional}: от старта с нуля до сложных исходников и верхних форм.`,
 };
 
 export default function OfflineCatalogPage() {
@@ -20,7 +20,7 @@ export default function OfflineCatalogPage() {
           <Reveal>
             <Eyebrow className="mb-4">Офлайн-обучение</Eyebrow>
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-2xl">
-              Очные программы в {siteConfig.city}
+              Очные программы в {siteConfig.cityPrepositional}
             </h1>
             <p className="mt-4 text-lg text-graphite max-w-xl">
               Живая работа на моделях, разбор руки и постановка формы вместе со мной —

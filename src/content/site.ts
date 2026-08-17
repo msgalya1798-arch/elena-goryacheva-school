@@ -1,23 +1,24 @@
 import type { ContactChannel } from "@/types/content";
 
 /**
- * Раздел 18 ТЗ: часть значений ещё не утверждена. Помечено status: "placeholder"
- * прямо в комментариях — при интеграции формы/шапки эти поля показывать
- * с явной пометкой "уточняется", не выдавать за финальные.
+ * ТЗ v3.0: часть значений ещё не утверждена — см. FACTS.md. Такие поля не показываются
+ * публично (адрес, "4 инструкторских курса") до подтверждения.
  */
 
 export const siteConfig = {
-  // Рабочий логотип до утверждения названия бренда (раздел 1, "Меняем в версии 2.0")
+  // Рабочий логотип до утверждения названия бренда
   logoText: "Елена Горячева",
   logoSubtext: "школа маникюра",
   expertName: "Елена Горячева",
   city: "Каменск-Шахтинский",
+  cityPrepositional: "Каменске-Шахтинском",
   experienceYears: 16,
   teachingYears: 6,
   studentsCount: "300+",
+  // Не подтверждено: 4 пройденных курса или 4 авторских программы? Не публиковать, пока Елена не уточнит — см. FACTS.md.
   instructorCourses: 4,
   address: {
-    // Раздел 18: показывать точный адрес публично ИЛИ отправлять после записи — решение не принято.
+    // Показывать точный адрес публично ИЛИ отправлять после записи — решение не принято, см. FACTS.md.
     status: "placeholder" as const,
     value: null as string | null,
     fallbackLabel: "Адрес высылаем после записи",
@@ -25,9 +26,8 @@ export const siteConfig = {
 };
 
 export const contactChannels: ContactChannel[] = [
-  { type: "telegram", value: null, isPrimary: true }, // placeholder — раздел 18
-  { type: "whatsapp", value: null, isPrimary: false },
-  { type: "phone", value: null, isPrimary: false },
+  { type: "telegram", value: "@Elena_multinail", isPrimary: true },
+  { type: "phone", value: "+7 909 432 1206", isPrimary: false },
 ];
 
 export interface NavLink {
@@ -35,12 +35,14 @@ export interface NavLink {
   label: string;
 }
 
+/**
+ * Сокращённое меню до появления полного контента результатов/отзывов (ТЗ v3.0, раздел 3).
+ * Онлайн первым — приоритет продаж №1 (ТЗ «главная страница v1», раздел 1).
+ */
 export const primaryNav: NavLink[] = [
-  { href: "/offline", label: "Офлайн-обучение" },
-  { href: "/online", label: "Онлайн-курсы" },
-  { href: "/results", label: "Результаты" },
-  { href: "/about", label: "Об эксперте" },
-  { href: "/reviews", label: "Отзывы" },
+  { href: "/online", label: "Онлайн" },
+  { href: "/offline", label: "Офлайн" },
+  { href: "/about", label: "Об Елене" },
   { href: "/faq", label: "Вопросы" },
 ];
 

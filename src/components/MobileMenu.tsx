@@ -60,11 +60,11 @@ export function MobileMenu() {
               </Link>
             ))}
             <Link
-              href="/offline"
+              href="/#finder"
               onClick={close}
               className="mt-5 mb-1 inline-flex justify-center items-center rounded-full bg-violet px-5 py-3 text-sm text-white shadow-md shadow-violet/25 transition-all duration-reveal hover:bg-violet-deep"
             >
-              Выбрать обучение
+              Подобрать обучение
             </Link>
           </motion.nav>
         )}

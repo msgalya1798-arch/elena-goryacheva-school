@@ -4,7 +4,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Reveal } from "@/components/Reveal";
 import { formatPrice } from "@/lib/formatPrice";
-import { contactChannels } from "@/content/site";
+import { primaryContactHref } from "@/lib/contact";
 
 const formatLabel: Record<Course["format"], string> = {
   offline: "Офлайн",
@@ -15,23 +15,6 @@ const catalogHref: Record<Course["format"], string> = {
   offline: "/offline",
   online: "/online",
 };
-
-/** Раздел 18 ТЗ: реальные контакты ещё не утверждены — CTA появляется, только когда есть значение. */
-function primaryContactHref(): string | null {
-  const primary = contactChannels.find((c) => c.isPrimary && c.value) ?? contactChannels.find((c) => c.value);
-  if (!primary?.value) return null;
-
-  switch (primary.type) {
-    case "telegram":
-      return `https://t.me/${primary.value.replace(/^@/, "")}`;
-    case "whatsapp":
-      return `https://wa.me/${primary.value.replace(/\D/g, "")}`;
-    case "phone":
-      return `tel:${primary.value}`;
-    case "email":
-      return `mailto:${primary.value}`;
-  }
-}
 
 export function CourseDetailView({ course }: { course: Course }) {
   const ctaHref = primaryContactHref();
@@ -115,29 +98,21 @@ export function CourseDetailView({ course }: { course: Course }) {
                 </div>
                 {course.price.note && <p className="text-xs text-graphite mt-2">{course.price.note}</p>}
 
-                {course.nextDate && (
+                {course.nextDate?.value && (
                   <div className="flex items-center justify-between gap-4 text-sm mt-3 pt-3 border-t border-border">
                     <span className="text-graphite">{course.nextDate.label}</span>
-                    <span className="text-ink font-medium text-right">
-                      {course.nextDate.value ?? "Уточняется"}
-                    </span>
+                    <span className="text-ink font-medium text-right">{course.nextDate.value}</span>
                   </div>
                 )}
 
-                {ctaHref ? (
+                {ctaHref && (
                   <Link
                     href={ctaHref}
                     className="mt-6 inline-flex w-full justify-center items-center rounded-full bg-violet px-6 py-3.5 text-white shadow-md shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-lg hover:shadow-violet/35"
                   >
                     Записаться на курс
                   </Link>
-                ) : (
-                  <p className="mt-6 text-sm text-graphite border border-border rounded-card px-4 py-3">
-                    Контакты для записи уточняются — скоро появятся здесь.
-                  </p>
                 )}
-
-                <p className="text-xs text-graphite mt-4">{course.certificateNote}</p>
               </div>
             </div>
           </div>
