@@ -1,10 +1,10 @@
-import { HorizontalGallery } from "@/components/HorizontalGallery";
+import { HorizontalGallery, type GalleryItem } from "@/components/HorizontalGallery";
 
-const placeholders = [
-  "Елена с выпускницами",
-  "Вручение сертификата",
-  "Групповое фото курса",
-  "Выпускной кадр",
+const placeholders: GalleryItem[] = [
+  { alt: "Елена с выпускницами" },
+  { alt: "Вручение сертификата" },
+  { alt: "Групповое фото курса" },
+  { alt: "Выпускной кадр" },
 ];
 
 export function Graduates() {
