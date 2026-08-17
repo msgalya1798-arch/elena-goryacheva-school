@@ -73,81 +73,130 @@ export const audienceSegments: AudienceSegment[] = [
 ];
 
 /**
- * Реальные отзывы учениц — переписки и один публичный отзыв, предоставленные Еленой.
- * Имя указано только там, где оно реально видно в источнике (Дарина — публичный отзыв);
+ * Реальные отзывы учениц — скриншоты переписок и один публичный отзыв, предоставленные Еленой.
+ * Показываем сами скриншоты (не перепечатанный текст) — так они вызывают больше доверия.
+ * Имя указано только там, где оно реально видно на скриншоте (Дарина, Дарья Нагорная, Светлана);
  * для остальных — честный анонимный формат "Ученица школы", имена не выдумываются.
  */
 export const testimonials: Testimonial[] = [
+  {
+    id: "daria-nagornaya",
+    name: "Дарья Нагорная",
+    result: "Начинающий мастер — клиенты сами приводят новых",
+    screenshot: "/images/reviews/review-02.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "svetlana",
+    name: "Светлана",
+    result: "Комфортная атмосфера с первого дня обучения",
+    screenshot: "/images/reviews/review-03.jpg",
+    hasVideo: false,
+  },
   {
     id: "darina",
     name: "Дарина",
     courseSlug: "nail-master-start",
     result: "Ушли ошибки самоучки, устойчивый результат «как с картинки»",
-    quote:
-      "Была самоучкой, много допускала ошибок в своей работе, после прохождения курса работы «как с картинки», которые не стыдно показать. Индивидуальный подход к каждой ученице.",
-    photoPlaceholder: "Дарина, отзыв с публичной платформы",
+    screenshot: "/images/reviews/review-05.jpg",
     hasVideo: false,
   },
   {
-    id: "competition-parallels",
+    id: "more-than-a-course",
     name: "Ученица школы",
-    result: "Стала видеть форму ногтя как мастер",
-    quote:
-      "Сейчас на соревнованиях — и вижу нижние параллели у ногтей теперь везде, не специально, просто вижу. Раньше я это не замечала.",
-    photoPlaceholder: "Ученица школы",
+    result: "Более серьёзный подход к делу после курса",
+    screenshot: "/images/reviews/review-01.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "conspect-wow",
+    name: "Ученица школы",
+    result: "Видеоуроки понятны даже без опыта",
+    screenshot: "/images/reviews/review-04.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "teacher-with-capital-letter",
+    name: "Ученица школы",
+    result: "«Преподаватель с большой буквы»",
+    screenshot: "/images/reviews/review-06.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "multipronail",
+    name: "Ученица школы",
+    result: "Индивидуальный подход и комфортная обстановка на курсе",
+    screenshot: "/images/reviews/review-07.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "mega-progress",
+    name: "Ученица школы",
+    result: "«Лучший инструктор, прогресс семимильными шагами»",
+    screenshot: "/images/reviews/review-08.jpg",
     hasVideo: false,
   },
   {
     id: "filing-improved",
     name: "Ученица школы",
     result: "Ровные формы и одинаковая длина ногтей у клиентов",
-    quote:
-      "Опил форм стал намного лучше. Ногти перестали быть разной длины — разницу вижу и я, и клиенты.",
-    photoPlaceholder: "Ученица школы",
+    screenshot: "/images/reviews/review-09.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "vetamin-support",
+    name: "Ученица школы",
+    result: "Поддерживающая атмосфера вместо критики за ошибки",
+    screenshot: "/images/reviews/review-10.jpg",
     hasVideo: false,
   },
   {
     id: "no-lifting",
     name: "Ученица школы",
     result: "Ноль отслоек у клиентов после курса",
-    quote: "Клиенты на коррекции говорят: ни одной отслойки, всё держится супер.",
-    photoPlaceholder: "Ученица школы",
+    screenshot: "/images/reviews/review-11.jpg",
     hasVideo: false,
   },
   {
     id: "basic-4-days",
     name: "Ученица школы",
     result: "Много знаний за 4 дня базового курса",
-    quote:
-      "За 4 дня обучения Елена дала столько знаний! Объясняет так, что, наверное, и ребёнку будет понятно.",
-    photoPlaceholder: "Ученица школы",
-    hasVideo: false,
-  },
-  {
-    id: "zero-beginner",
-    name: "Ученица школы",
-    result: "Понятно даже без опыта в профессии",
-    quote:
-      "Интересно всё, а главное — просто и доступно, даже для таких как я, кто в этом деле просто «zero».",
-    photoPlaceholder: "Ученица школы",
-    hasVideo: false,
-  },
-  {
-    id: "supportive-environment",
-    name: "Ученица школы",
-    result: "Уверенность в себе вместо страха ошибки",
-    quote:
-      "Не ругают и не унижают, а наоборот поддерживают и показывают. Начала больше верить в себя, а не опускать руки.",
-    photoPlaceholder: "Ученица школы",
+    screenshot: "/images/reviews/review-12.jpg",
     hasVideo: false,
   },
   {
     id: "masters-eye",
     name: "Ученица школы",
     result: "Научилась замечать недочёты в «идеальных» работах",
-    quote:
-      "За неделю обучения смогла «смотреть глазами мастера» — увидеть в кажется идеальных работах недочёты.",
-    photoPlaceholder: "Ученица школы",
+    screenshot: "/images/reviews/review-13.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "best-course",
+    name: "Ученица школы",
+    result: "«Лучше курса вы не найдёте»",
+    screenshot: "/images/reviews/review-14.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "grateful",
+    name: "Ученица школы",
+    result: "Благодарность за знания, терпение и опыт",
+    screenshot: "/images/reviews/review-15.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "two-days-more",
+    name: "Ученица школы",
+    result: "«За 2 дня дала больше, чем предыдущие обучения»",
+    screenshot: "/images/reviews/review-16.jpg",
+    hasVideo: false,
+  },
+  {
+    id: "competition-parallels",
+    name: "Ученица школы",
+    result: "Стала видеть форму ногтя как мастер",
+    screenshot: "/images/reviews/review-17.jpg",
     hasVideo: false,
   },
 ];

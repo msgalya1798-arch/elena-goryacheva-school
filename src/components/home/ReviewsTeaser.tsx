@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { ReviewCard } from "@/components/ReviewCard";
 import { testimonials } from "@/content/home";
 
 export function ReviewsTeaser() {
@@ -31,12 +32,7 @@ export function ReviewsTeaser() {
         ) : (
           <div className="grid sm:grid-cols-3 gap-5">
             {preview.map((t) => (
-              <div key={t.id} className="rounded-card border border-border p-5 shadow-sm">
-                <p className="text-ink text-sm">{t.quote}</p>
-                <p className="text-xs text-graphite mt-3">
-                  {t.name} · {t.result}
-                </p>
-              </div>
+              <ReviewCard key={t.id} testimonial={t} />
             ))}
           </div>
         )}

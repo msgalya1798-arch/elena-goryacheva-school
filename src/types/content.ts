@@ -44,9 +44,8 @@ export interface Testimonial {
   id: string;
   name: string; // реальное имя, если известно, иначе честный анонимный формат ("Ученица школы")
   courseSlug?: string; // указывать только когда из отзыва явно понятно, какой курс
-  result: string; // конкретный наблюдаемый результат, не гарантия
-  quote: string;
-  photoPlaceholder: string; // описание для alt/заглушки
+  result: string; // короткая подпись под скриншотом — конкретный наблюдаемый результат, не гарантия
+  screenshot: string; // путь к реальному скриншоту переписки/отзыва
   hasVideo: boolean;
 }
 
