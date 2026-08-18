@@ -22,9 +22,7 @@ export function FormatChoice() {
               className="hidden lg:block"
             />
             <Eyebrow className="lg:mt-6">Онлайн · доступ из любого города</Eyebrow>
-            <h3 className="font-display text-xl sm:text-2xl text-ink mt-2">
-              Хотите разобраться в теме в своём темпе?
-            </h3>
+            <h3 className="font-display text-xl sm:text-2xl text-ink mt-2">Онлайн-курсы</h3>
             <p className="text-graphite mt-2 text-sm sm:text-base">
               Подойдёт практикующим мастерам: уроки по теме, задания и разбор работ — в зависимости
               от выбранного тарифа.
@@ -46,7 +44,7 @@ export function FormatChoice() {
             />
             <Eyebrow className="lg:mt-6">Очно · Каменск-Шахтинский</Eyebrow>
             <h3 className="font-display text-xl sm:text-2xl text-ink mt-2">
-              Нужна практика рядом с преподавателем?
+              Обучение в Каменске-Шахтинском
             </h3>
             <p className="text-graphite mt-2 text-sm sm:text-base">
               Подойдёт, если важно поставить руку, поработать на моделях и сразу получать

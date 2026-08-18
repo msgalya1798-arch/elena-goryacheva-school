@@ -1,14 +1,16 @@
 import { Hero } from "@/components/home/Hero";
 import { ProofStats } from "@/components/home/ProofStats";
+import { OnlineSalesBlock } from "@/components/home/OnlineSalesBlock";
+import { PainPoints } from "@/components/home/PainPoints";
 import { FormatChoice } from "@/components/home/FormatChoice";
 import { AudienceAccordion } from "@/components/home/AudienceAccordion";
 import { StudentWork } from "@/components/home/StudentWork";
-import { HowItWorks } from "@/components/home/HowItWorks";
+import { WhySystemWorks } from "@/components/home/WhySystemWorks";
 import { CourseFinderSection } from "@/components/home/CourseFinderSection";
-import { FeaturedCourses } from "@/components/home/FeaturedCourses";
-import { Graduates } from "@/components/home/Graduates";
-import { DocumentTrust } from "@/components/home/DocumentTrust";
 import { ReviewsTeaser } from "@/components/home/ReviewsTeaser";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { OfflineRecap } from "@/components/home/OfflineRecap";
+import { Graduates } from "@/components/home/Graduates";
 import { ExpertStrip } from "@/components/home/ExpertStrip";
 import { FaqSection } from "@/components/home/FaqSection";
 import { FinalCta } from "@/components/home/FinalCta";
@@ -18,15 +20,17 @@ export default function HomePage() {
     <>
       <Hero />
       <ProofStats />
+      <OnlineSalesBlock />
+      <PainPoints />
       <FormatChoice />
       <AudienceAccordion />
       <StudentWork />
-      <HowItWorks />
+      <WhySystemWorks />
       <CourseFinderSection />
-      <FeaturedCourses />
-      <Graduates />
-      <DocumentTrust />
       <ReviewsTeaser />
+      <HowItWorks />
+      <OfflineRecap />
+      <Graduates />
       <ExpertStrip />
       <FaqSection />
       <FinalCta />

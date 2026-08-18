@@ -24,6 +24,13 @@ export interface DateInfo {
   status: PriceStatus;
 }
 
+export interface Tariff {
+  name: string;
+  price: number;
+  ctaLabel: string;
+  description?: string;
+}
+
 export interface Course {
   slug: string;
   format: CourseFormat;
@@ -33,6 +40,7 @@ export interface Course {
   mainResult: string; // "Главный результат" — без гарантии дохода
   durationLabel: string;
   price: PriceInfo;
+  tariffs?: Tariff[]; // для курсов с несколькими вариантами оплаты (напр. "Логика материалов")
   nextDate?: DateInfo;
   whatYouGet: string[]; // программа/что входит
   whoItsNotFor?: string;
