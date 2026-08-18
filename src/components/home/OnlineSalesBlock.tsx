@@ -8,7 +8,7 @@ export function OnlineSalesBlock() {
   if (!materials || !forms) return null;
 
   return (
-    <section className="py-10 sm:py-section-sm lg:py-section-lg bg-gradient-to-b from-lavender/50 to-white">
+    <section id="courses" className="py-10 sm:py-section-sm lg:py-section-lg bg-gradient-to-b from-lavender/50 to-white">
       <div className="container max-w-container">
         <Eyebrow className="mb-3">Онлайн-курсы</Eyebrow>
         <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink max-w-2xl">

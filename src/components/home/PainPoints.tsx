@@ -11,7 +11,7 @@ const points = [
   "Уже были обучения, но знания так и не сложились в систему",
 ];
 
-export function PainPoints() {
+export function PainPoints({ ctaHref = "/online" }: { ctaHref?: string }) {
   return (
     <section className="py-10 sm:py-section-sm lg:py-section-lg bg-white">
       <div className="container max-w-container">
@@ -34,7 +34,7 @@ export function PainPoints() {
             решения.
           </p>
           <Link
-            href="/online"
+            href={ctaHref}
             className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 shrink-0 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
           >
             Смотреть онлайн-курсы →
