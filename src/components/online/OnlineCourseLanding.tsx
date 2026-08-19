@@ -38,13 +38,24 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             </div>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="#tariffs"
-                className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
-              >
-                Получить доступ →
-              </Link>
-              {ctaHref && (
+              {course.tariffs ? (
+                <Link
+                  href="#tariffs"
+                  className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
+                >
+                  Получить доступ →
+                </Link>
+              ) : (
+                ctaHref && (
+                  <Link
+                    href={ctaHref}
+                    className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
+                  >
+                    Узнать условия →
+                  </Link>
+                )
+              )}
+              {ctaHref && course.tariffs && (
                 <Link
                   href={ctaHref}
                   className="inline-flex justify-center items-center rounded-full border border-border px-7 py-3.5 text-ink transition-all duration-reveal hover:-translate-y-0.5 hover:border-violet hover:text-violet"
@@ -209,7 +220,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                 href={ctaHref}
                 className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-violet-deep shadow-lg shadow-ink/10 mt-8 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-lavender hover:shadow-xl"
               >
-                Посмотреть программу →
+                Узнать условия и записаться →
               </Link>
             )
           )}
