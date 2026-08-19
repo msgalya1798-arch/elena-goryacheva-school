@@ -31,6 +31,14 @@ export interface Tariff {
   description?: string;
 }
 
+/** Контент для полноценного продающего лендинга — пока только у двух онлайн-курсов (ТЗ "online sales v2", разделы 14–15). */
+export interface OnlineLandingContent {
+  heroResult: string; // более развёрнутый оффер для hero страницы курса
+  painPoints: string[]; // "Узнаёте себя?" — боли именно по этому курсу
+  outcomes: string[]; // "Что изменится после курса" — результат, не гарантия
+  support: string[]; // детали поддержки для этого курса
+}
+
 export interface Course {
   slug: string;
   format: CourseFormat;
@@ -46,6 +54,7 @@ export interface Course {
   whoItsNotFor?: string;
   certificateNote: string; // ВСЕГДА placeholder-текст до юридического подтверждения
   faq: { question: string; answer: string }[];
+  onlineLanding?: OnlineLandingContent;
 }
 
 export interface Testimonial {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CourseDetailView } from "@/components/course/CourseDetailView";
+import { OnlineCourseLanding } from "@/components/online/OnlineCourseLanding";
 import { getCourseBySlug, getCoursesByFormat } from "@/content/courses";
 
 type Params = { slug: string };
@@ -22,5 +23,7 @@ export default async function OnlineCoursePage({ params }: { params: Promise<Par
   const course = getCourseBySlug(slug);
   if (!course || course.format !== "online") notFound();
 
-  return <CourseDetailView course={course} />;
+  // ТЗ "online sales v2": курсы с готовым онлайн-лендинг-контентом получают полноценный
+  // продающий шаблон; остальные — пока общий шаблон, до наполнения контента (раздел 25).
+  return course.onlineLanding ? <OnlineCourseLanding course={course} /> : <CourseDetailView course={course} />;
 }
