@@ -22,23 +22,24 @@ export interface FinderResult {
   alsoSlug?: string;
 }
 
-/** «ТОП мастер универсал»: для практикующих — версия повышения квалификации, иначе — 2 ступень. */
-function pickUniversal(experience: FinderExperience): string {
-  return experience === "practicing" ? "top-master-universal-advanced" : "top-master-universal-2";
+/**
+ * Квиз не спрашивает, проходил ли пользователь базовый курс.
+ * Поэтому «ТОП мастер универсал — повышение квалификации» автоматически не рекомендуем:
+ * он подходит только после базового обучения. Для пробелов и сложных случаев безопаснее
+ * направлять в «ТОП мастер универсал — 2 ступень», который можно адаптировать под опыт.
+ */
+function pickUniversal(): string {
+  return "top-master-universal-2";
 }
 
-/**
- * Простая детерминированная логика подбора — учитывает опыт + задачу + формат,
- * правило должно быть объяснимым пользователю (ТЗ «главная страница v1», раздел 10).
- */
 export function recommendCourse({ experience, goal, format }: FinderAnswers): FinderResult {
   switch (goal) {
     case "start-career":
       return {
         slug: "nail-master-start",
         reason:
-          "Это очный старт с постановкой руки под контролем — базовые движения и уверенность нарабатываются вживую, не дистанционно.",
-        alsoSlug: format !== "offline" ? "material-logic-online" : undefined,
+          "Это очный старт с нуля без наращивания: постановка руки, базовые движения и безопасный алгоритм работы.",
+        alsoSlug: "top-master-universal-2",
       };
 
     case "materials-lifting":
@@ -47,17 +48,18 @@ export function recommendCourse({ experience, goal, format }: FinderAnswers): Fi
           slug: "material-logic-online",
           reason:
             "Курс разбирает причины отслоек и сколов: как работают базы, гели и комбинированные системы и как выбрать материал под задачу.",
-          alsoSlug: "top-master-universal-advanced",
+          alsoSlug: format === "either" ? "top-master-universal-2" : undefined,
         };
       }
       return {
-        slug: "top-master-universal-advanced",
-        reason: "Программа для практикующих мастеров закрывает пробелы в работе с материалами и сложными исходниками очно.",
+        slug: "top-master-universal-2",
+        reason:
+          "Очная программа помогает закрыть пробелы, выстроить базу и разобрать сложные рабочие ситуации с индивидуальной корректировкой.",
         alsoSlug: format === "either" ? "material-logic-online" : undefined,
       };
 
     case "complex-nails": {
-      const offlineChoice = pickUniversal(experience);
+      const offlineChoice = pickUniversal();
       if (format === "online") {
         return {
           slug: "form-logic-online",
@@ -69,9 +71,7 @@ export function recommendCourse({ experience, goal, format }: FinderAnswers): Fi
       return {
         slug: offlineChoice,
         reason:
-          offlineChoice === "top-master-universal-advanced"
-            ? "Комплексная очная программа для практикующих мастеров: работа со сложными исходниками и моделированием."
-            : "Программа закрывает пробелы после предыдущего обучения и учит работать со сложными исходниками.",
+          "Программа закрывает пробелы, включает наращивание и учит работать со сложными исходниками.",
         alsoSlug: format === "either" ? "form-logic-online" : undefined,
       };
     }
@@ -99,7 +99,7 @@ export function recommendCourse({ experience, goal, format }: FinderAnswers): Fi
 
     case "systemize-gaps":
     default: {
-      const offlineChoice = pickUniversal(experience);
+      const offlineChoice = pickUniversal();
       if (format === "online") {
         return {
           slug: "form-logic-online",
