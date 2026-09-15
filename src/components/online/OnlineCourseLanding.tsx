@@ -8,12 +8,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { formatPrice } from "@/lib/formatPrice";
 import { primaryContactHref } from "@/lib/contact";
 
-/**
- * Полноценный продающий лендинг для онлайн-курса (ТЗ "online sales v2", разделы 14–15).
- * В отличие от общего CourseDetailView — рассчитан на посетителя, который приходит по
- * прямой ссылке (из рекламы/соцсетей) и должен иметь возможность дойти до покупки, не
- * заходя на главную.
- */
+/** Полноценный продающий лендинг для онлайн-курса. */
 export function OnlineCourseLanding({ course }: { course: Course }) {
   const landing = course.onlineLanding;
   const ctaHref = primaryContactHref();
@@ -174,6 +169,15 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
           </div>
         </section>
       )}
+
+      <section className="py-10 sm:py-section-sm">
+        <div className="container max-w-container">
+          <div className="rounded-card border border-violet/20 bg-lavender/30 p-5 sm:p-6 max-w-3xl">
+            <p className="text-sm text-violet uppercase tracking-wide">Сертификат</p>
+            <p className="text-graphite mt-2">{course.certificateNote}</p>
+          </div>
+        </div>
+      </section>
 
       <StudentWork />
       <ReviewsTeaser />
