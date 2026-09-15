@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerLegalLinks, primaryNav, siteConfig } from "@/content/site";
+import { footerLegalLinks, primaryNav, sellerDetails, siteConfig } from "@/content/site";
 
 export function SiteFooter() {
   return (
@@ -11,6 +11,11 @@ export function SiteFooter() {
           <p className="text-sm text-graphite mt-4">
             Офлайн · {siteConfig.city} <br /> Онлайн · Россия
           </p>
+          <div className="mt-5 text-xs text-graphite leading-relaxed">
+            <p>{sellerDetails.fullName}</p>
+            <p>ИНН {sellerDetails.inn}</p>
+            <p>ОГРНИП {sellerDetails.ogrnip}</p>
+          </div>
         </div>
 
         <nav aria-label="Навигация в подвале">
@@ -42,7 +47,7 @@ export function SiteFooter() {
 
       <div className="border-t border-border">
         <div className="container max-w-container py-6 text-xs text-graphite">
-          © {new Date().getFullYear()} {siteConfig.logoText}.
+          © {new Date().getFullYear()} {sellerDetails.fullName}.
         </div>
       </div>
     </footer>
