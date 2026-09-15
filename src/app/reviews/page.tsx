@@ -20,8 +20,8 @@ export default function ReviewsPage() {
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-2xl">
               Что говорят ученицы
             </h1>
-            <p className="mt-4 text-lg text-graphite max-w-xl">
-              Реальные скриншоты переписок и отзывов — без правок смысла.
+            <p className="mt-4 text-lg text-graphite max-w-2xl">
+              Реальные скриншоты отзывов. Под каждым — короткий контекст по смыслу самого отзыва и имя там, где оно известно.
             </p>
           </Reveal>
         </div>
@@ -29,7 +29,7 @@ export default function ReviewsPage() {
 
       <section className="pb-section-lg">
         <div className="container max-w-container">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid items-stretch sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.map((t) => (
               <ReviewCard key={t.id} testimonial={t} />
             ))}

@@ -62,6 +62,8 @@ export interface Testimonial {
   name: string;
   courseSlug?: string;
   result: string;
+  story: string; // короткий контекст только по фактам, которые следуют из самого отзыва
+  label?: string; // нейтральный статус: «с нуля», «после других обучений», «ученица школы» и т. п.
   screenshot: string;
   hasVideo: boolean;
 }
