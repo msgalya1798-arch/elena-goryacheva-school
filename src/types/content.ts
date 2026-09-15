@@ -1,5 +1,5 @@
 // Единая модель данных. Компоненты не должны содержать текст курсов "зашитым" в JSX —
-// весь контент идёт отсюда либо из src/content/*.ts (ТЗ, раздел 16.3).
+// весь контент идёт отсюда либо из src/content/*.ts.
 
 export type CourseFormat = "offline" | "online";
 
@@ -15,11 +15,11 @@ export interface PriceInfo {
   amount: number | null; // null, если сумма ещё не утверждена
   currency: "RUB";
   status: PriceStatus;
-  note?: string; // например, "тариф 1 / тариф 2"
+  note?: string;
 }
 
 export interface DateInfo {
-  label: string; // например, "ближайшая группа"
+  label: string;
   value: string | null;
   status: PriceStatus;
 }
@@ -31,12 +31,12 @@ export interface Tariff {
   description?: string;
 }
 
-/** Контент для полноценного продающего лендинга — пока только у двух онлайн-курсов (ТЗ "online sales v2", разделы 14–15). */
+/** Контент для полноценного продающего лендинга онлайн-курса. */
 export interface OnlineLandingContent {
-  heroResult: string; // более развёрнутый оффер для hero страницы курса
-  painPoints: string[]; // "Узнаёте себя?" — боли именно по этому курсу
-  outcomes: string[]; // "Что изменится после курса" — результат, не гарантия
-  support: string[]; // детали поддержки для этого курса
+  heroResult: string;
+  painPoints: string[];
+  outcomes: string[];
+  support: string[];
 }
 
 export interface Course {
@@ -44,25 +44,25 @@ export interface Course {
   format: CourseFormat;
   title: string;
   level: CourseLevel;
-  audience: string; // "Для кого"
-  mainResult: string; // "Главный результат" — без гарантии дохода
+  audience: string;
+  mainResult: string;
   durationLabel: string;
   price: PriceInfo;
-  tariffs?: Tariff[]; // для курсов с несколькими вариантами оплаты (напр. "Логика материалов")
+  tariffs?: Tariff[];
   nextDate?: DateInfo;
-  whatYouGet: string[]; // программа/что входит
+  whatYouGet: string[];
   whoItsNotFor?: string;
-  certificateNote: string; // ВСЕГДА placeholder-текст до юридического подтверждения
+  certificateNote: string; // подтверждённая информация о сертификате/документе для конкретного курса
   faq: { question: string; answer: string }[];
   onlineLanding?: OnlineLandingContent;
 }
 
 export interface Testimonial {
   id: string;
-  name: string; // реальное имя, если известно, иначе честный анонимный формат ("Ученица школы")
-  courseSlug?: string; // указывать только когда из отзыва явно понятно, какой курс
-  result: string; // короткая подпись под скриншотом — конкретный наблюдаемый результат, не гарантия
-  screenshot: string; // путь к реальному скриншоту переписки/отзыва
+  name: string;
+  courseSlug?: string;
+  result: string;
+  screenshot: string;
   hasVideo: boolean;
 }
 
@@ -70,12 +70,12 @@ export interface BeforeAfterCase {
   id: string;
   title: string;
   problem: string;
-  decisionExplanation: string; // почему выбрано именно это решение
+  decisionExplanation: string;
   imagePlaceholder: string;
 }
 
 export interface ContactChannel {
   type: "phone" | "telegram" | "whatsapp" | "email";
-  value: string | null; // null = ещё не утверждено
+  value: string | null;
   isPrimary: boolean;
 }

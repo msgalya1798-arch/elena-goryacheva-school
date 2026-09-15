@@ -7,10 +7,15 @@ export function CourseComparison() {
   const forms = getCourseBySlug("form-logic-online");
   if (!materials || !forms) return null;
 
+  const materialsPrice = materials.tariffs
+    ? materials.tariffs.map((tariff) => `${tariff.name} — ${tariff.price.toLocaleString("ru-RU")} ₽`).join(" / ")
+    : formatPrice(materials.price);
+
   const rows = [
     { label: "Для кого", materials: materials.audience, forms: forms.audience },
     { label: "Длительность", materials: materials.durationLabel, forms: forms.durationLabel },
-    { label: "Цена", materials: formatPrice(materials.price), forms: formatPrice(forms.price) },
+    { label: "Цена", materials: materialsPrice, forms: formatPrice(forms.price) },
+    { label: "Продление", materials: "Поддержка — 1 000 ₽ в месяц", forms: "Есть возможность продления доступа" },
   ];
 
   return (
