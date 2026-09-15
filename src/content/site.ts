@@ -1,10 +1,5 @@
 import type { ContactChannel } from "@/types/content";
 
-/**
- * ТЗ v3.0: часть значений ещё не утверждена — см. FACTS.md. Такие поля не показываются
- * публично (адрес, "4 инструкторских курса") до подтверждения.
- */
-
 export const siteConfig = {
   // Рабочий логотип до утверждения названия бренда
   logoText: "Елена Горячева",
@@ -18,11 +13,35 @@ export const siteConfig = {
   // Не подтверждено: 4 пройденных курса или 4 авторских программы? Не публиковать, пока Елена не уточнит — см. FACTS.md.
   instructorCourses: 4,
   address: {
-    // Показывать точный адрес публично ИЛИ отправлять после записи — решение не принято, см. FACTS.md.
+    // Это адрес учебного пространства, а не адрес регистрации ИП. Пока не подтверждён.
     status: "placeholder" as const,
     value: null as string | null,
     fallbackLabel: "Адрес высылаем после записи",
   },
+};
+
+/** Реквизиты продавца/исполнителя, подтверждённые Еленой. */
+export const sellerDetails = {
+  fullName: "ИП Горячева Елена Сергеевна",
+  personName: "Горячева Елена Сергеевна",
+  entrepreneurType: "Индивидуальный предприниматель",
+  inn: "614705037962",
+  ogrnip: "324619600123122",
+  registrationDate: "3 июня 2024 г.",
+  registrationAddress: "Ростовская область, Каменский район, хутор Масаловка",
+  registrar: "Межрайонная инспекция Федеральной налоговой службы № 26 по Ростовской области",
+  taxAuthority: "Межрайонная инспекция ФНС России № 21 по Ростовской области",
+  taxRegistrationDate: "3 июня 2024 г.",
+  taxRegime: "НПД",
+  okpo: "2032923963",
+  okato: "60223805004",
+  oktmo: "60623405111",
+  pfrRegistrationNumber: "1222898221",
+  pfrRegistrationDate: "3 июня 2024 г.",
+  pfrAuthority:
+    "Отделение Фонда пенсионного и социального страхования Российской Федерации по Ростовской области",
+  smeIncludedDate: "10 июля 2024 г.",
+  smeCategory: "Микропредприятие",
 };
 
 export const contactChannels: ContactChannel[] = [
@@ -36,8 +55,7 @@ export interface NavLink {
 }
 
 /**
- * Онлайн первым — приоритет продаж №1 (ТЗ «главная страница v1», раздел 1).
- * «Отзывы» вернулись в меню — набрано больше 3 подтверждённых отзывов (ТЗ v3.0, раздел 3).
+ * Онлайн первым — приоритет продаж №1.
  * «Результаты» (кейсы до/после) пока скрыты — реальных кейсов ещё нет, см. FACTS.md.
  */
 export const primaryNav: NavLink[] = [
@@ -49,6 +67,7 @@ export const primaryNav: NavLink[] = [
 ];
 
 export const footerLegalLinks: NavLink[] = [
+  { href: "/legal/details", label: "Реквизиты ИП" },
   { href: "/legal/privacy", label: "Политика конфиденциальности" },
   { href: "/legal/terms", label: "Оферта" },
   { href: "/legal/refund", label: "Условия возврата" },
