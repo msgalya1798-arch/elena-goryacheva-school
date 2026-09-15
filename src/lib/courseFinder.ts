@@ -32,7 +32,7 @@ function pickUniversal(): string {
   return "top-master-universal-2";
 }
 
-export function recommendCourse({ experience, goal, format }: FinderAnswers): FinderResult {
+export function recommendCourse({ goal, format }: FinderAnswers): FinderResult {
   switch (goal) {
     case "start-career":
       return {
@@ -48,7 +48,7 @@ export function recommendCourse({ experience, goal, format }: FinderAnswers): Fi
           slug: "material-logic-online",
           reason:
             "Курс разбирает причины отслоек и сколов: как работают базы, гели и комбинированные системы и как выбрать материал под задачу.",
-          alsoSlug: format === "either" ? "top-master-universal-2" : undefined,
+          alsoSlug: "top-master-universal-2",
         };
       }
       return {
@@ -70,8 +70,7 @@ export function recommendCourse({ experience, goal, format }: FinderAnswers): Fi
       }
       return {
         slug: offlineChoice,
-        reason:
-          "Программа закрывает пробелы, включает наращивание и учит работать со сложными исходниками.",
+        reason: "Программа закрывает пробелы, включает наращивание и учит работать со сложными исходниками.",
         alsoSlug: format === "either" ? "form-logic-online" : undefined,
       };
     }
