@@ -1,5 +1,4 @@
 import { Hero } from "@/components/home/Hero";
-import { ProofStats } from "@/components/home/ProofStats";
 import { OnlineSalesBlock } from "@/components/home/OnlineSalesBlock";
 import { PainPoints } from "@/components/home/PainPoints";
 import { FormatChoice } from "@/components/home/FormatChoice";
@@ -19,7 +18,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ProofStats />
       <OnlineSalesBlock />
       <PainPoints />
       <FormatChoice />
