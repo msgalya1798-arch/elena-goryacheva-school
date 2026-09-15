@@ -4,46 +4,29 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/content/site";
 
+const stats = [
+  { value: `${siteConfig.experienceYears}`, label: "лет в профессии" },
+  { value: `${siteConfig.teachingYears}`, label: "лет преподаю" },
+  { value: siteConfig.studentsCount, label: "учеников" },
+];
+
 export function Hero() {
   return (
-    <section className="pt-5 sm:pt-10 md:pt-16 pb-6 sm:pb-section-sm">
+    <section className="pt-4 sm:pt-8 lg:pt-10 pb-6 lg:min-h-[calc(100vh-84px)] lg:flex lg:items-center">
       <div className="container max-w-container">
-        <div className="grid lg:grid-cols-12 gap-4 lg:gap-6 items-center">
-          {/* Портрет — компактный на мобильном (ТЗ: не должен занимать весь первый экран) */}
-          <div className="lg:col-span-5 order-1">
-            <Reveal>
-              <div className="relative lg:max-w-[420px] lg:ml-auto">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-violet/30 via-lavender to-transparent blur-3xl"
-                />
-                <div className="relative w-full overflow-hidden rounded-card aspect-[4/3] lg:aspect-[4/5]">
-                  <Image
-                    src="/images/elena-portrait.jpg"
-                    alt={`Портрет ${siteConfig.expertName}`}
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 420px, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Текст и действия */}
-          <div className="lg:col-span-7 order-2">
-            <Reveal delay={0.05}>
+        <div className="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+          {/* На мобильном сначала оффер, а не фотография. */}
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <Reveal delay={0.04}>
               <Eyebrow className="mb-2.5">
                 Авторская школа маникюра · {siteConfig.city} / онлайн
               </Eyebrow>
-              <h1 className="font-display text-[26px] sm:text-[34px] lg:text-[52px] xl:text-[60px] leading-[1.15] text-ink">
+              <h1 className="font-display text-[25px] sm:text-[34px] lg:text-[50px] xl:text-[58px] leading-[1.1] text-ink max-w-3xl">
                 Маникюр как система, а не набор движений.
               </h1>
-              <p className="mt-3 text-base sm:text-lg text-graphite max-w-lg">
-                Я, {siteConfig.expertName}. Учу видеть исходник, выбирать материал по задаче и
-                осознанно работать с архитектурой. Очно в {siteConfig.cityPrepositional} и онлайн по
-                России.
+              <p className="mt-3 text-sm sm:text-base lg:text-lg text-graphite max-w-xl">
+                Я, {siteConfig.expertName}. Учу видеть исходник, понимать материалы и осознанно
+                принимать решения — очно в {siteConfig.cityPrepositional} и онлайн.
               </p>
 
               <div className="mt-4 flex flex-col sm:flex-row gap-2.5">
@@ -67,6 +50,37 @@ export function Hero() {
               >
                 О преподавателе →
               </Link>
+
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-5 pt-4 border-t border-border max-w-xl">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <p className="font-display text-2xl sm:text-3xl text-violet-deep">{stat.value}</p>
+                    <p className="text-[11px] sm:text-xs text-graphite mt-0.5 leading-tight">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Фото остаётся частью первого экрана, но больше не заслоняет оффер на телефоне. */}
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <Reveal>
+              <div className="relative lg:max-w-[390px] lg:ml-auto">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-violet/25 via-lavender to-transparent blur-3xl"
+                />
+                <div className="relative w-full h-[150px] sm:h-[210px] lg:h-auto lg:aspect-[4/5] overflow-hidden rounded-card">
+                  <Image
+                    src="/images/elena-portrait.jpg"
+                    alt={`Портрет ${siteConfig.expertName}`}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 390px, 100vw"
+                    className="object-cover object-[center_28%] lg:object-center"
+                  />
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>
