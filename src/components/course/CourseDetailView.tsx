@@ -70,6 +70,11 @@ export function CourseDetailView({ course }: { course: Course }) {
                 </div>
               )}
 
+              <div className="mt-10 rounded-card border border-violet/20 bg-lavender/30 p-5 sm:p-6">
+                <p className="text-sm text-violet uppercase tracking-wide">Сертификат</p>
+                <p className="text-graphite mt-2">{course.certificateNote}</p>
+              </div>
+
               {course.faq.length > 0 && (
                 <div className="mt-10">
                   <h2 className="font-display text-2xl text-ink">Вопросы по курсу</h2>
