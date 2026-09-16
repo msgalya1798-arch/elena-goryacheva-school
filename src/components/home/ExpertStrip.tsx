@@ -16,15 +16,20 @@ export function ExpertStrip() {
               className="object-cover"
             />
           </div>
-          <p className="text-sm sm:text-base text-graphite flex-1">
-            Программы веду сама — {siteConfig.experienceYears} лет в профессии,{" "}
-            {siteConfig.teachingYears} лет преподаю.
-          </p>
+          <div className="flex-1">
+            <p className="text-sm sm:text-base text-graphite">
+              Программы веду сама — {siteConfig.experienceYears} лет в профессии,{" "}
+              {siteConfig.teachingYears} лет преподаю.
+            </p>
+            <p className="text-xs sm:text-sm text-ink mt-1">
+              Диплом инструктора Burlesque School · подтверждённая инструкторская подготовка.
+            </p>
+          </div>
           <Link
             href="/about"
             className="hidden sm:inline-flex items-center gap-2 text-violet text-sm shrink-0 hover:gap-3 transition-all duration-reveal"
           >
-            Об Елене →
+            Документы и опыт →
           </Link>
         </div>
       </div>
