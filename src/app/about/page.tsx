@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { ProofStats } from "@/components/home/ProofStats";
 import { FinalCta } from "@/components/home/FinalCta";
@@ -46,7 +46,16 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5">
               <Reveal>
-                <ImagePlaceholder ratio="3:4" label={`Портрет ${siteConfig.expertName}`} />
+                <div className="relative aspect-[3/4] overflow-hidden rounded-card">
+                  <Image
+                    src="/images/elena-portrait.jpg"
+                    alt={`Портрет ${siteConfig.expertName}`}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </Reveal>
             </div>
             <div className="lg:col-span-6 lg:col-start-7">

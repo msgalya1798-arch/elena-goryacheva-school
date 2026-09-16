@@ -17,101 +17,78 @@ export interface FinderAnswers {
 }
 
 export interface FinderResult {
-  slug: string;
+  slug: string | null;
   reason: string;
   alsoSlug?: string;
 }
 
-/**
- * Квиз не спрашивает, проходил ли пользователь базовый курс.
- * Поэтому «ТОП мастер универсал — повышение квалификации» автоматически не рекомендуем:
- * он подходит только после базового обучения. Для пробелов и сложных случаев безопаснее
- * направлять в «ТОП мастер универсал — 2 ступень», который можно адаптировать под опыт.
+/** No automatic advanced recommendation without a suitable starting level.
+ * A missing match is an honest consultation route, not a substitute format.
  */
-function pickUniversal(): string {
-  return "top-master-universal-2";
-}
+export function recommendCourse({ experience, goal, format }: FinderAnswers): FinderResult {
+  const canAttend = format !== "online";
+  const hasFoundation = experience === "has-gaps" || experience === "practicing";
 
-export function recommendCourse({ goal, format }: FinderAnswers): FinderResult {
-  switch (goal) {
-    case "start-career":
-      return {
-        slug: "nail-master-start",
-        reason:
-          "Это очный старт с нуля без наращивания: постановка руки, базовые движения и безопасный алгоритм работы.",
-        alsoSlug: "top-master-universal-2",
-      };
-
-    case "materials-lifting":
-      if (format === "online") {
-        return {
-          slug: "material-logic-online",
-          reason:
-            "Курс разбирает причины отслоек и сколов: как работают базы, гели и комбинированные системы и как выбрать материал под задачу.",
-          alsoSlug: "top-master-universal-2",
-        };
-      }
-      return {
-        slug: "top-master-universal-2",
-        reason:
-          "Очная программа помогает закрыть пробелы, выстроить базу и разобрать сложные рабочие ситуации с индивидуальной корректировкой.",
-        alsoSlug: format === "either" ? "material-logic-online" : undefined,
-      };
-
-    case "complex-nails": {
-      const offlineChoice = pickUniversal();
-      if (format === "online") {
-        return {
-          slug: "form-logic-online",
-          reason:
-            "Онлайн-программа проходит путь от логики материалов до сложных форм — с домашними заданиями и разбором работ.",
-          alsoSlug: offlineChoice,
-        };
-      }
-      return {
-        slug: offlineChoice,
-        reason: "Программа закрывает пробелы, включает наращивание и учит работать со сложными исходниками.",
-        alsoSlug: format === "either" ? "form-logic-online" : undefined,
-      };
-    }
-
-    case "architecture-forms":
-      if (format === "online") {
-        return {
-          slug: "form-logic-online",
-          reason: "Логика форм, архитектура и минимальный опил — в своём темпе, с разбором домашних работ.",
-          alsoSlug: "form-logic-offline",
-        };
-      }
-      return {
-        slug: "form-logic-offline",
-        reason: "Профильный очный курс: верхние формы, баланс и коррекция сложных исходников с минимальным опилом.",
-        alsoSlug: format === "either" ? "form-logic-online" : undefined,
-      };
-
-    case "speed-quality":
-      return {
-        slug: "speed-portfolio",
-        reason:
-          "Курс идёт только очно — скорость и чистая подача работ нарабатываются вживую, на разборе именно ваших ошибок.",
-      };
-
-    case "systemize-gaps":
-    default: {
-      const offlineChoice = pickUniversal();
-      if (format === "online") {
-        return {
-          slug: "form-logic-online",
-          reason:
-            "Самая широкая онлайн-программа — от логики материалов до сложных форм, с закреплением через домашние задания.",
-          alsoSlug: offlineChoice,
-        };
-      }
-      return {
-        slug: offlineChoice,
-        reason: "Программа системно закрывает пробелы и выстраивает базу с индивидуальной корректировкой.",
-        alsoSlug: format === "either" ? "form-logic-online" : undefined,
-      };
-    }
+  if (experience === "none" || goal === "start-career") {
+    if (!canAttend) return {
+      slug: null,
+      reason: "В каталоге нет отдельной онлайн-программы полного старта в профессии с нуля. Тематические курсы не заменяют базовое обучение. Обсудите с Еленой, с чего начать в вашем случае.",
+    };
+    return {
+      slug: "nail-master-start",
+      reason: "Для старта с нуля подойдёт очная база без наращивания в Каменске-Шахтинском. Если хотите включить наращивание, рассмотрите вторую программу ниже.",
+      alsoSlug: "top-master-universal-2",
+    };
   }
+
+  if (goal === "speed-quality") {
+    if (!canAttend) return {
+      slug: null,
+      reason: "Отдельный курс по скорости и портфолио в каталоге проводится очно. Вы выбрали онлайн — обсудите с Еленой свою задачу, прежде чем выбирать другую программу.",
+    };
+    if (experience !== "practicing") return {
+      slug: null,
+      reason: "Курс по скорости рассчитан на мастеров с опытом работы. Расскажите Елене о своей практике: сначала важно определить, нужна ли вам база или работа над скоростью.",
+    };
+    return {
+      slug: "speed-portfolio",
+      reason: "Для работающего мастера: очный разбор ошибок, рабочего алгоритма и подачи фотографий в Каменске-Шахтинском.",
+    };
+  }
+
+  if (goal === "materials-lifting") {
+    if (format === "offline") return {
+      slug: "top-master-universal-2",
+      reason: "Вы выбрали очный формат. Эта более широкая программа позволяет закрыть пробелы и разобрать рабочие ситуации с преподавателем; она включает не только материалы, но и наращивание.",
+    };
+    return {
+      slug: "material-logic-online",
+      reason: "Ваш запрос — выбор материалов и причины нестабильной носки. Этот тематический онлайн-курс посвящён базам, гелям и подбору системы под задачу.",
+      ...(format === "either" ? { alsoSlug: "top-master-universal-2" } : {}),
+    };
+  }
+
+  if (!hasFoundation) {
+    if (!canAttend) return {
+      slug: null,
+      reason: "Для «Логики форм» нужна базовая подготовка. После самостоятельного обучения сначала обсудите с Еленой свои навыки, чтобы понять, подходит ли вам программа.",
+    };
+    return {
+      slug: "top-master-universal-2",
+      reason: "После самостоятельного обучения можно начать с очной программы, которая включает базу и наращивание и подстраивается под опыт ученицы.",
+    };
+  }
+
+  if (format === "offline") return {
+    slug: goal === "architecture-forms" ? "form-logic-offline" : "top-master-universal-2",
+    reason: goal === "architecture-forms"
+      ? "Профильный очный курс для мастеров: верхние формы, архитектура и коррекция сложных исходников."
+      : "Очная программа с корректировкой под ваш опыт: база, наращивание и сложные исходники.",
+  };
+
+  return {
+    slug: "form-logic-online",
+    reason: "С вашей базовой подготовкой можно рассмотреть архитектуру, моделирование и сложные формы онлайн — с домашними заданиями и разбором работ.",
+    ...(format === "either" ? { alsoSlug: "form-logic-offline" } : {}),
+  };
 }

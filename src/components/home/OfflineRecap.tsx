@@ -24,7 +24,7 @@ export function OfflineRecap() {
                 href="/offline"
                 className="inline-flex justify-center items-center rounded-full bg-ink px-7 py-3.5 text-white transition-all duration-reveal hover:-translate-y-0.5 hover:bg-graphite"
               >
-                Записаться на обучение →
+                Смотреть очные программы →
               </Link>
             </div>
           </div>

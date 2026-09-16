@@ -7,7 +7,7 @@ export function SiteHeader() {
     <header className="border-b border-border bg-paper/95 backdrop-blur sticky top-0 z-40">
       <div className="container max-w-container flex items-center justify-between h-20">
         <Link href="/" className="flex flex-col leading-tight group">
-          <span className="font-display text-xl text-ink group-hover:text-violet transition-colors duration-reveal">
+          <span className="font-display text-base sm:text-xl text-ink group-hover:text-violet transition-colors duration-reveal">
             {siteConfig.logoText}
           </span>
           <span className="text-xs tracking-wide text-graphite uppercase">

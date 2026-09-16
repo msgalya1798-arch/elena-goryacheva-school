@@ -1,7 +1,8 @@
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { onlineFaq } from "@/content/faq";
 import { homeFaq } from "@/content/home";
 
-export function FaqSection() {
+export function FaqSection({ audience = "all" }: { audience?: "all" | "online" }) {
   return (
     <section className="py-section-sm lg:py-section-lg">
       <div className="container max-w-container">
@@ -10,7 +11,7 @@ export function FaqSection() {
             Частые вопросы
           </h2>
 
-          <FaqAccordion items={homeFaq} />
+          <FaqAccordion items={audience === "online" ? onlineFaq : homeFaq} />
         </div>
       </div>
     </section>

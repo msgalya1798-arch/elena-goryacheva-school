@@ -44,13 +44,13 @@ export function OnlineSalesBlock() {
               href={`/${materials.format}/${materials.slug}`}
               className="inline-flex w-full sm:w-auto justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 mt-6 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
             >
-              Получить доступ →
+              Программа и тарифы →
             </Link>
           </div>
 
           {/* Логика форм — более глубокий продукт */}
           <div className="rounded-card border border-border bg-white p-6 sm:p-8 shadow-sm">
-            <p className="text-xs text-graphite uppercase tracking-wide">Для более глубокой работы</p>
+            <p className="text-xs text-graphite uppercase tracking-wide">Для мастеров с базовой подготовкой</p>
             <h3 className="font-display text-2xl text-ink mt-2">{forms.title}</h3>
             <p className="text-graphite mt-3">{forms.mainResult}</p>
 

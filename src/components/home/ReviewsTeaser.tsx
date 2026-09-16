@@ -18,7 +18,7 @@ export function ReviewsTeaser() {
           )}
         </div>
         <p className="mb-6 sm:mb-10 max-w-2xl text-sm sm:text-base text-graphite">
-          Реальные скриншоты отзывов — в одном формате, с коротким контекстом по смыслу сообщения.
+          Отзывы об обучении в школе Елены. Нажмите на скриншот, чтобы прочитать сообщение целиком.
         </p>
 
         {preview.length === 0 ? (
