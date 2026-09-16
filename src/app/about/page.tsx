@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
+import { QualificationProof } from "@/components/about/QualificationProof";
 import { ProofStats } from "@/components/home/ProofStats";
 import { FinalCta } from "@/components/home/FinalCta";
 import { siteConfig } from "@/content/site";
@@ -11,16 +12,11 @@ export const metadata: Metadata = {
   description: `Я, ${siteConfig.expertName}, — мастер и преподаватель маникюра в ${siteConfig.cityPrepositional}. ${siteConfig.experienceYears} лет в профессии, ${siteConfig.teachingYears} лет преподавания.`,
 };
 
-/**
- * Формулировки опираются на уже согласованный контент (Manifesto, программы курсов
- * в src/content/courses.ts), а не на новые факты — раздел 17 ТЗ запрещает публиковать
- * непроверенные утверждения.
- */
 const principles = [
   {
     title: "Видеть исходник",
     description:
-      "Разбираю сложные исходники — обкусанные, трапециевидные, винтовые ногти — по логике, а не через заучивание отдельных случаев.",
+      "Разбираю сложные исходники — грызуны, трапеции, клюющие, вверх растущие и винтовые ногти — по логике, а не через заучивание отдельных случаев.",
   },
   {
     title: "Понимать материалы",
@@ -67,6 +63,9 @@ export default function AboutPage() {
                   программы на логике материалов и архитектуры ногтя — а не на копировании готовых
                   движений.
                 </p>
+                <p className="mt-4 text-sm text-graphite max-w-lg">
+                  Имею подтверждённую инструкторскую подготовку и продолжаю повышать квалификацию как мастер и преподаватель.
+                </p>
               </Reveal>
             </div>
           </div>
@@ -74,6 +73,8 @@ export default function AboutPage() {
       </section>
 
       <ProofStats />
+
+      <QualificationProof />
 
       <section className="py-section-sm lg:py-section-lg bg-white">
         <div className="container max-w-container">
