@@ -18,7 +18,7 @@ const works: GalleryItem[] = [
   { src: "/images/student-work/work-04.jpg", alt: "Маникюр: малиновый металлик с неоновым жёлтым контуром на стилетах" },
 ];
 
-export function StudentWork() {
+export function StudentWork({ schoolContext = false }: { schoolContext?: boolean }) {
   return (
     <section className="py-10 sm:py-section-sm lg:py-section-lg bg-white">
       <div className="container max-w-container">
@@ -26,7 +26,7 @@ export function StudentWork() {
           Работы моих учеников
         </h2>
         <p className="text-graphite max-w-xl mb-6 sm:mb-10">
-          Реальные работы, выполненные на курсах.
+          {schoolContext ? "Работы учеников с разных курсов школы. Галерея знакомит с обучением у Елены и не относится только к этой программе." : "Реальные работы, выполненные на курсах."}
         </p>
       </div>
       <HorizontalGallery items={works} />

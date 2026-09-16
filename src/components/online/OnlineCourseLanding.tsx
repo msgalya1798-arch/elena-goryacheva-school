@@ -3,6 +3,7 @@ import type { Course } from "@/types/content";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Reveal } from "@/components/Reveal";
 import { StudentWork } from "@/components/home/StudentWork";
+import { ExpertStrip } from "@/components/home/ExpertStrip";
 import { ReviewsTeaser } from "@/components/home/ReviewsTeaser";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { formatPrice } from "@/lib/formatPrice";
@@ -32,6 +33,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
               <span className="text-ink font-medium">{formatPrice(course.price)}</span>
             </div>
 
+            <p className="mt-4 text-graphite max-w-2xl">{course.audience}</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               {course.tariffs ? (
                 <Link
@@ -50,6 +52,9 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                   </Link>
                 )
               )}
+              <Link href="#program" className="inline-flex justify-center items-center rounded-full border border-border px-7 py-3.5 text-ink hover:border-violet hover:text-violet">
+                Смотреть программу
+              </Link>
               {ctaHref && course.tariffs && (
                 <Link
                   href={ctaHref}
@@ -62,6 +67,18 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
           </Reveal>
         </div>
       </section>
+
+      {course.whoItsNotFor && (
+        <section className="pb-8">
+          <div className="container max-w-container">
+            <div className="rounded-card border border-border bg-white p-5 max-w-3xl">
+              <h2 className="font-display text-xl text-ink">Перед выбором курса</h2>
+              <p className="mt-2 text-graphite">{course.whoItsNotFor}</p>
+              <Link href="/online#comparison" className="inline-flex mt-3 py-2 text-violet">Сравнить два онлайн-курса →</Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Узнаёте себя? */}
       {landing && landing.painPoints.length > 0 && (
@@ -98,9 +115,9 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
       )}
 
       {/* Что внутри курса */}
-      <section className="py-10 sm:py-section-sm bg-white">
+      <section id="program" className="py-10 sm:py-section-sm bg-white">
         <div className="container max-w-container">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">Что внутри курса</h2>
+          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">Программа курса</h2>
           <ul className="space-y-3 max-w-2xl">
             {course.whatYouGet.map((item) => (
               <li key={item} className="flex gap-3 text-graphite">
@@ -111,6 +128,40 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
           </ul>
         </div>
       </section>
+
+      {/* Поддержка */}
+      {landing && landing.support.length > 0 && (
+        <section className="py-10 sm:py-section-sm bg-white">
+          <div className="container max-w-container">
+            <div className="grid lg:grid-cols-12 gap-6">
+              <p className="lg:col-span-3 text-sm text-graphite uppercase tracking-wide">{course.tariffs ? "В тарифе с поддержкой" : "Как проходит обучение"}</p>
+              <div className="lg:col-span-9 max-w-2xl">
+                <ul className="space-y-2">
+                  {landing.support.map((item) => (
+                    <li key={item} className="flex gap-3 text-graphite">
+                      <span className="text-violet mt-1">—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="py-10 sm:py-section-sm">
+        <div className="container max-w-container">
+          <div className="rounded-card border border-violet/20 bg-lavender/30 p-5 sm:p-6 max-w-3xl">
+            <p className="text-sm text-violet uppercase tracking-wide">Сертификат</p>
+            <p className="text-graphite mt-2">{course.certificateNote}</p>
+          </div>
+        </div>
+      </section>
+
+      <ExpertStrip />
+      <StudentWork schoolContext />
+      <ReviewsTeaser />
 
       {/* Тарифы */}
       {course.tariffs && (
@@ -156,39 +207,6 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
         </section>
       )}
 
-      {/* Поддержка */}
-      {landing && landing.support.length > 0 && (
-        <section className="py-10 sm:py-section-sm bg-white">
-          <div className="container max-w-container">
-            <div className="grid lg:grid-cols-12 gap-6">
-              <p className="lg:col-span-3 text-sm text-graphite uppercase tracking-wide">Поддержка</p>
-              <div className="lg:col-span-9 max-w-2xl">
-                <ul className="space-y-2">
-                  {landing.support.map((item) => (
-                    <li key={item} className="flex gap-3 text-graphite">
-                      <span className="text-violet mt-1">—</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      <section className="py-10 sm:py-section-sm">
-        <div className="container max-w-container">
-          <div className="rounded-card border border-violet/20 bg-lavender/30 p-5 sm:p-6 max-w-3xl">
-            <p className="text-sm text-violet uppercase tracking-wide">Сертификат</p>
-            <p className="text-graphite mt-2">{course.certificateNote}</p>
-          </div>
-        </div>
-      </section>
-
-      <StudentWork />
-      <ReviewsTeaser />
-
       {/* FAQ по курсу */}
       {course.faq.length > 0 && (
         <section className="py-10 sm:py-section-sm lg:py-section-lg">
@@ -201,44 +219,28 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
         </section>
       )}
 
-      {/* Финальный CTA — повтор тарифов */}
+      {/* Финальный CTA — выбор следующего шага */}
       <section className="py-section-sm lg:py-section-lg bg-violet-deep">
         <div className="container max-w-container text-center">
           <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
             Готовы начать — «{course.title}»
           </h2>
           <p className="text-white/90 mt-4 max-w-2xl mx-auto">
-            Запись через Telegram. Укажите название курса и тариф — условия оплаты
-            и получения доступа обсудите с Еленой.
+            Запись через Telegram. Напишите «{course.title}»{course.tariffs ? " и название выбранного тарифа" : " и расскажите о своём опыте"}.
+            Условия оплаты и получения доступа обсудите с Еленой до оформления.
           </p>
-          {course.tariffs ? (
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
-              {course.tariffs.map((tariff, i) =>
-                ctaHref ? (
-                  <Link
-                    key={tariff.name}
-                    href={ctaHref}
-                    className={
-                      i === 0
-                        ? "inline-flex items-center rounded-full border border-white/40 px-7 py-3.5 text-white transition-all duration-reveal hover:-translate-y-0.5 hover:border-white"
-                        : "inline-flex items-center rounded-full bg-white px-7 py-3.5 text-violet-deep shadow-lg shadow-ink/10 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-lavender hover:shadow-xl"
-                    }
-                  >
-                    {tariff.ctaLabel}
-                  </Link>
-                ) : null
-              )}
-            </div>
-          ) : (
-            ctaHref && (
-              <Link
-                href={ctaHref}
-                className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-violet-deep shadow-lg shadow-ink/10 mt-8 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-lavender hover:shadow-xl"
-              >
-                Обсудить запись в Telegram →
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
+            {course.tariffs && (
+              <Link href="#tariffs" className="inline-flex justify-center rounded-full bg-white px-7 py-3.5 text-violet-deep hover:bg-lavender">
+                Вернуться к тарифам →
               </Link>
-            )
-          )}
+            )}
+            {ctaHref && (
+              <Link href={ctaHref} className="inline-flex justify-center rounded-full border border-white/40 px-7 py-3.5 text-white hover:border-white">
+                {course.tariffs ? "Помочь выбрать в Telegram" : "Узнать стоимость и условия в Telegram →"}
+              </Link>
+            )}
+          </div>
         </div>
       </section>
     </>
