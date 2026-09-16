@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { footerLegalLinks, primaryNav, sellerDetails, siteConfig } from "@/content/site";
+import { primaryContactHref } from "@/lib/contact";
+import { contactChannels, footerLegalLinks, primaryNav, sellerDetails, siteConfig } from "@/content/site";
 
 export function SiteFooter() {
+  const contactHref = primaryContactHref();
+  const phone = contactChannels.find((channel) => channel.type === "phone")?.value;
   return (
     <footer className="border-t border-border bg-white mt-section-lg">
       <div className="container max-w-container py-16 grid gap-12 md:grid-cols-3">
@@ -9,8 +12,12 @@ export function SiteFooter() {
           <p className="font-display text-lg text-ink">{siteConfig.logoText}</p>
           <p className="text-sm text-graphite mt-1">{siteConfig.logoSubtext}</p>
           <p className="text-sm text-graphite mt-4">
-            Офлайн · {siteConfig.city} <br /> Онлайн · Россия
+            Онлайн · Россия <br /> Офлайн · {siteConfig.city}
           </p>
+          <div className="mt-4 flex flex-col items-start gap-2 text-sm">
+            {contactHref && <Link href={contactHref} className="text-violet underline py-2">Написать в Telegram</Link>}
+            {phone && <a href={`tel:${phone.replace(/[^+\d]/g, "")}`} className="text-ink underline py-2">{phone}</a>}
+          </div>
           <div className="mt-5 text-xs text-graphite leading-relaxed">
             <p>{sellerDetails.fullName}</p>
             <p>ИНН {sellerDetails.inn}</p>

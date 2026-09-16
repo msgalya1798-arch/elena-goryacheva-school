@@ -66,9 +66,7 @@ export const primaryNav: NavLink[] = [
   { href: "/faq", label: "Вопросы" },
 ];
 
+// TODO: Add privacy, terms and refund links only after approved documents have working routes.
 export const footerLegalLinks: NavLink[] = [
   { href: "/legal/details", label: "Реквизиты ИП" },
-  { href: "/legal/privacy", label: "Политика конфиденциальности" },
-  { href: "/legal/terms", label: "Оферта" },
-  { href: "/legal/refund", label: "Условия возврата" },
 ];

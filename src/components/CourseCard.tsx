@@ -17,10 +17,12 @@ export function CourseCard({ course }: { course: Course }) {
       <h3 className="font-display text-xl text-ink mt-3">{course.title}</h3>
       <p className="text-sm text-graphite mt-2 flex-1">{course.mainResult}</p>
 
-      <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-sm">
+      <div className="mt-5 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3 text-sm">
         <span className="text-graphite">{course.durationLabel}</span>
         <span className="text-ink font-medium">{formatPrice(course.price)}</span>
       </div>
+
+      {course.price.note && <p className="mt-2 text-sm text-graphite">{course.price.note}</p>}
 
       <span className="inline-flex items-center gap-2 text-violet mt-4 text-sm group-hover:gap-3 transition-all duration-reveal">
         Смотреть программу →
