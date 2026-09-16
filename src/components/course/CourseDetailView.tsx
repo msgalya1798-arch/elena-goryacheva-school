@@ -95,8 +95,8 @@ export function CourseDetailView({ course }: { course: Course }) {
               )}
             </div>
 
-            <div className="lg:col-span-4 lg:col-start-9">
-              <div id="enrollment" className="lg:sticky lg:top-28 rounded-card border border-border bg-white p-6 shadow-lg shadow-ink/5">
+            <div id="enrollment" className="lg:col-span-4 lg:col-start-9">
+              <div className="lg:sticky lg:top-28 rounded-card border border-border bg-white p-6 shadow-lg shadow-ink/5">
                 <h2 className="font-display text-2xl text-ink mb-5">Стоимость и запись</h2>
                 <div className="flex items-center justify-between gap-4 text-sm">
                   <span className="text-graphite">Длительность</span>
