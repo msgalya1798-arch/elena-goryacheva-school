@@ -19,7 +19,7 @@ export function CourseComparison() {
   ];
 
   return (
-    <section className="py-10 sm:py-section-sm lg:py-section-lg bg-white">
+    <section id="comparison" className="py-10 sm:py-section-sm lg:py-section-lg bg-white">
       <div className="container max-w-container">
         <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink mb-6 sm:mb-10">
           Сравните курсы
