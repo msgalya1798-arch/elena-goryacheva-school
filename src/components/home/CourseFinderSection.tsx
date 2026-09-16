@@ -2,7 +2,7 @@ import { CourseFinder } from "@/components/home/CourseFinder";
 
 export function CourseFinderSection() {
   return (
-    <section className="py-section-sm lg:py-section-lg bg-lavender">
+    <section id="finder" className="py-section-sm lg:py-section-lg bg-lavender">
       <div className="container max-w-container">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">

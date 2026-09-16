@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Course } from "@/types/content";
 import { Eyebrow } from "@/components/Eyebrow";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Reveal } from "@/components/Reveal";
 import { formatPrice } from "@/lib/formatPrice";
 import { primaryContactHref } from "@/lib/contact";
@@ -44,9 +43,7 @@ export function CourseDetailView({ course }: { course: Course }) {
         <div className="container max-w-container">
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-7">
-              <ImagePlaceholder ratio="3:2" label={`Работа ученика курса «${course.title}»`} />
-
-              <div className="mt-10">
+              <div>
                 <h2 className="font-display text-2xl text-ink">Для кого</h2>
                 <p className="text-graphite mt-3">{course.audience}</p>
               </div>

@@ -9,7 +9,6 @@ import { CourseFinderSection } from "@/components/home/CourseFinderSection";
 import { ReviewsTeaser } from "@/components/home/ReviewsTeaser";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { OfflineRecap } from "@/components/home/OfflineRecap";
-import { Graduates } from "@/components/home/Graduates";
 import { ExpertStrip } from "@/components/home/ExpertStrip";
 import { FaqSection } from "@/components/home/FaqSection";
 import { FinalCta } from "@/components/home/FinalCta";
@@ -28,7 +27,6 @@ export default function HomePage() {
       <ReviewsTeaser />
       <HowItWorks />
       <OfflineRecap />
-      <Graduates />
       <ExpertStrip />
       <FaqSection />
       <FinalCta />

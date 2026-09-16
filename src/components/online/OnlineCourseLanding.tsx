@@ -38,7 +38,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                   href="#tariffs"
                   className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
                 >
-                  Получить доступ →
+                  Выбрать тариф →
                 </Link>
               ) : (
                 ctaHref && (
@@ -46,7 +46,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                     href={ctaHref}
                     className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
                   >
-                    Узнать условия →
+                    Узнать условия в Telegram →
                   </Link>
                 )
               )}
@@ -117,11 +117,15 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
         <section id="tariffs" className="py-10 sm:py-section-sm lg:py-section-lg">
           <div className="container max-w-container">
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink mb-6 sm:mb-10">Тарифы</h2>
+            <p className="text-graphite max-w-2xl mb-6">
+              Оформление проходит в Telegram. Напишите Елене название курса и выбранный тариф,
+              чтобы обсудить условия оплаты и получения доступа.
+            </p>
             <div className="grid sm:grid-cols-2 gap-6">
               {course.tariffs.map((tariff, i) => (
                 <div
                   key={tariff.name}
-                  className={`rounded-card border p-6 sm:p-8 ${
+                  className={`flex flex-col rounded-card border p-6 sm:p-8 ${
                     i === 0 ? "border-border bg-white shadow-sm" : "border-violet/50 bg-white shadow-lg shadow-violet/15"
                   }`}
                 >
@@ -129,11 +133,14 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                   <p className="font-display text-3xl text-violet-deep mt-2">
                     {tariff.price.toLocaleString("ru-RU")} ₽
                   </p>
-                  {tariff.description && <p className="text-graphite mt-3">{tariff.description}</p>}
+                  {tariff.description && <p className="text-graphite mt-3 mb-6">{tariff.description}</p>}
+                  <p className="text-sm text-graphite mb-4">
+                    Для записи: «{course.title}», тариф «{tariff.name}».
+                  </p>
                   {ctaHref && (
                     <Link
                       href={ctaHref}
-                      className={`mt-6 inline-flex w-full justify-center items-center rounded-full px-6 py-3.5 transition-all duration-reveal hover:-translate-y-0.5 ${
+                      className={`mt-auto inline-flex w-full justify-center items-center rounded-full px-6 py-3.5 transition-all duration-reveal hover:-translate-y-0.5 ${
                         i === 0
                           ? "border border-border text-ink hover:border-violet"
                           : "bg-violet text-white shadow-md shadow-violet/25 hover:bg-violet-deep hover:shadow-lg"
@@ -200,6 +207,10 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
           <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
             Готовы начать — «{course.title}»
           </h2>
+          <p className="text-white/90 mt-4 max-w-2xl mx-auto">
+            Запись через Telegram. Укажите название курса и тариф — условия оплаты
+            и получения доступа обсудите с Еленой.
+          </p>
           {course.tariffs ? (
             <div className="flex flex-wrap justify-center gap-3 mt-8">
               {course.tariffs.map((tariff, i) =>
@@ -224,7 +235,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                 href={ctaHref}
                 className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-violet-deep shadow-lg shadow-ink/10 mt-8 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-lavender hover:shadow-xl"
               >
-                Узнать условия и записаться →
+                Обсудить запись в Telegram →
               </Link>
             )
           )}

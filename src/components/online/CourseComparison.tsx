@@ -46,7 +46,7 @@ export function CourseComparison() {
             <div className="bg-white p-4" />
             <div className="bg-white p-4">
               <Link href={`/${materials.format}/${materials.slug}`} className="text-violet text-sm hover:underline">
-                Получить доступ →
+                Программа и тарифы →
               </Link>
             </div>
             <div className="bg-white p-4">

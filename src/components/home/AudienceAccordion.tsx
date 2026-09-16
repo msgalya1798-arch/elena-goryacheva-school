@@ -4,10 +4,10 @@ import { getCourseBySlug } from "@/content/courses";
 
 export function AudienceAccordion() {
   return (
-    <section id="finder" className="py-10 sm:py-section-sm lg:py-section-lg">
+    <section id="audiences" className="py-10 sm:py-section-sm lg:py-section-lg">
       <div className="container max-w-container">
         <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink mb-6 sm:mb-10">
-          Найди свою точку роста
+          Найдите свою точку роста
         </h2>
 
         <div className="divide-y divide-border border-t border-b border-border">
