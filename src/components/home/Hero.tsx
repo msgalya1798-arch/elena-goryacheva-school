@@ -19,28 +19,28 @@ export function Hero() {
           <div className="lg:col-span-7 order-1 lg:order-2">
             <Reveal delay={0.04}>
               <Eyebrow className="mb-2.5">
-                Авторская школа маникюра · {siteConfig.city} / онлайн
+                Онлайн-курсы · обучение из любого города
               </Eyebrow>
               <h1 className="font-display text-[25px] sm:text-[34px] lg:text-[50px] xl:text-[58px] leading-[1.1] text-ink max-w-3xl">
-                Маникюр как система, а не набор движений.
+                Онлайн-курсы маникюра: материалы и формы
               </h1>
               <p className="mt-3 text-sm sm:text-base lg:text-lg text-graphite max-w-xl">
-                Я, {siteConfig.expertName}. Учу видеть исходник, понимать материалы и осознанно
-                принимать решения — очно в {siteConfig.cityPrepositional} и онлайн.
+                Я, {siteConfig.expertName}. Помогаю разобраться в материалах, причинах отслоек
+                и архитектуре ногтей. Выберите программу под свой опыт и задачу.
               </p>
 
               <div className="mt-4 flex flex-col sm:flex-row gap-2.5">
                 <Link
-                  href="/online"
+                  href="#courses"
                   className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3 text-white shadow-lg shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
                 >
-                  Онлайн-курсы
+                  Выбрать онлайн-курс
                 </Link>
                 <Link
-                  href="/offline"
+                  href="#finder"
                   className="inline-flex justify-center items-center rounded-full border border-border px-7 py-3 text-ink transition-all duration-reveal hover:-translate-y-0.5 hover:border-violet hover:text-violet"
                 >
-                  Офлайн-обучение
+                  Помочь с выбором
                 </Link>
               </div>
 

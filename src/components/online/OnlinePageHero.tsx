@@ -26,10 +26,10 @@ export function OnlinePageHero() {
                   Смотреть курсы →
                 </Link>
                 <Link
-                  href="/offline"
+                  href="/#finder"
                   className="inline-flex justify-center items-center rounded-full border border-border px-7 py-3.5 text-ink transition-all duration-reveal hover:-translate-y-0.5 hover:border-violet hover:text-violet"
                 >
-                  Офлайн-обучение
+                  Помочь с выбором
                 </Link>
               </div>
             </Reveal>

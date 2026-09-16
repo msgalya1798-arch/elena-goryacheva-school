@@ -11,21 +11,21 @@ export function FinalCta() {
           Готовы начать понимать логику работы?
         </h2>
         <p className="text-white/70 mt-4 max-w-lg mx-auto">
-          Начните с «Логики материалов» — входного онлайн-курса. Не уверены, что подойдёт — расскажите
-          об опыте, подскажу лично.
+          Выберите курс по материалам или формам под свою задачу. Если сомневаетесь,
+          расскажите Елене о своём опыте в Telegram.
         </p>
         <div className="flex flex-wrap justify-center gap-3 mt-8">
           <Link
-            href="/online/material-logic-online"
+            href="/online"
             className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-violet-deep shadow-lg shadow-ink/10 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-lavender hover:shadow-xl"
           >
-            Начать онлайн-обучение →
+            Сравнить онлайн-курсы →
           </Link>
           <Link
             href={ctaHref}
             className="inline-flex items-center rounded-full border border-white/40 px-7 py-3.5 text-white transition-all duration-reveal hover:-translate-y-0.5 hover:border-white"
           >
-            Получить рекомендацию
+            Спросить в Telegram
           </Link>
         </div>
       </div>
