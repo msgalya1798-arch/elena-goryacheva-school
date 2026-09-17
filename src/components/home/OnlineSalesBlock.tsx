@@ -1,7 +1,7 @@
+import { MaterialOffer } from "@/components/MaterialOffer";
 import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { getCourseBySlug } from "@/content/courses";
-import { formatPrice } from "@/lib/formatPrice";
 
 export function OnlineSalesBlock() {
   const materials = getCourseBySlug("material-logic-online");
@@ -27,11 +27,8 @@ export function OnlineSalesBlock() {
             <h3 className="font-display text-2xl text-ink mt-2">{materials.title}</h3>
             <p className="text-graphite mt-3">{materials.mainResult}</p>
 
-            <div className="mt-6 rounded-card bg-lavender/45 p-4 sm:p-5">
-              <p className="text-sm text-graphite">{materials.durationLabel}</p>
-              <p className="font-display text-2xl text-violet-deep mt-1">{formatPrice(materials.price)}</p>
-              <p className="text-xs text-graphite mt-2">Один формат — с сопровождением Елены</p>
-            </div>
+            <MaterialOffer amount={materials.price.amount} />
+            <p className="mt-3 text-sm text-graphite">{materials.durationLabel}</p>
 
             <Link
               href={`/${materials.format}/${materials.slug}`}

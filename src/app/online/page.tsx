@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { OnlinePageHero } from "@/components/online/OnlinePageHero";
 import { OnlineSalesBlock } from "@/components/home/OnlineSalesBlock";
