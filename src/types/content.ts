@@ -37,6 +37,8 @@ export interface OnlineLandingContent {
   painPoints: string[];
   outcomes: string[];
   support: string[];
+  /** Последовательность «боль → отличие → сопровождение → свой случай → результат» для холодной аудитории. */
+  salesQuestions?: { question: string; answer: string }[];
 }
 
 export interface Course {
