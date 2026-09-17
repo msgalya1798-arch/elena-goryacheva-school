@@ -225,7 +225,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
           <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
             Готовы начать — «{course.title}»
           </h2>
-          <p className="text-white/90 mt-4 max-w-2xl mx-auto">
+          <p className="text-white mt-4 max-w-2xl mx-auto">
             Запись через Telegram. Напишите «{course.title}»{course.tariffs ? " и название выбранного тарифа" : " и расскажите о своём опыте"}.
             Условия оплаты и получения доступа обсудите с Еленой до оформления.
           </p>

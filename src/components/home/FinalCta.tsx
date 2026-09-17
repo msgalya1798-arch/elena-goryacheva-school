@@ -10,7 +10,7 @@ export function FinalCta() {
         <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
           Готовы начать понимать логику работы?
         </h2>
-        <p className="text-white/70 mt-4 max-w-lg mx-auto">
+        <p className="text-white mt-4 max-w-lg mx-auto">
           Выберите курс по материалам или формам под свою задачу. Если сомневаетесь,
           расскажите Елене о своём опыте в Telegram.
         </p>
