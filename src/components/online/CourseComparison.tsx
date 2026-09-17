@@ -25,7 +25,16 @@ export function CourseComparison() {
           Сравните курсы
         </h2>
 
-        <div className="grid gap-5 md:hidden">
+        <details className="group md:hidden rounded-card border border-border p-5">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-ink">
+            <span>
+              <span className="block font-display text-lg">Доступ, поддержка и стоимость</span>
+              <span className="block mt-1 text-sm text-graphite group-open:hidden">Развернуть подробное сравнение</span>
+              <span className="hidden mt-1 text-sm text-graphite group-open:block">Свернуть сравнение</span>
+            </span>
+            <span aria-hidden="true" className="shrink-0 text-2xl text-violet group-open:rotate-45">+</span>
+          </summary>
+          <div className="grid gap-5 mt-5">
           {[{ course: materials, key: "materials" as const }, { course: forms, key: "forms" as const }].map(({ course, key }) => (
             <article key={course.slug} className="rounded-card border border-border bg-white p-5">
               <h3 className="font-display text-xl">{course.title}</h3>
@@ -41,6 +50,7 @@ export function CourseComparison() {
             </article>
           ))}
         </div>
+        </details>
         <div className="hidden md:block">
           <div className="grid grid-cols-[minmax(140px,1fr)_1.2fr_1.2fr] gap-px bg-border rounded-card overflow-hidden border border-border">
             <div className="bg-paper p-4" />
