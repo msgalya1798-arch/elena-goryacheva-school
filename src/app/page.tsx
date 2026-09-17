@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { OnlineHowItWorks } from "@/components/online/OnlineHowItWorks";
 import { Hero } from "@/components/home/Hero";
 import { OnlineSalesBlock } from "@/components/home/OnlineSalesBlock";

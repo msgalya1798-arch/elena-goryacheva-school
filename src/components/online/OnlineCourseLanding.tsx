@@ -1,3 +1,4 @@
+import { MaterialOffer } from "@/components/MaterialOffer";
 import Link from "next/link";
 import type { Course } from "@/types/content";
 import { Eyebrow } from "@/components/Eyebrow";
@@ -38,6 +39,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             )}
 
             <p className="mt-4 text-graphite max-w-2xl">{course.audience}</p>
+            {course.slug === "material-logic-online" && <div className="max-w-xl"><MaterialOffer amount={course.price.amount} /></div>}
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               {course.tariffs ? (
                 <Link
@@ -102,6 +104,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                     <p className="mt-1 text-sm text-white/70">один формат — с сопровождением</p>
                   </div>
                 </div>
+                {course.slug === "material-logic-online" && <MaterialOffer amount={course.price.amount} />}
                 {ctaHref && (
                   <Link
                     href={ctaHref}

@@ -15,7 +15,7 @@ export function CourseComparison() {
     { label: "Для кого", materials: materials.audience, forms: forms.audience },
     { label: "Доступ и поддержка", materials: materials.durationLabel, forms: forms.durationLabel },
     { label: "Цена", materials: materialsPrice, forms: formatPrice(forms.price) },
-    { label: "Продление", materials: "Поддержку можно продлить за 1 000 ₽", forms: "Есть возможность продления доступа" },
+    { label: "Продление", materials: "Поддержка — 1 000 ₽ в месяц", forms: "Есть возможность продления доступа" },
   ];
 
   return (
