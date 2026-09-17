@@ -13,6 +13,8 @@ import { primaryContactHref } from "@/lib/contact";
 export function OnlineCourseLanding({ course }: { course: Course }) {
   const landing = course.onlineLanding;
   const ctaHref = primaryContactHref();
+  const hasSalesQuestions = Boolean(landing?.salesQuestions?.length);
+  const hasConfirmedPrice = course.price.status === "confirmed" && course.price.amount !== null;
 
   return (
     <>
@@ -28,10 +30,12 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-3xl">{course.title}</h1>
             <p className="mt-5 text-lg text-graphite max-w-2xl">{landing?.heroResult ?? course.mainResult}</p>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-6 text-sm text-graphite">
-              <span>{course.durationLabel}</span>
-              <span className="text-ink font-medium">{formatPrice(course.price)}</span>
-            </div>
+            {!hasSalesQuestions && (
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-6 text-sm text-graphite">
+                <span>{course.durationLabel}</span>
+                <span className="text-ink font-medium">{formatPrice(course.price)}</span>
+              </div>
+            )}
 
             <p className="mt-4 text-graphite max-w-2xl">{course.audience}</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
@@ -48,7 +52,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                     href={ctaHref}
                     className="inline-flex justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
                   >
-                    Узнать условия в Telegram →
+                    {hasConfirmedPrice ? "Записаться в Telegram →" : "Узнать условия в Telegram →"}
                   </Link>
                 )
               )}
@@ -67,6 +71,50 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
           </Reveal>
         </div>
       </section>
+
+      {/* Продающая логика для холодной аудитории */}
+      {landing?.salesQuestions && landing.salesQuestions.length > 0 && (
+        <section className="py-10 sm:py-section-sm bg-white">
+          <div className="container max-w-container">
+            <div className="max-w-3xl">
+              <div className="space-y-7">
+                {landing.salesQuestions.map((item, index) => (
+                  <div key={item.question} className="grid sm:grid-cols-[36px_1fr] gap-3 sm:gap-5">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lavender text-sm font-medium text-violet-deep">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h2 className="font-display text-xl sm:text-2xl text-ink">{item.question}</h2>
+                      <p className="mt-2 text-graphite leading-relaxed">{item.answer}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-9 rounded-card bg-violet-deep p-5 sm:p-7 text-white">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+                  <div>
+                    <p className="text-sm uppercase tracking-wide text-white/70">Формат обучения</p>
+                    <p className="mt-2 text-lg sm:text-xl">{course.durationLabel}</p>
+                  </div>
+                  <div className="sm:text-right">
+                    <p className="font-display text-3xl sm:text-4xl">{formatPrice(course.price)}</p>
+                    <p className="mt-1 text-sm text-white/70">один формат — с сопровождением</p>
+                  </div>
+                </div>
+                {ctaHref && (
+                  <Link
+                    href={ctaHref}
+                    className="mt-6 inline-flex w-full sm:w-auto justify-center rounded-full bg-white px-7 py-3.5 text-violet-deep transition-all duration-reveal hover:-translate-y-0.5 hover:bg-lavender"
+                  >
+                    Записаться в Telegram →
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {course.whoItsNotFor && (
         <section className="pb-8">
@@ -237,7 +285,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             )}
             {ctaHref && (
               <Link href={ctaHref} className="inline-flex justify-center rounded-full border border-white/40 px-7 py-3.5 text-white hover:border-white">
-                {course.tariffs ? "Помочь выбрать в Telegram" : "Узнать стоимость и условия в Telegram →"}
+                {course.tariffs ? "Помочь выбрать в Telegram" : hasConfirmedPrice ? "Записаться в Telegram →" : "Узнать стоимость и условия в Telegram →"}
               </Link>
             )}
           </div>

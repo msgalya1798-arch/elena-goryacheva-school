@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { getCourseBySlug } from "@/content/courses";
+import { formatPrice } from "@/lib/formatPrice";
 
 export function OnlineSalesBlock() {
   const materials = getCourseBySlug("material-logic-online");
@@ -26,25 +27,17 @@ export function OnlineSalesBlock() {
             <h3 className="font-display text-2xl text-ink mt-2">{materials.title}</h3>
             <p className="text-graphite mt-3">{materials.mainResult}</p>
 
-            {materials.tariffs && (
-              <div className="grid sm:grid-cols-2 gap-3 mt-6">
-                {materials.tariffs.map((t) => (
-                  <div key={t.name} className="rounded-card border border-border p-4">
-                    <p className="text-sm text-ink font-medium">{t.name}</p>
-                    <p className="font-display text-xl text-violet-deep mt-1">
-                      {t.price.toLocaleString("ru-RU")} ₽
-                    </p>
-                    {t.description && <p className="text-xs text-graphite mt-2">{t.description}</p>}
-                  </div>
-                ))}
-              </div>
-            )}
+            <div className="mt-6 rounded-card bg-lavender/45 p-4 sm:p-5">
+              <p className="text-sm text-graphite">{materials.durationLabel}</p>
+              <p className="font-display text-2xl text-violet-deep mt-1">{formatPrice(materials.price)}</p>
+              <p className="text-xs text-graphite mt-2">Один формат — с сопровождением Елены</p>
+            </div>
 
             <Link
               href={`/${materials.format}/${materials.slug}`}
               className="inline-flex w-full sm:w-auto justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 mt-6 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
             >
-              Программа и тарифы →
+              Посмотреть программу →
             </Link>
           </div>
 
