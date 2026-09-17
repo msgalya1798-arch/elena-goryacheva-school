@@ -15,7 +15,7 @@ export function CourseComparison() {
     { label: "Для кого", materials: materials.audience, forms: forms.audience },
     { label: "Доступ и поддержка", materials: materials.durationLabel, forms: forms.durationLabel },
     { label: "Цена", materials: materialsPrice, forms: formatPrice(forms.price) },
-    { label: "Продление", materials: "Поддержка — 1 000 ₽ в месяц", forms: "Есть возможность продления доступа" },
+    { label: "Продление", materials: "Поддержку можно продлить за 1 000 ₽", forms: "Есть возможность продления доступа" },
   ];
 
   return (
@@ -72,7 +72,7 @@ export function CourseComparison() {
             <div className="bg-white p-4" />
             <div className="bg-white p-4">
               <Link href={`/${materials.format}/${materials.slug}`} className="text-violet text-sm hover:underline">
-                Программа и тарифы →
+                Посмотреть программу →
               </Link>
             </div>
             <div className="bg-white p-4">
