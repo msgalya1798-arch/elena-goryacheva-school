@@ -30,10 +30,21 @@ export default function ReviewsPage() {
       <section className="pb-section-lg">
         <div className="container max-w-container">
           <div className="grid items-stretch sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {testimonials.map((t) => (
+            {testimonials.slice(0, 6).map((t) => (
               <ReviewCard key={t.id} testimonial={t} />
             ))}
           </div>
+          {testimonials.length > 6 && (
+            <details className="group mt-8">
+              <summary className="mx-auto flex min-h-12 w-fit cursor-pointer list-none items-center justify-center rounded-full border border-violet px-7 py-3 text-violet hover:bg-lavender">
+                <span className="group-open:hidden">Показать ещё {testimonials.length - 6} отзывов</span>
+                <span className="hidden group-open:inline">Свернуть дополнительные отзывы</span>
+              </summary>
+              <div className="mt-6 grid items-stretch sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {testimonials.slice(6).map((t) => <ReviewCard key={t.id} testimonial={t} />)}
+              </div>
+            </details>
+          )}
         </div>
       </section>
 

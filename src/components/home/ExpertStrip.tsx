@@ -24,13 +24,13 @@ export function ExpertStrip() {
             <p className="text-xs sm:text-sm text-ink mt-1">
               Диплом инструктора Burlesque School · подтверждённая инструкторская подготовка.
             </p>
+            <Link
+              href="/about#qualifications"
+              className="inline-flex min-h-11 items-center gap-2 text-violet text-sm hover:underline"
+            >
+              Документы и опыт →
+            </Link>
           </div>
-          <Link
-            href="/about"
-            className="hidden sm:inline-flex items-center gap-2 text-violet text-sm shrink-0 hover:gap-3 transition-all duration-reveal"
-          >
-            Документы и опыт →
-          </Link>
         </div>
       </div>
     </section>
