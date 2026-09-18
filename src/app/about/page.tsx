@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import Image from "next/image";
@@ -40,21 +41,7 @@ export default function AboutPage() {
       <section className="pt-12 md:pt-16 pb-section-sm">
         <div className="container max-w-container">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <div className="relative aspect-[3/4] overflow-hidden rounded-card">
-                  <Image
-                    src="/images/elena-portrait.jpg"
-                    alt={`Портрет ${siteConfig.expertName}`}
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 40vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              </Reveal>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7">
+            <div className="lg:col-span-6 lg:col-start-7 lg:row-start-1">
               <Reveal delay={0.08}>
                 <Eyebrow className="mb-4">Об Елене</Eyebrow>
                 <h1 className="font-display text-4xl lg:text-5xl text-ink">{siteConfig.expertName}</h1>
@@ -66,6 +53,21 @@ export default function AboutPage() {
                 <p className="mt-4 text-sm text-graphite max-w-lg">
                   Имею подтверждённую инструкторскую подготовку и продолжаю повышать квалификацию как мастер и преподаватель.
                 </p>
+                <Link href="#qualifications" className="mt-4 inline-flex min-h-11 items-center text-violet hover:underline">Квалификация и опыт →</Link>
+              </Reveal>
+            </div>
+            <div className="lg:col-span-5 lg:col-start-1 lg:row-start-1">
+              <Reveal>
+                <div className="relative h-72 sm:h-96 lg:h-auto lg:aspect-[3/4] overflow-hidden rounded-card">
+                  <Image
+                    src="/images/elena-portrait.jpg"
+                    alt={`Портрет ${siteConfig.expertName}`}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover object-[center_25%]"
+                  />
+                </div>
               </Reveal>
             </div>
           </div>

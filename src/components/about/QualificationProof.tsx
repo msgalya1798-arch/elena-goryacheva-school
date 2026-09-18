@@ -27,7 +27,7 @@ const credentials = [
 
 export function QualificationProof() {
   return (
-    <section className="py-section-sm lg:py-section-lg bg-paper">
+    <section id="qualifications" className="py-section-sm lg:py-section-lg bg-paper">
       <div className="container max-w-container">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28">
@@ -36,7 +36,7 @@ export function QualificationProof() {
               Квалификация подтверждена документами
             </h2>
             <p className="text-graphite mt-4 max-w-md">
-              Я продолжаю учиться как мастер и как преподаватель. Здесь — документы, которые подтверждают мою инструкторскую подготовку и право преподавать отдельные техники.
+              Я продолжаю учиться как мастер и как преподаватель. Здесь — сведения из документов о моей инструкторской подготовке и праве преподавать отдельные техники.
             </p>
             <p className="text-xs text-graphite mt-4 max-w-md">
               На сайте публикуется только информация из документов без паспортных и других лишних персональных данных.
