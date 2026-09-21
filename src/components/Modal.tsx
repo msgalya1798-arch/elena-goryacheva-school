@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useId, useRef, type ReactNode } from "react";
+import { useEffect, useId, useRef, type ReactNode, type RefObject } from "react";
 
 /** Native modal supplies focus containment, inert background and Escape support. */
-export function Modal({ open, onClose, title, children, compact = false }: {
+export function Modal({ open, onClose, title, children, compact = false, returnFocusRef }: {
   open: boolean;
   onClose: () => void;
   title: string;
   children: ReactNode;
   compact?: boolean;
+  returnFocusRef?: RefObject<HTMLElement | null>;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
@@ -16,14 +17,16 @@ export function Modal({ open, onClose, title, children, compact = false }: {
   useEffect(() => {
     const dialog = ref.current;
     if (!open || !dialog) return;
+    const opener = returnFocusRef?.current ?? document.activeElement;
     const previousOverflow = document.body.style.overflow;
     dialog.showModal();
     document.body.style.overflow = "hidden";
     return () => {
       dialog.close();
       document.body.style.overflow = previousOverflow;
+      if (opener instanceof HTMLElement && opener.isConnected) opener.focus();
     };
-  }, [open]);
+  }, [open, returnFocusRef]);
 
   return (
     <dialog

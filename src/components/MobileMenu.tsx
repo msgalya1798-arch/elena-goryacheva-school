@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Modal } from "@/components/Modal";
 import { primaryNav } from "@/content/site";
 
 export function MobileMenu() {
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
@@ -18,7 +19,7 @@ export function MobileMenu() {
 
   return (
     <div className="lg:hidden">
-      <button
+      <button ref={triggerRef}
         type="button"
         aria-expanded={open}
         aria-haspopup="dialog"
@@ -28,7 +29,7 @@ export function MobileMenu() {
       >
         {[0, 1, 2].map((line) => <span key={line} aria-hidden className="block h-0.5 w-6 bg-ink" />)}
       </button>
-      <Modal open={open} onClose={close} title="Меню школы" compact>
+      <Modal returnFocusRef={triggerRef} open={open} onClose={close} title="Меню школы" compact>
         <nav aria-label="Мобильная навигация" className="flex flex-col">
           {primaryNav.map((link) => (
             <Link key={link.href} href={link.href} onClick={close} className="py-3 text-base border-b border-border hover:text-violet">
