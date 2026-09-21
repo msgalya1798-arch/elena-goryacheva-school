@@ -1,4 +1,6 @@
 import { MaterialOffer } from "@/components/MaterialOffer";
+import { OnlineHowItWorks } from "@/components/online/OnlineHowItWorks";
+import { onlineContent } from "@/content/online";
 import Link from "next/link";
 import type { Course } from "@/types/content";
 import { Eyebrow } from "@/components/Eyebrow";
@@ -39,7 +41,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             )}
 
             <p className="mt-4 text-graphite max-w-2xl">{course.audience}</p>
-            {course.slug === "material-logic-online" && <div className="max-w-xl"><MaterialOffer amount={course.price.amount} /></div>}
+            {!hasConfirmedPrice && <p className="mt-3 text-sm text-graphite">{onlineContent.formsStatus}</p>}
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               {course.tariffs ? (
                 <Link
@@ -93,31 +95,13 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                 ))}
               </div>
 
-              <div className="mt-9 rounded-card bg-violet-deep p-5 sm:p-7 text-white">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-                  <div>
-                    <p className="text-sm uppercase tracking-wide text-white/70">Формат обучения</p>
-                    <p className="mt-2 text-lg sm:text-xl">{course.durationLabel}</p>
-                  </div>
-                  <div className="sm:text-right">
-                    <p className="font-display text-3xl sm:text-4xl">{formatPrice(course.price)}</p>
-                    <p className="mt-1 text-sm text-white/70">один формат — с сопровождением</p>
-                  </div>
-                </div>
-                {course.slug === "material-logic-online" && <MaterialOffer amount={course.price.amount} />}
-                {ctaHref && (
-                  <Link
-                    href={ctaHref}
-                    className="mt-6 inline-flex w-full sm:w-auto justify-center rounded-full bg-white px-7 py-3.5 text-violet-deep transition-all duration-reveal hover:-translate-y-0.5 hover:bg-lavender"
-                  >
-                    Записаться в Telegram →
-                  </Link>
-                )}
-              </div>
+              <div className="mt-9 max-w-xl"><MaterialOffer /></div>
             </div>
           </div>
         </section>
       )}
+
+      {hasSalesQuestions && <OnlineHowItWorks />}
 
       {course.whoItsNotFor && (
         <section className="pb-8">
@@ -181,7 +165,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
       </section>
 
       {/* Поддержка */}
-      {landing && landing.support.length > 0 && (
+      {!hasSalesQuestions && landing && landing.support.length > 0 && (
         <section className="py-10 sm:py-section-sm bg-white">
           <div className="container max-w-container">
             <div className="grid lg:grid-cols-12 gap-6">
@@ -201,14 +185,14 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
         </section>
       )}
 
-      <section className="py-10 sm:py-section-sm">
+      {!hasSalesQuestions && <section className="py-10 sm:py-section-sm">
         <div className="container max-w-container">
           <div className="rounded-card border border-violet/20 bg-lavender/30 p-5 sm:p-6 max-w-3xl">
             <p className="text-sm text-violet uppercase tracking-wide">Сертификат</p>
             <p className="text-graphite mt-2">{course.certificateNote}</p>
           </div>
         </div>
-      </section>
+      </section>}
 
       <ExpertStrip />
       <StudentWork schoolContext />
@@ -274,10 +258,10 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
       <section className="py-section-sm lg:py-section-lg bg-violet-deep">
         <div className="container max-w-container text-center">
           <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
-            Готовы начать — «{course.title}»
+            {hasConfirmedPrice ? "Готовы начать" : "Обсудим вашу задачу"} — «{course.title}»
           </h2>
           <p className="text-white mt-4 max-w-2xl mx-auto">
-            Запись через Telegram. Напишите «{course.title}»{course.tariffs ? " и название выбранного тарифа" : " и расскажите о своём опыте"}.
+            {hasConfirmedPrice ? "Запись через Telegram." : "Узнайте условия в Telegram."} Напишите «{course.title}»{course.tariffs ? " и название выбранного тарифа" : " и расскажите о своём опыте"}.
             Условия оплаты и получения доступа обсудите с Еленой до оформления.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">

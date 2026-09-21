@@ -17,11 +17,11 @@ export default function HomePage() {
     <>
       <Hero />
       <OnlineSalesBlock />
-      <CourseFinderSection />
       <WhySystemWorks />
+      <OnlineHowItWorks />
+      <CourseFinderSection />
       <StudentWork />
       <ReviewsTeaser />
-      <OnlineHowItWorks />
       <ExpertStrip />
       <FaqSection audience="online" />
       <OfflineRecap />

@@ -24,7 +24,7 @@ export function TrustBlock() {
               Я сама работаю мастером {siteConfig.experienceYears} лет и веду каждую программу лично —
               от постановки задачи до разбора ваших работ.
             </p>
-            <div className="flex gap-8 mt-6">
+            <div className="grid grid-cols-3 gap-3 sm:gap-8 mt-6">
               <div>
                 <p className="font-display text-3xl text-violet-deep">{siteConfig.experienceYears}</p>
                 <p className="text-sm text-graphite">лет в профессии</p>

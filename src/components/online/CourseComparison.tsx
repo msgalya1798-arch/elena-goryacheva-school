@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getCourseBySlug } from "@/content/courses";
+import { onlineContent } from "@/content/online";
 import { formatPrice } from "@/lib/formatPrice";
 
 export function CourseComparison() {
@@ -12,23 +13,24 @@ export function CourseComparison() {
     : formatPrice(materials.price);
 
   const rows = [
-    { label: "Для кого", materials: materials.audience, forms: forms.audience },
+    { label: "Ваша задача", materials: materials.audience, forms: forms.audience },
+    { label: "Что разбираем", materials: materials.whatYouGet[1], forms: forms.faq[2]?.answer ?? forms.mainResult },
     { label: "Доступ и поддержка", materials: materials.durationLabel, forms: forms.durationLabel },
     { label: "Цена", materials: materialsPrice, forms: formatPrice(forms.price) },
-    { label: "Продление", materials: "Поддержка — 1 000 ₽ в месяц", forms: "Есть возможность продления доступа" },
+    { label: "Продление", materials: onlineContent.renewal, forms: "Есть возможность продления доступа" },
   ];
 
   return (
     <section id="comparison" className="py-10 sm:py-section-sm lg:py-section-lg bg-white">
       <div className="container max-w-container">
         <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink mb-6 sm:mb-10">
-          Сравните курсы
+          Какой курс решает вашу задачу
         </h2>
 
         <details className="group md:hidden rounded-card border border-border p-5">
           <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-ink">
             <span>
-              <span className="block font-display text-lg">Доступ, поддержка и стоимость</span>
+              <span className="block font-display text-lg">Задачи, поддержка и стоимость</span>
               <span className="block mt-1 text-sm text-graphite group-open:hidden">Развернуть подробное сравнение</span>
               <span className="hidden mt-1 text-sm text-graphite group-open:block">Свернуть сравнение</span>
             </span>

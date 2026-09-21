@@ -2,6 +2,9 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Reveal } from "@/components/Reveal";
 
+import { onlineContent } from "@/content/online";
+import { primaryContactHref } from "@/lib/contact";
+
 export function OnlinePageHero() {
   return (
     <section className="pt-8 sm:pt-14 md:pt-16 pb-8 sm:pb-section-sm">
@@ -9,14 +12,12 @@ export function OnlinePageHero() {
         <div className="max-w-3xl">
           <div className="lg:col-span-7">
             <Reveal>
-              <Eyebrow className="mb-3">Онлайн-курсы · доступ из любого города</Eyebrow>
+              <Eyebrow className="mb-3">{onlineContent.eyebrow}</Eyebrow>
               <h1 className="font-display text-[30px] sm:text-4xl lg:text-5xl leading-[1.15] text-ink">
                 Онлайн-курсы по материалам и формам ногтей
               </h1>
               <p className="mt-4 text-lg text-graphite max-w-xl">
-                «Логика материалов» — выбор системы и причины нестабильной носки.
-                «Логика форм» — архитектура, моделирование и коррекция.
-                Учитесь в своём темпе; обратная связь зависит от программы и тарифа.
+                {onlineContent.heroDescription}
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Link
@@ -26,7 +27,7 @@ export function OnlinePageHero() {
                   Смотреть курсы →
                 </Link>
                 <Link
-                  href="/#finder"
+                  href={primaryContactHref()!}
                   className="inline-flex justify-center items-center rounded-full border border-border px-7 py-3.5 text-ink transition-all duration-reveal hover:-translate-y-0.5 hover:border-violet hover:text-violet"
                 >
                   Помочь с выбором
