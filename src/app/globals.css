@@ -10,7 +10,7 @@
   --color-violet: #6b3fa0;
   --color-violet-deep: #4b286d;
   --color-lavender: #efe9f7;
-  --color-graphite: #746e78;
+  --color-graphite: #69636e;
   --color-border: #ded8e3;
 
   --font-display: var(--font-heading), system-ui, sans-serif;
@@ -88,11 +88,19 @@ h2,
   box-shadow: 0 8px 24px rgb(75 40 109 / 12%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .material-offer { animation: material-offer-flow 12s ease-in-out infinite alternate; }
-}
 
-@keyframes material-offer-flow {
-  from { background-position: 0% 50%; }
-  to { background-position: 100% 50%; }
+/* A single entrance, then feedback only on deliberate interaction. */
+.cta-primary { transition: background-color 220ms ease, box-shadow 220ms ease; }
+.cta-arrow { display: inline-block; }
+.material-offer :focus-visible, .bg-violet-deep :focus-visible { outline-color: white; }
+@media (prefers-reduced-motion: no-preference) {
+  .cta-primary { animation: cta-enter 480ms ease-out 1; transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease; }
+  .cta-primary:hover { transform: translateY(-2px); }
+  .cta-primary:active { transform: translateY(1px) scale(.99); }
+  .cta-arrow { transition: transform 220ms ease; }
+  .cta-primary:hover .cta-arrow, .cta-primary:focus-visible .cta-arrow { transform: translateX(3px); }
+}
+@keyframes cta-enter { from { box-shadow: 0 0 0 0 rgb(107 63 160 / 0%); } to { box-shadow: 0 8px 24px rgb(107 63 160 / 20%); } }
+@media (prefers-reduced-motion: reduce) {
+  a:hover, a:active, a:hover .cta-arrow { transform: none !important; }
 }

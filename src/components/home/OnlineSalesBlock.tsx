@@ -1,64 +1,45 @@
-import { MaterialOffer } from "@/components/MaterialOffer";
 import Link from "next/link";
+import { MaterialOffer } from "@/components/MaterialOffer";
 import { Eyebrow } from "@/components/Eyebrow";
 import { getCourseBySlug } from "@/content/courses";
+import { onlineContent } from "@/content/online";
+import { primaryContactHref } from "@/lib/contact";
 
 export function OnlineSalesBlock() {
   const materials = getCourseBySlug("material-logic-online");
   const forms = getCourseBySlug("form-logic-online");
-  if (!materials || !forms) return null;
-
+  const questions = materials?.onlineLanding?.salesQuestions;
+  if (!materials || !forms || !questions?.[0] || !questions[1]) return null;
   return (
-    <section id="courses" className="py-10 sm:py-section-sm lg:py-section-lg bg-gradient-to-b from-lavender/50 to-white">
+    <section id="courses" className="py-10 sm:py-section-sm lg:py-20 bg-white">
       <div className="container max-w-container">
-        <Eyebrow className="mb-3">Онлайн-курсы</Eyebrow>
-        <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink max-w-2xl">
-          Не очередные техники для повторения
-        </h2>
-        <p className="text-graphite mt-3 max-w-2xl">
-          Онлайн-курсы помогают понять логику работы: почему материал ведёт себя именно так, как подобрать
-          систему под конкретный исходник и что делать, когда стандартная схема не работает.
-        </p>
-
-        <div className="grid lg:grid-cols-2 gap-6 mt-8">
-          {/* Логика материалов — главный входной продукт */}
-          <div className="rounded-card border border-violet/50 bg-white p-6 sm:p-8 shadow-lg shadow-violet/15">
-            <p className="text-xs text-violet uppercase tracking-wide">Входной онлайн-курс</p>
-            <h3 className="font-display text-2xl text-ink mt-2">{materials.title}</h3>
-            <p className="text-graphite mt-3">{materials.mainResult}</p>
-
-            <MaterialOffer amount={materials.price.amount} />
-            <p className="mt-3 text-sm text-graphite">{materials.durationLabel}</p>
-
-            <Link
-              href={`/${materials.format}/${materials.slug}`}
-              className="inline-flex w-full sm:w-auto justify-center items-center rounded-full bg-violet px-7 py-3.5 text-white shadow-lg shadow-violet/25 mt-6 transition-all duration-reveal hover:-translate-y-0.5 hover:bg-violet-deep hover:shadow-xl hover:shadow-violet/35"
-            >
-              Посмотреть программу →
-            </Link>
+        <Eyebrow className="mb-3">{onlineContent.featuredLabel}</Eyebrow>
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-ink">{materials.title}</h2>
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-16 mt-7 items-start">
+          <div>
+            <h3 className="font-display text-xl sm:text-2xl text-ink leading-snug">{questions[0].question}</h3>
+            <p className="mt-4 text-graphite leading-relaxed">{questions[0].answer}</p>
+            <div className="mt-6 border-l-2 border-violet pl-5">
+              <p className="font-medium text-violet-deep">{onlineContent.approachLabel}</p>
+              <p className="mt-2 text-graphite">{questions[1].answer}</p>
+            </div>
+            <p className="mt-6 text-ink">{onlineContent.formatSummary}</p>
+            <Link href={"/online/" + materials.slug} className="inline-flex min-h-11 items-center gap-2 mt-4 text-violet underline underline-offset-4">Подробнее о курсе <span aria-hidden="true">→</span></Link>
           </div>
-
-          {/* Логика форм — более глубокий продукт */}
-          <div className="rounded-card border border-border bg-white p-6 sm:p-8 shadow-sm">
-            <p className="text-xs text-graphite uppercase tracking-wide">Для мастеров с базовой подготовкой</p>
-            <h3 className="font-display text-2xl text-ink mt-2">{forms.title}</h3>
-            <p className="text-graphite mt-3">{forms.mainResult}</p>
-
-            <ul className="mt-6 space-y-2">
-              {forms.whatYouGet.slice(0, 3).map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-graphite">
-                  <span className="text-violet mt-0.5">—</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              href={`/${forms.format}/${forms.slug}`}
-              className="inline-flex items-center gap-2 text-violet mt-6 hover:gap-3 transition-all duration-reveal"
-            >
-              Посмотреть программу →
-            </Link>
+          <MaterialOffer />
+        </div>
+        <div className="mt-10 sm:mt-14 border-t border-border pt-7 grid md:grid-cols-[1fr_1.4fr] gap-4 md:gap-10">
+          <div>
+            <p className="text-xs uppercase tracking-wide text-graphite">{onlineContent.formsLabel}</p>
+            <h3 className="font-display text-xl sm:text-2xl mt-2">{forms.title}</h3>
+          </div>
+          <div>
+            <p className="text-graphite">{forms.audience}</p>
+            <p className="mt-2 text-sm text-graphite">{onlineContent.formsStatus}</p>
+            <div className="flex flex-wrap gap-x-6 mt-3">
+              <Link href={"/online/" + forms.slug} className="inline-flex min-h-11 items-center text-violet underline underline-offset-4">Программа курса →</Link>
+              {primaryContactHref() && <Link href={primaryContactHref()!} className="inline-flex min-h-11 items-center text-violet underline underline-offset-4">Узнать условия →</Link>}
+            </div>
           </div>
         </div>
       </div>

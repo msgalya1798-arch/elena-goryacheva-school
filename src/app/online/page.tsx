@@ -24,7 +24,7 @@ export default function OnlinePage() {
       <OnlineSalesBlock />
       <CourseComparison />
       <OnlineHowItWorks />
-      <StudentWork />
+      <StudentWork schoolContext />
       <ReviewsTeaser />
       <TrustBlock />
       <FaqSection audience="online" />

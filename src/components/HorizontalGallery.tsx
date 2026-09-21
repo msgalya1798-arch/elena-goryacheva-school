@@ -9,7 +9,7 @@ export interface GalleryItem {
 /** Горизонтальная свайп-галерея: край следующей карточки виден, скролл со snap. */
 export function HorizontalGallery({ items }: { items: GalleryItem[] }) {
   return (
-    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pl-6 pr-6 md:pl-10 md:pr-10 xl:pl-16 xl:pr-16 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div tabIndex={0} role="region" aria-label="Галерея работ учеников" className="flex gap-4 overflow-x-auto snap-x snap-mandatory pl-6 pr-6 md:pl-10 md:pr-10 xl:pl-16 xl:pr-16 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {items.map((item, i) => (
         <div key={i} className="snap-start shrink-0 w-[78%] sm:w-[55%] lg:w-[30%]">
           {item.src ? (

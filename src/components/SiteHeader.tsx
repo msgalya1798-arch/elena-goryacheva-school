@@ -4,7 +4,7 @@ import { primaryNav, siteConfig } from "@/content/site";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-border bg-paper/95 backdrop-blur sticky top-0 z-40">
+    <header className="border-b border-border bg-paper sticky top-0 z-40">
       <div className="container max-w-container flex items-center justify-between h-20">
         <Link href="/" className="flex flex-col leading-tight group">
           <span className="font-display text-base sm:text-xl text-ink group-hover:text-violet transition-colors duration-reveal">

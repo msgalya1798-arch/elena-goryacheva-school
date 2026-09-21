@@ -1,8 +1,18 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { materialPriceAt, MATERIAL_PRICE_CHANGE_AT } from "../src/content/courses.ts";
-test("material price changes at midnight Moscow on October 15", () => {
-  assert.equal(materialPriceAt(MATERIAL_PRICE_CHANGE_AT - 1), 1900);
-  assert.equal(materialPriceAt(MATERIAL_PRICE_CHANGE_AT), 3900);
-  assert.equal(materialPriceAt(MATERIAL_PRICE_CHANGE_AT + 86400000), 3900);
+import { courses, getCourseBySlug, getCoursesByFormat } from "../src/content/courses.ts";
+
+test("all course entry points use the same confirmed material offer", () => {
+  const direct = courses.find(c => c.slug === "material-logic-online");
+  for (const course of [direct, getCourseBySlug(direct.slug), getCoursesByFormat("online").find(c => c.slug === direct.slug)]) {
+    assert.equal(course.price.amount, 1990);
+    assert.equal(course.price.status, "confirmed");
+    assert.equal(course.durationLabel, "1 месяц обучения с сопровождением Елены");
+    assert.equal(course.tariffs, undefined);
+  }
+});
+test("forms has no purchase price and offline certificates do not claim state status", () => {
+  assert.equal(getCourseBySlug("form-logic-online").price.status, "placeholder");
+  assert.equal(getCourseBySlug("form-logic-online").price.amount, null);
+  for (const course of getCoursesByFormat("offline")) assert.doesNotMatch(course.certificateNote, /государственного/);
 });
