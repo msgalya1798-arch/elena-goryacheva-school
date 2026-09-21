@@ -133,7 +133,7 @@ export const courses: Course[] = [
     mainResult: "Научитесь понимать, почему материал носится или не носится, и подбирать систему под конкретные ногти",
     durationLabel: "1 месяц обучения с сопровождением Елены",
     whoItsNotFor: "Это тематический курс по материалам, а не полное обучение профессии с нуля. Если вы ещё не работали с инструментами, обсудите с Еленой, с чего начать.",
-    price: { amount: 1990, currency: "RUB", status: "confirmed" },
+    price: { amount: 1900, currency: "RUB", status: "confirmed" },
     whatYouGet: [
       "Свойства материалов и их связь с состоянием ногтевой пластины",
       "Как подбирать систему под конкретный исходник, а не по совету «возьми этот бренд»",
@@ -259,5 +259,19 @@ export const courses: Course[] = [
   },
 ];
 
-export const getCourseBySlug = (slug: string) => courses.find((course) => course.slug === slug);
-export const getCoursesByFormat = (format: Course["format"]) => courses.filter((course) => course.format === format);
+/** Акция до 31 октября включительно, переключение в 00:00 1 ноября по Москве. */
+export const MATERIAL_PRICE_CHANGE_AT = Date.parse("2026-11-01T00:00:00+03:00");
+export function materialPriceAt(now = Date.now()): number {
+  return now < MATERIAL_PRICE_CHANGE_AT ? 1900 : 3900;
+}
+function currentCourse(course: Course): Course {
+  return course.slug === "material-logic-online"
+    ? { ...course, price: { ...course.price, amount: materialPriceAt() } }
+    : course;
+}
+export const getCourseBySlug = (slug: string) => {
+  const course = courses.find((c) => c.slug === slug);
+  return course ? currentCourse(course) : undefined;
+};
+export const getCoursesByFormat = (format: Course["format"]) =>
+  courses.filter((c) => c.format === format).map(currentCourse);
