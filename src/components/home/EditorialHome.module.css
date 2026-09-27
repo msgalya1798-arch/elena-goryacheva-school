@@ -8,13 +8,13 @@
 .heroGrid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 48px; align-items: center; }
 .heroCopy { padding: 30px 0; }
 .hero .eyebrow { color: var(--accent); }
-.hero h1 { font-size: clamp(48px, 6vw, 82px); }
+.hero h1 { font-weight: 600; font-size: clamp(48px, 6vw, 82px); }
 .hero h1 span, .method h2 span, .expert h2 span, .final h2 span { color: var(--accent); }
 .lead { font-size: 17px; line-height: 1.75; max-width: 520px; margin-top: 28px; }
 .hero .lead { color: #d1c9db; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
-.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 25px; border-radius: 8px; background: #6b3fa0; color: #fff; font-weight: 500; font-size: 15px; min-height: 56px; transition: background .2s, transform .2s; }
-.button:hover { background: #583184; transform: translateY(-2px); }
+.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 25px; border-radius: 999px; background: linear-gradient(110deg, #7132ba, #8c49cf, #5e229f, #7132ba); background-size: 250% 100%; color: #fff; font-family: var(--font-editorial), sans-serif; text-transform: uppercase; letter-spacing: .015em; font-weight: 600; font-size: 23px; line-height: 1.25; min-height: 60px; box-shadow: 0 8px 25px #7132ba40; transition: box-shadow .25s, transform .25s; }
+.button:hover { transform: translateY(-3px); box-shadow: 0 12px 32px #7132ba66; }
 .textLink { font-size: 14px; text-decoration: underline; text-underline-offset: 6px; }
 .portrait { position: relative; height: 610px; overflow: hidden; border-radius: 120px 8px 8px 8px; }
 .portrait > img { object-fit: cover; object-position: center 20%; }
@@ -33,7 +33,7 @@
 .courses .eyebrow, .offline .eyebrow { color: #6b3fa0; }
 .courses h2 span { color: #6b3fa0; }
 .courseGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.course { padding: 32px; background: #fff; border: 1px solid #ded8e3; border-radius: 12px; display: flex; flex-direction: column; }
+.course { padding: 32px; background: linear-gradient(125deg, #fcf9ff, #dcd0ed, #f4e9ff, #e9e0f3); background-size: 250% 250%; border: 2px solid #30213e; border-radius: 22px; display: flex; flex-direction: column; box-shadow: 0 14px 36px #30213e20; transition: transform .3s, box-shadow .3s; }
 .courseTop { display: flex; justify-content: space-between; gap: 18px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #6b3fa0; }
 .course h3 { font-family: var(--font-editorial), sans-serif; font-size: 42px; line-height: 1.15; margin: 25px 0 16px; font-weight: 500; }
 .course > p { color: #625b68; }
@@ -42,7 +42,8 @@
 .course :global(.material-offer) { border-radius: 8px; box-shadow: none; }
 .course .duration { font-size: 13px; padding: 16px 0 24px; }
 .course > .button { margin-top: auto; }
-.formCourse { background: #eeE8f5; }
+.formCourse { background-image: linear-gradient(125deg, #e1d4f1, #f8f2ff, #d4c0e9, #eee6f7); }
+.course:hover { transform: translateY(-4px); box-shadow: 0 20px 40px #30213e30; }
 .courseImage { position: relative; flex: 1; min-height: 240px; margin-top: 24px; overflow: hidden; border-radius: 6px; }
 .courseImage img { object-fit: cover; object-position: center; }
 .lightButton { background: #ede4f7; color: #41235e; }
@@ -54,18 +55,35 @@
 .method .lead, .methodList p { color: #c9c0d2; }
 .methodList > div { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid #463d50; }
 .methodList > div:first-child { padding-top: 0; }
-.number { font-family: var(--font-editorial), sans-serif; font-size: 44px; line-height: 1; color: #a27bc8; }
-.methodList h3 { font-size: 22px; margin-bottom: 10px; }
-.methodList p { font-size: 15px; line-height: 1.7; }
+.number { font-family: var(--font-editorial), sans-serif; font-size: 64px; line-height: 1; color: #d5b4fa; min-width: 64px; }
+.methodList h3 { font-size: clamp(26px, 3vw, 34px); font-weight: 600; line-height: 1.2; margin-bottom: 14px; }
+.methodList p { font-size: 17px; line-height: 1.7; }
 .gallery > section, .reviews > section { padding-block: 80px; background: #f7f6f4; }
 .reviews > section { padding-top: 24px; }
-.reviews article { border-radius: 12px; box-shadow: none; }
+.reviews article { border-radius: 22px; border: 1px solid #6e4d91; background: linear-gradient(125deg, #281438, #50246f, #302047, #44205f); background-size: 250% 250%; box-shadow: 0 12px 30px #30213e26; }
+.reviews article > button { background: #eee8f4; border-color: #806595; }
+.reviews article > div h3, .reviews article > div p { color: #faf5ff; }
+.reviews article > div > p { color: #e1d3ed; }
+.reviews article > div > span { color: #ead7ff; background: #613586; }
+.reviews article > div > div > div { border-color: #806595; }
 .reviews article h3 { font-family: var(--font-body), sans-serif; font-size: 22px; }
-.how { background: #eee8f4; }
-.how h3 { font-family: var(--font-body), sans-serif; }
+.how { background: #19161e; color: #faf7ff; }
+.how h2 { color: #faf7ff; }
+.how details { border-top: 1px solid #584961; }
+.how details:last-child { border-bottom: 1px solid #584961; }
+.how summary { display: flex; align-items: center; gap: 24px; padding: 25px 0; cursor: pointer; list-style: none; }
+.how summary::-webkit-details-marker { display: none; }
+.how summary > span:first-child { font-family: var(--font-editorial), sans-serif; font-size: 30px; color: #c6a5ee; }
+.how h3 { font-family: var(--font-body), sans-serif; font-size: clamp(20px, 2.8vw, 28px); font-weight: 600; flex: 1; }
+.how summary > span:last-child { font-size: 30px; color: #d5b4fa; transition: transform .25s; }
+.how details[open] summary > span:last-child { transform: rotate(45deg); }
+.how details > p { color: #ded3e7; font-size: 17px; line-height: 1.75; padding: 0 50px 28px; max-width: 900px; }
 .expert { background: #30213e; }
 .expertCopy p { font-size: 18px; color: #e0d5e8; line-height: 1.8; margin-bottom: 24px; }
-.finder > section { background: #f7f6f4; }
+.finder > section { background: linear-gradient(125deg, #291b36, #40294f); }
+.finder h2 { color: #faf5ff; }
+.finder h2 + p { color: #ded3e7; }
+.finder [tabindex="-1"] { background: #f5eefb; border: 1px solid #ac89cf; box-shadow: 0 14px 36px #10081840; }
 .offline { padding: 45px 0; border-block: 1px solid #ded8e3; }
 .offlineInner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .offline h2 { font-size: 36px; }
@@ -109,5 +127,30 @@
   .courseTop { font-size: 9px; }
   .course { padding: 20px; }
   .courseImage { min-height: 250px; }
-  .methodList h3 { font-size: 20px; }
+  .methodList h3 { font-size: 26px; }
+  .number { font-size: 52px; min-width: 52px; }
+  .methodList > div { gap: 18px; }
+  .how summary { gap: 16px; }
+  .how details > p { padding: 0 0 24px 44px; }
+  .button { font-size: 21px; padding-inline: 24px; }
 }
+
+/* Keep dialogs readable inside the large editorial heading system. */
+.home dialog h2 { font-family: var(--font-body), sans-serif; font-size: 22px; line-height: 1.3; text-transform: none; letter-spacing: normal; }
+/* Homepage header theme follows the rendered page, including client-side navigation. */
+:global(body):has(.home) :global([data-site-header]) { background: #21182bef; border-color: #574263; color: #faf5ff; }
+:global(body):has(.home) :global([data-site-header] > div > a > span:first-child),
+:global(body):has(.home) :global([data-site-header] nav[aria-label="Основная навигация"] a) { color: #faf5ff; }
+:global(body):has(.home) :global([data-site-header] > div > a > span:last-child) { color: #c6b3d6; }
+:global(body):has(.home) :global([data-site-header] nav[aria-label="Основная навигация"] a:hover) { color: #d7b1ff; }
+:global(body):has(.home) :global([data-site-header] button[aria-label="Открыть меню"] span) { background: #faf5ff; }
+:global(body):has(.home) :global([data-site-header] > div > div > a) { background: #803ec3; color: #fff; }
+@media (prefers-reduced-motion: no-preference) {
+  .button:not(.lightButton):not(.outlineButton) { animation: violetFlow 8s ease-in-out infinite alternate; }
+  .course, .reviews article { animation: violetFlow 15s ease-in-out infinite alternate; }
+  .formCourse { animation-delay: -6s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button:hover, .course:hover { transform: none; }
+}
+@keyframes violetFlow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }

@@ -21,7 +21,7 @@ const steps = [
   },
 ];
 
-export function OnlineHowItWorks() {
+export function OnlineHowItWorks({ accordion = false }: { accordion?: boolean }) {
   return (
     <section className="py-10 sm:py-section-sm lg:py-section-lg">
       <div className="container max-w-container">
@@ -29,7 +29,20 @@ export function OnlineHowItWorks() {
           Как проходит онлайн-обучение
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {accordion ? (
+          <div>
+            {steps.map((step, i) => (
+              <details key={step.title}>
+                <summary>
+                  <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{step.description}</p>
+              </details>
+            ))}
+          </div>
+        ) : <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {steps.map((step, i) => (
             <div key={step.title} className="border-t-2 border-violet pt-5">
               <p className="text-sm text-violet">{String(i + 1).padStart(2, "0")}</p>
@@ -37,7 +50,7 @@ export function OnlineHowItWorks() {
               <p className="text-sm text-graphite mt-2">{step.description}</p>
             </div>
           ))}
-        </div>
+        </div>}
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export function EditorialHome() {
   const materials = getCourseBySlug("material-logic-online")!;
   const forms = getCourseBySlug("form-logic-online")!;
   return (
-    <div className={`${display.variable} ${s.home}`}>
+    <div className={`${display.variable} ${s.home}`} data-home-theme="editorial">
       <section className={s.hero}>
         <div className={`${s.wrap} ${s.heroGrid}`}>
           <div className={s.heroCopy}>
@@ -61,7 +61,7 @@ export function EditorialHome() {
               <p>{forms.mainResult}</p>
               <div className={s.courseImage}><Image src="/images/student-work/work-03.jpg" alt="Работа из галереи школы: мраморный дизайн на длинных стилетах" fill sizes="(min-width: 900px) 40vw, 90vw" /></div>
               <p className={s.duration}>Для мастеров с базовой подготовкой</p>
-              <Link href={`/online/${forms.slug}`} className={`${s.button} ${s.lightButton}`}>Посмотреть программу <span aria-hidden>↗</span></Link>
+              <Link href={`/online/${forms.slug}`} className={s.button}>Посмотреть программу <span aria-hidden>↗</span></Link>
             </article>
           </div>
         </div>
@@ -75,9 +75,9 @@ export function EditorialHome() {
           </div>
         </div>
       </section>
-      <div className={s.gallery}><StudentWork schoolContext /></div>
+      <div className={s.gallery}><StudentWork title="Работы моих учениц" hideDescription /></div>
       <div className={s.reviews}><ReviewsTeaser /></div>
-      <div className={s.how}><OnlineHowItWorks /></div>
+      <div className={s.how}><OnlineHowItWorks accordion /></div>
 
       <section className={`${s.section} ${s.expert}`}>
         <div className={`${s.wrap} ${s.split}`}>
