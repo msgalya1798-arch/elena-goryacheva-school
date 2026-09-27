@@ -1,4 +1,4 @@
-.dark { background: #16121b; color: #faf5ff; border-bottom: 1px solid #67523e; }
+.dark.dark { background: #16121b; color: #faf5ff; border-bottom: 1px solid #67523e; }
 .dark > div > a > span:first-child,
 .dark nav[aria-label="Основная навигация"] a { color: #faf5ff; }
 .dark > div > a > span:last-child { color: #c6b3d6; }
