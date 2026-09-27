@@ -1,0 +1,8 @@
+.dark { margin-top: 0; background: #121016; color: #f7f2fb; border-color: #46384f; }
+.dark p, .dark a { color: #f7f2fb; }
+.dark p:not(:first-child), .dark nav > p, .dark > div > div > div:not(:first-child), .dark > div:last-child { color: #c2b5cc; }
+.dark > div > div > div p { color: #c2b5cc; }
+.dark > div:last-child { border-color: #46384f; }
+.dark > div:last-child > div { color: #b9abc4; }
+.dark a:hover { color: #d4b4f3; }
+.dark a:focus-visible { outline-color: #d4b4f3; }
