@@ -84,8 +84,17 @@ export function EditorialHome() {
       <div className={s.how}><OnlineHowItWorks accordion /></div>
 
       <section className={`${s.section} ${s.expert}`}>
-        <div className={`${s.wrap} ${s.split}`}>
-          <div><p className={s.eyebrow}>03 / Лично от преподавателя</p><h2>«Я сама работаю<br />мастером.<br /><span>И сама учу».</span></h2></div>
+        <div className={`${s.wrap} ${s.expertGrid}`}>
+          <div className={s.expertHeading}><p className={s.eyebrow}>03 / Лично от преподавателя</p><h2>«Я сама работаю<br />мастером.<br /><span>И сама учу».</span></h2></div>
+          <div className={s.expertPortrait}>
+            <Image
+              src="/images/elena-teacher-cutout.png"
+              alt="Елена Горячева — преподаватель школы"
+              fill
+              sizes="(min-width: 900px) 480px, (min-width: 480px) 400px, 90vw"
+              className={s.expertPhoto}
+            />
+          </div>
           <div className={s.expertCopy}><p>Я — Елена Горячева. {siteConfig.experienceYears} лет в профессии и {siteConfig.teachingYears} лет в преподавании. Веду программы лично: от постановки задачи до разбора работы.</p><p>На странице обо мне — опыт и сведения о квалификации. Познакомьтесь с преподавателем до выбора курса.</p><Link href="/about#qualifications" className={`${s.button} ${s.lightButton}`}>Об Елене и квалификации ↗</Link></div>
         </div>
       </section>

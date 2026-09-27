@@ -162,3 +162,20 @@
 @keyframes violetFlow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
 
 @keyframes goldSheen { 0%, 65% { transform: translateX(-180%) skewX(-20deg); } 90%, 100% { transform: translateX(350%) skewX(-20deg); } }
+
+/* Transparent portrait stays separate from copy at every breakpoint. */
+.expert.section { padding-bottom: 0; }
+.expertGrid { display: grid; grid-template-columns: 1.15fr .85fr; grid-template-areas: "heading portrait" "copy portrait"; column-gap: 56px; row-gap: 28px; align-items: start; }
+.expertHeading { grid-area: heading; }
+.expertCopy { grid-area: copy; padding-bottom: 72px; }
+.expertPortrait { grid-area: portrait; align-self: end; position: relative; width: 100%; height: clamp(460px, 48vw, 620px); isolation: isolate; }
+.expertPortrait::before { content: ''; position: absolute; inset: 18% 0 5%; z-index: -1; background: radial-gradient(ellipse, #cab4dc80, transparent 70%); }
+.expertPhoto { object-fit: contain; object-position: center bottom; }
+@media (max-width: 899px) {
+  .expertGrid { grid-template-columns: 1fr; grid-template-areas: "heading" "portrait" "copy"; gap: 24px; }
+  .expertPortrait { height: 400px; max-width: 420px; justify-self: center; }
+  .expertCopy { padding-bottom: 56px; }
+}
+@media (max-width: 479px) {
+  .expertPortrait { height: 340px; }
+}
