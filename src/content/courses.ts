@@ -278,8 +278,8 @@ export const getCourseBySlug = (slug: string) => {
 };
 export const getCoursesByFormat = (format: Course["format"]) =>
   courses.filter((c) => c.format === format).map(currentCourse);
-// Цена меняется 15 октября 2026, 00:00 по Москве.
-export const MATERIAL_PRICE_CHANGE_AT = Date.parse("2026-10-15T00:00:00+03:00");
+// Цена меняется 1 ноября 2026, 00:00 по Москве.
+export const MATERIAL_PRICE_CHANGE_AT = Date.parse("2026-11-01T00:00:00+03:00");
 export function materialPriceAt(now = Date.now()): number {
   return now < MATERIAL_PRICE_CHANGE_AT ? 1900 : 3900;
 }

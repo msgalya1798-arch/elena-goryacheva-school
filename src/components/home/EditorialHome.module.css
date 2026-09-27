@@ -13,7 +13,7 @@
 .lead { font-size: 17px; line-height: 1.75; max-width: 520px; margin-top: 28px; }
 .hero .lead { color: #d1c9db; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
-.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 25px; border-radius: 999px; background: linear-gradient(110deg, #7132ba, #8c49cf, #5e229f, #7132ba); background-size: 250% 100%; color: #fff; font-family: var(--font-editorial), sans-serif; text-transform: uppercase; letter-spacing: .015em; font-weight: 600; font-size: 23px; line-height: 1.25; min-height: 60px; box-shadow: 0 8px 25px #7132ba40; transition: box-shadow .25s, transform .25s; }
+.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; border: 1px solid #c8a87480; background: linear-gradient(110deg, #65309e, #793eae, #53218b, #65309e); background-size: 250% 100%; color: #fff; font-family: var(--font-editorial), sans-serif; text-transform: uppercase; letter-spacing: .015em; font-weight: 600; font-size: 18px; line-height: 1.25; min-height: 48px; box-shadow: 0 8px 25px #7132ba40; transition: box-shadow .25s, transform .25s; }
 .button:hover { transform: translateY(-3px); box-shadow: 0 12px 32px #7132ba66; }
 .textLink { font-size: 14px; text-decoration: underline; text-underline-offset: 6px; }
 .portrait { position: relative; height: 610px; overflow: hidden; border-radius: 120px 8px 8px 8px; }
@@ -33,16 +33,27 @@
 .courses .eyebrow, .offline .eyebrow { color: #6b3fa0; }
 .courses h2 span { color: #6b3fa0; }
 .courseGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.course { padding: 32px; background: linear-gradient(125deg, #fcf9ff, #dcd0ed, #f4e9ff, #e9e0f3); background-size: 250% 250%; border: 2px solid #30213e; border-radius: 22px; display: flex; flex-direction: column; box-shadow: 0 14px 36px #30213e20; transition: transform .3s, box-shadow .3s; }
-.courseTop { display: flex; justify-content: space-between; gap: 18px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #6b3fa0; }
+.course { padding: 32px; background: radial-gradient(ellipse at 90% 100%, #573778 0%, #19161e 65%); background-size: 120% 120%; color: #faf7ff; border: 1px solid #806495; border-radius: 22px; display: flex; flex-direction: column; box-shadow: 0 14px 36px #30213e20; transition: transform .3s, box-shadow .3s; }
+.courseTop { display: flex; justify-content: space-between; gap: 18px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #dbbc8b; }
 .course h3 { font-family: var(--font-editorial), sans-serif; font-size: 42px; line-height: 1.15; margin: 25px 0 16px; font-weight: 500; }
-.course > p { color: #625b68; }
-.course ul { margin-top: 20px; padding-left: 18px; list-style: disc; font-size: 14px; color: #625b68; }
-.course li + li { margin-top: 8px; }
-.course :global(.material-offer) { border-radius: 8px; box-shadow: none; }
+.course > p { color: #ded3e7; }
+.courseDetails { margin-top: 24px; }
+.courseDetails details { border-top: 1px solid #695679; }
+.courseDetails details:last-child { border-bottom: 1px solid #695679; }
+.courseDetails summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; font-size: 15px; font-weight: 500; line-height: 1.5; cursor: pointer; list-style: none; }
+.courseDetails summary::-webkit-details-marker { display: none; }
+.courseDetails summary span { color: #e3c897; font-size: 23px; transition: transform .2s; flex-shrink: 0; }
+.courseDetails details[open] summary span { transform: rotate(45deg); }
+.courseDetails details > p { font-size: 14px; line-height: 1.7; color: #d8cce3; padding-bottom: 18px; }
+.course .supportHighlight { display: flex; align-items: center; gap: 14px; background: #301e42; border: 1px solid #be9f69; border-radius: 10px; margin: 20px 0 24px; padding: 18px; color: #fff1d7; }
+.supportHighlight > span { font-size: 26px; color: #dfbe83; }
+.supportHighlight strong { font-weight: 600; font-size: 17px; line-height: 1.5; }
+.course :global(.material-offer) { border-radius: 12px; box-shadow: none; background: #271a36; border: 1px solid #a98855; animation: none; }
+.course [data-offer-expiry] { background: #e6c995; color: #30203f; border-color: #e6c995; font-size: 13px; font-weight: 600; flex-wrap: wrap; }
+.course [data-offer-price] { color: #ffe2ac; }
 .course .duration { font-size: 13px; padding: 16px 0 24px; }
 .course > .button { margin-top: auto; }
-.formCourse { background-image: linear-gradient(125deg, #e1d4f1, #f8f2ff, #d4c0e9, #eee6f7); }
+.formCourse { background-position: 80% 50%; }
 .course:hover { transform: translateY(-4px); box-shadow: 0 20px 40px #30213e30; }
 .courseImage { position: relative; flex: 1; min-height: 240px; margin-top: 24px; overflow: hidden; border-radius: 6px; }
 .courseImage img { object-fit: cover; object-position: center; }
@@ -78,12 +89,13 @@
 .how summary > span:last-child { font-size: 30px; color: #d5b4fa; transition: transform .25s; }
 .how details[open] summary > span:last-child { transform: rotate(45deg); }
 .how details > p { color: #ded3e7; font-size: 17px; line-height: 1.75; padding: 0 50px 28px; max-width: 900px; }
-.expert { background: #30213e; }
-.expertCopy p { font-size: 18px; color: #e0d5e8; line-height: 1.8; margin-bottom: 24px; }
-.finder > section { background: linear-gradient(125deg, #291b36, #40294f); }
-.finder h2 { color: #faf5ff; }
-.finder h2 + p { color: #ded3e7; }
-.finder [tabindex="-1"] { background: #f5eefb; border: 1px solid #ac89cf; box-shadow: 0 14px 36px #10081840; }
+.expert { background: #ece6f0; color: #201c24; }
+.expert .eyebrow, .expert h2 span { color: #6b3fa0; }
+.expertCopy p { font-size: 18px; color: #55475e; line-height: 1.8; margin-bottom: 24px; }
+.finder > section { background: #fff; }
+.finder h2 { color: #201c24; }
+.finder h2 + p { color: #625b68; }
+.finder [tabindex="-1"] { background: #fff; border: 1px solid #b6a6c1; box-shadow: 0 8px 28px #30213e12; }
 .offline { padding: 45px 0; border-block: 1px solid #ded8e3; }
 .offlineInner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .offline h2 { font-size: 36px; }
@@ -122,7 +134,7 @@
   .eyebrow { font-size: 10px; letter-spacing: .1em; margin-bottom: 20px; }
   .hero .lead { font-size: 15px; margin-top: 20px; }
   .actions { gap: 20px; margin-top: 26px; }
-  .actions .button { width: 100%; }
+  .actions .button { width: auto; max-width: 100%; }
   .portrait { height: 360px; }
   .courseTop { font-size: 9px; }
   .course { padding: 20px; }
@@ -132,21 +144,14 @@
   .methodList > div { gap: 18px; }
   .how summary { gap: 16px; }
   .how details > p { padding: 0 0 24px 44px; }
-  .button { font-size: 21px; padding-inline: 24px; }
+  .button { font-size: 17px; padding: 12px 20px; }
 }
 
 /* Keep dialogs readable inside the large editorial heading system. */
 .home dialog h2 { font-family: var(--font-body), sans-serif; font-size: 22px; line-height: 1.3; text-transform: none; letter-spacing: normal; }
-/* Homepage header theme follows the rendered page, including client-side navigation. */
-:global(body):has(.home) :global([data-site-header]) { background: #21182bef; border-color: #574263; color: #faf5ff; }
-:global(body):has(.home) :global([data-site-header] > div > a > span:first-child),
-:global(body):has(.home) :global([data-site-header] nav[aria-label="Основная навигация"] a) { color: #faf5ff; }
-:global(body):has(.home) :global([data-site-header] > div > a > span:last-child) { color: #c6b3d6; }
-:global(body):has(.home) :global([data-site-header] nav[aria-label="Основная навигация"] a:hover) { color: #d7b1ff; }
-:global(body):has(.home) :global([data-site-header] button[aria-label="Открыть меню"] span) { background: #faf5ff; }
-:global(body):has(.home) :global([data-site-header] > div > div > a) { background: #803ec3; color: #fff; }
 @media (prefers-reduced-motion: no-preference) {
   .button:not(.lightButton):not(.outlineButton) { animation: violetFlow 8s ease-in-out infinite alternate; }
+  .button:not(.lightButton):not(.outlineButton)::after { content: ''; position: absolute; top: -10%; bottom: -10%; left: 0; width: 45%; pointer-events: none; background: linear-gradient(110deg, transparent, #f5d28d38, transparent); transform: translateX(-180%) skewX(-20deg); animation: goldSheen 9s ease-in-out infinite; }
   .course, .reviews article { animation: violetFlow 15s ease-in-out infinite alternate; }
   .formCourse { animation-delay: -6s; }
 }
@@ -154,3 +159,5 @@
   .button:hover, .course:hover { transform: none; }
 }
 @keyframes violetFlow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+
+@keyframes goldSheen { 0%, 65% { transform: translateX(-180%) skewX(-20deg); } 90%, 100% { transform: translateX(350%) skewX(-20deg); } }

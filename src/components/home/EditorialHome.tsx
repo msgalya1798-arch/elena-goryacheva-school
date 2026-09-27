@@ -50,9 +50,13 @@ export function EditorialHome() {
               <div className={s.courseTop}><span>01 / Материалы и носка</span><span>Онлайн</span></div>
               <h3>{materials.title}</h3>
               <p>{materials.mainResult}</p>
-              <ul><li>Свойства материалов и подбор системы</li><li>Причины отслоек и нестабильной носки</li><li>Обучение с поддержкой Елены</li></ul>
+              <div className={s.courseDetails}>
+                <details><summary>Свойства материалов и подбор системы<span aria-hidden>+</span></summary><p>{materials.whatYouGet[0]}. {materials.whatYouGet[1]}.</p></details>
+                <details><summary>Причины отслоек и нестабильной носки<span aria-hidden>+</span></summary><p>{materials.whatYouGet[2]}. {materials.whatYouGet[3]}.</p></details>
+                <details><summary>Обучение с поддержкой Елены<span aria-hidden>+</span></summary><p>Уроки и общение проходят в Telegram. Можно приносить свои реальные клиентские случаи и вопросы — Елена разбирает их вместе с участниками.</p></details>
+              </div>
               <MaterialOffer amount={materials.price.amount} />
-              <p className={s.duration}>{materials.durationLabel}</p>
+              <p className={s.supportHighlight}><span aria-hidden>✦</span><strong>{materials.durationLabel}</strong></p>
               <Link href={`/online/${materials.slug}`} className={s.button}>Посмотреть программу <span aria-hidden>↗</span></Link>
             </article>
             <article className={`${s.course} ${s.formCourse}`}>
