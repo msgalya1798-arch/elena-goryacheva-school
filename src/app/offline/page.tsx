@@ -1,3 +1,4 @@
+import { EditorialPage } from "@/components/editorial/EditorialPage";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExpertStrip } from "@/components/home/ExpertStrip";
@@ -23,8 +24,8 @@ export default function OfflineCatalogPage() {
   const ctaHref = primaryContactHref();
 
   return (
-    <>
-      <section className="pt-12 md:pt-16 pb-section-sm">
+    <EditorialPage>
+      <section data-editorial-hero className="pt-12 md:pt-16 pb-section-sm">
         <div className="container max-w-container">
           <Reveal>
             <Eyebrow className="mb-4">Офлайн-обучение</Eyebrow>
@@ -45,7 +46,7 @@ export default function OfflineCatalogPage() {
       </section>
 
       {groups.map((group) => (
-        <section key={group.id} id={group.id} className="pb-section-sm lg:pb-section-lg">
+        <section data-editorial-catalog-group key={group.id} id={group.id} className="pb-section-sm lg:pb-section-lg">
           <div className="container max-w-container">
             <h2 className="font-display text-2xl sm:text-3xl text-ink">{group.title}</h2>
             <p className="mt-3 mb-6 text-graphite max-w-3xl">{group.description}</p>
@@ -57,13 +58,13 @@ export default function OfflineCatalogPage() {
       ))}
       <ExpertStrip />
       <ReviewsTeaser />
-      <section className="py-section-sm bg-lavender/30">
+      <section data-editorial-tone="dark" data-editorial-final className="py-section-sm bg-lavender/30">
         <div className="container max-w-container">
           <h2 className="font-display text-2xl sm:text-3xl text-ink">Обсудим программу и даты</h2>
           <p className="mt-3 text-graphite max-w-2xl">Напишите Елене, какой у вас опыт, чему хотите научиться и когда можете приехать. Перед записью уточните расписание, адрес занятий и что понадобится для обучения.</p>
           {ctaHref && <Link href={ctaHref} className="mt-6 inline-flex justify-center rounded-full bg-violet px-6 py-3.5 text-white hover:bg-violet-deep">Подобрать очный курс в Telegram →</Link>}
         </div>
       </section>
-    </>
+    </EditorialPage>
   );
 }

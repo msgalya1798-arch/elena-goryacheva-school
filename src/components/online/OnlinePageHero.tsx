@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function OnlinePageHero() {
   return (
-    <section className="pt-8 sm:pt-14 md:pt-16 pb-8 sm:pb-section-sm">
+    <section data-editorial-hero className="pt-8 sm:pt-14 md:pt-16 pb-8 sm:pb-section-sm">
       <div className="container max-w-container">
         <div className="max-w-3xl">
           <div className="lg:col-span-7">

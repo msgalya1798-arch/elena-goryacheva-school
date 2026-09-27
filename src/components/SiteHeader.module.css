@@ -1,0 +1,7 @@
+.dark.dark { background: #16121b; color: #faf5ff; border-bottom: 1px solid #51445b; }
+.dark > div > a > span:first-child,
+.dark nav[aria-label="Основная навигация"] a { color: #faf5ff; }
+.dark > div > a > span:last-child { color: #c6b3d6; }
+.dark nav[aria-label="Основная навигация"] a:hover { color: #d4c9b8; }
+.dark button[aria-label="Открыть меню"] span { background: #faf5ff; }
+.dark > div > div > a { background: #7132ba; color: #fff; box-shadow: 0 0 0 1px #b8aa9255; }

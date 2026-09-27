@@ -1,0 +1,106 @@
+.page { --accent: #c6a5ee; --metal: linear-gradient(115deg, #776b5c, #d5cbbb 28%, #938471 50%, #e3dcd0 72%, #887a68); background: #f7f6f4; color: #201c24; }
+.page h1, .page h2 { font-family: var(--font-editorial), sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: -.025em; line-height: 1.13; text-wrap: balance; }
+.page h1 { font-size: clamp(40px, 5.5vw, 72px); font-weight: 600; }
+.page h2 { font-size: clamp(30px, 3.8vw, 48px); }
+.page h2:global(.text-xl), .page h2:global(.text-2xl) { font-size: clamp(25px, 2.7vw, 34px); }
+.page h3 { font-family: var(--font-body), sans-serif; font-weight: 600; line-height: 1.3; }
+.page > section { padding-block: 76px; }
+.page :global(.container) { width: min(1200px, calc(100% - 64px)); padding-inline: 0; }
+.page :global(.rounded-card) { border-radius: 18px; }
+.page :global(.text-graphite) { color: #625b68; }
+.page :global(.text-white\/70) { color: #e0d5eb; }
+.page a[class~="rounded-full"] { font-family: var(--font-editorial), sans-serif; font-weight: 500; font-size: 18px; text-transform: uppercase; letter-spacing: .015em; line-height: 1.3; padding: 12px 22px; min-height: 48px; border-radius: 999px; }
+.page a[class~="rounded-full"][class~="bg-violet"], .page a[class~="rounded-full"][class~="bg-white"] { position: relative; overflow: hidden; background: linear-gradient(110deg, #65309e, #793eae, #53218b, #65309e); background-size: 250% 100%; border: 1px solid #afa28b88; color: #fff; box-shadow: 0 6px 20px #7132ba28; }
+.page a[class~="rounded-full"]:hover { box-shadow: 0 9px 24px #7132ba30; }
+.page :focus-visible { outline: 3px solid #a776d5; outline-offset: 4px; }
+.page [data-editorial-hero] { background: radial-gradient(ellipse at 100% 100%, #402850, #19161e 65%); color: #faf7ff; padding-block: 68px; }
+.page [data-editorial-hero] h1, .page [data-editorial-hero] :global(.text-ink) { color: #faf7ff; }
+.page [data-editorial-hero] :global(.text-graphite) { color: #d1c9db; }
+.page [data-editorial-hero] :global(.text-violet) { color: #d1afeF; }
+.page [data-editorial-hero] a[class~="border"] { border-color: #8e719f; }
+.page [data-editorial-tone="dark"], .page [data-editorial-offer] { background: radial-gradient(ellipse at 90% 100%, #573778, #19161e 65%); color: #faf7ff; }
+.page [data-editorial-tone="dark"] :global(.text-ink) { color: #faf7ff; }
+.page [data-editorial-tone="dark"] :global(.text-graphite) { color: #d1c9db; }
+.page [data-editorial-tone="dark"] :global(.text-violet), .page [data-editorial-tone="dark"] :global(.text-violet-deep) { color: #d1afeF; }
+.page [data-editorial-tone="dark"] a[class~="border"] { border-color: #9376a5; color: #faf7ff; }
+.page [data-editorial-tone="dark"] a[class~="bg-white"], .page [data-editorial-tone="dark"] a[class~="bg-violet"] { color: #fff; }
+.page [data-editorial-tone="soft"] { background: #ece6f0; }
+.page [data-editorial-final] { padding-block: 76px; }
+.page [data-editorial-final] h2 { max-width: 850px; }
+.page [data-editorial-final] a { align-self: center; }
+.page [data-editorial-expert-strip] { padding-block: 32px; background: #ece6f0; }
+.page [data-editorial-expert-strip] > div > div { background: transparent; border-color: #c6b5d3; box-shadow: none; }
+.page [data-editorial-stats] { padding-block: 0; background: #ece6f0; }
+.page [data-editorial-stats] p:first-child { font-family: var(--font-editorial), sans-serif; font-size: 48px; }
+.page [data-editorial-catalog-group] { padding-block: 64px; }
+.page [data-editorial-catalog-group] + [data-editorial-catalog-group] { padding-top: 0; }
+.page [data-editorial-course-card], .page [data-editorial-tariff] { background: radial-gradient(ellipse at 90% 100%, #573778, #19161e 65%); border: 1px solid #806495; color: #faf7ff; border-radius: 20px; box-shadow: 0 12px 28px #30213e20; }
+.page [data-editorial-course-card] h3 { font-family: var(--font-editorial), sans-serif; font-size: 30px; font-weight: 500; }
+.page [data-editorial-course-card] :global(.text-ink), .page [data-editorial-tariff] :global(.text-ink) { color: #faf7ff; }
+.page [data-editorial-course-card] :global(.text-graphite), .page [data-editorial-tariff] :global(.text-graphite) { color: #d1c9db; }
+.page [data-editorial-course-card] :global(.text-violet), .page [data-editorial-tariff] :global(.text-violet-deep) { color: #dbc2f4; }
+.page [data-editorial-course-card] :global(.bg-lavender) { background: #493257; color: #ead9f9; }
+.page [data-editorial-course-card] :global(.border-t), .page [data-editorial-tariff] :global(.border-t) { border-color: #725985; }
+.page [data-editorial-tariff] a[class~="border"] { border-color: #ab8dc4; color: #fff; }
+.page [data-editorial-tariff] h2 { font-size: 32px; }
+.page [data-editorial-program] ul { counter-reset: program; max-width: 920px; }
+.page [data-editorial-program] li { counter-increment: program; border-bottom: 1px solid #b9a8c6; padding-block: 18px; gap: 20px; align-items: baseline; }
+.page [data-editorial-program] li > span:first-child { display: none; }
+.page [data-editorial-program] li::before { content: counter(program, decimal-leading-zero); font-family: var(--font-editorial), sans-serif; font-size: 27px; color: #6b3fa0; flex-shrink: 0; min-width: 30px; }
+.page [data-editorial-tone="dark"][data-editorial-program] li { border-color: #695679; }
+.page [data-editorial-tone="dark"][data-editorial-program] li::before { color: #d1afeF; }
+.page [data-editorial-review] { border-radius: 20px; border: 1px solid #6e4d91; background: linear-gradient(125deg, #281438, #50246f, #302047, #44205f); background-size: 250% 250%; box-shadow: 0 12px 30px #30213e20; }
+.page [data-editorial-review] > button { background: #eee8f4; border-color: #806595; }
+.page [data-editorial-review] > div h3, .page [data-editorial-review] > div p { color: #faf5ff; }
+.page [data-editorial-review] > div > p { color: #e1d3ed; }
+.page [data-editorial-review] > div > span { color: #ead7ff; background: #613586; }
+.page [data-editorial-review] > div > div > div { border-color: #806595; }
+.page [data-editorial-review] h3 { font-size: 22px; }
+.page [data-gallery-image] { border: 2px solid #4b286d; box-shadow: 0 4px 14px #4b286d26; }
+.page [data-editorial-credential] { border: 1px solid #baa7c8; box-shadow: 0 8px 24px #30213e0c; }
+.page [data-editorial-credential]:first-child { border-left: 4px solid #6b3fa0; }
+.page [data-editorial-learning] h2 { max-width: 760px; }
+.page [data-editorial-learning] details { border-top: 1px solid #584961; }
+.page [data-editorial-learning] details:last-child { border-bottom: 1px solid #584961; }
+.page [data-editorial-learning] summary { display: flex; align-items: center; gap: 24px; padding: 25px 0; cursor: pointer; list-style: none; }
+.page summary::-webkit-details-marker { display: none; }
+.page [data-editorial-learning] summary > span:first-child { font-family: var(--font-editorial), sans-serif; font-size: 30px; color: #c6a5ee; }
+.page [data-editorial-learning] h3 { font-size: clamp(20px, 2.8vw, 28px); flex: 1; }
+.page [data-editorial-learning] summary > span:last-child { font-size: 30px; color: #d5b4fa; transition: transform .25s; }
+.page [data-editorial-learning] details[open] summary > span:last-child { transform: rotate(45deg); }
+.page [data-editorial-learning] details > p { color: #ded3e7; font-size: 17px; line-height: 1.75; padding: 0 50px 28px; max-width: 900px; }
+.page summary :global(.font-display) { font-family: var(--font-body), sans-serif; font-weight: 600; }
+.page :global(.material-offer) { border-radius: 12px; box-shadow: none; background: linear-gradient(#271a36, #271a36) padding-box, var(--metal) border-box; border: 1px solid transparent; animation: none; }
+.page [data-offer-expiry] { background: linear-gradient(#271a36, #271a36) padding-box, var(--metal) border-box; color: #eee8df; border: 1px solid transparent; font-size: 13px; font-weight: 600; flex-wrap: wrap; }
+.page [data-offer-price] { color: #fff; }
+.page [data-editorial-offer] { border: 1px solid #a28baf; }
+.page [data-editorial-offer] > div > div > p:last-child { font-weight: 600; }
+.page dialog h2 { font-family: var(--font-body), sans-serif; font-size: 22px; text-transform: none; line-height: 1.3; letter-spacing: normal; }
+.page [data-editorial-legal] h2 { font-size: 32px; }
+.page [data-editorial-legal] section { border-color: #baa7c8; }
+@media (max-width: 899px) {
+  .page :global(.container) { width: calc(100% - 40px); }
+  .page > section, .page [data-editorial-catalog-group] { padding-block: 48px; }
+  .page [data-editorial-expert-strip] { padding-block: 24px; }
+  .page [data-editorial-stats] { padding-block: 0; }
+  .page [data-editorial-hero] { padding-block: 44px; }
+  .page [data-editorial-final] { padding-block: 56px; }
+  .page [data-editorial-stats] p:first-child { font-size: 38px; }
+  .page [data-editorial-stats] p:last-child { font-size: 12px; }
+  .page [data-editorial-learning] summary { gap: 16px; }
+  .page [data-editorial-learning] details > p { padding: 0 0 24px 44px; }
+}
+@media (max-width: 479px) {
+  .page a[class~="rounded-full"] { font-size: 17px; padding: 12px 20px; }
+  .page [data-editorial-stats] :global(.gap-8) { gap: 12px; }
+  .page [data-editorial-course-card] h3 { font-size: 28px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .page [data-editorial-review] { animation: violetFlow 15s ease-in-out infinite alternate; }
+  .page a[class~="rounded-full"][class~="bg-violet"]::after, .page a[class~="rounded-full"][class~="bg-white"]::after { content: ''; position: absolute; top: -10%; bottom: -10%; left: 0; width: 45%; pointer-events: none; background: linear-gradient(110deg, transparent 15%, #a6978040 40%, #f6f0e54d 50%, #a6978040 60%, transparent 85%); transform: translateX(-180%) skewX(-20deg); animation: goldSheen 9s ease-in-out infinite; }
+}
+@keyframes violetFlow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+@keyframes goldSheen { 0%, 65% { transform: translateX(-180%) skewX(-20deg); } 90%, 100% { transform: translateX(350%) skewX(-20deg); } }
+
+.page [data-editorial-approved-courses] h3 { font-family: var(--font-editorial), sans-serif; font-size: 42px; font-weight: 500; line-height: 1.15; }
+@media (max-width: 899px) { .page [data-editorial-approved-courses] h3 { font-size: 36px; } }

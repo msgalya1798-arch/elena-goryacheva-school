@@ -9,7 +9,7 @@ const stats = [
 
 export function ProofStats() {
   return (
-    <section className="border-y border-border bg-white">
+    <section data-editorial-stats className="border-y border-border bg-white">
       <div className="container max-w-container py-10">
         <div className="grid grid-cols-3 gap-8">
           {stats.map((stat) => (

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./SiteFooter.module.css";
 import { primaryContactHref } from "@/lib/contact";
 import { contactChannels, footerLegalLinks, primaryNav, sellerDetails, siteConfig } from "@/content/site";
 
@@ -6,7 +7,7 @@ export function SiteFooter() {
   const contactHref = primaryContactHref();
   const phone = contactChannels.find((channel) => channel.type === "phone")?.value;
   return (
-    <footer className="border-t border-border bg-white mt-section-lg">
+    <footer className={`border-t ${styles.dark}`}>
       <div className="container max-w-container py-16 grid gap-12 md:grid-cols-3">
         <div>
           <p className="font-display text-lg text-ink">{siteConfig.logoText}</p>

@@ -13,7 +13,7 @@ export function HorizontalGallery({ items }: { items: GalleryItem[] }) {
       {items.map((item, i) => (
         <div key={i} className="snap-start shrink-0 w-[78%] sm:w-[55%] lg:w-[30%]">
           {item.src ? (
-            <div className="relative w-full overflow-hidden rounded-card aspect-[4/5]">
+            <div data-gallery-image className="relative w-full overflow-hidden rounded-card aspect-[4/5]">
               <Image
                 src={item.src}
                 alt={item.alt}

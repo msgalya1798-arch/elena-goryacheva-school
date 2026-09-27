@@ -1,3 +1,4 @@
+import { EditorialPage } from "@/components/editorial/EditorialPage";
 import type { Metadata } from "next";
 import { sellerDetails } from "@/content/site";
 
@@ -29,16 +30,21 @@ const registrationDetails = [
 
 export default function SellerDetailsPage() {
   return (
-    <main className="py-12 md:py-16">
-      <div className="container max-w-container">
-        <div className="max-w-3xl">
+    <EditorialPage>
+      <section data-editorial-hero>
+        <div className="container max-w-container">
           <p className="text-sm uppercase tracking-wide text-violet">Юридическая информация</p>
           <h1 className="font-display text-4xl lg:text-5xl text-ink mt-3">Реквизиты ИП</h1>
           <p className="text-graphite mt-4">
             Данные продавца и исполнителя образовательных услуг на сайте.
           </p>
 
-          <section className="mt-10 rounded-card border border-border bg-white overflow-hidden">
+        </div>
+      </section>
+      <section data-editorial-legal>
+        <div className="container max-w-container">
+          <div className="max-w-3xl">
+          <section className="rounded-card border border-border bg-white overflow-hidden">
             {mainDetails.map(([label, value]) => (
               <div key={label} className="grid sm:grid-cols-[220px_1fr] gap-2 sm:gap-6 px-5 sm:px-6 py-4 border-b border-border last:border-b-0">
                 <div className="text-sm text-graphite">{label}</div>
@@ -62,8 +68,9 @@ export default function SellerDetailsPage() {
           <p className="mt-8 text-xs text-graphite">
             Адрес регистрации ИП не является адресом проведения очного обучения. Адрес учебного пространства сообщается отдельно при записи.
           </p>
+          </div>
         </div>
-      </div>
-    </main>
+      </section>
+    </EditorialPage>
   );
 }

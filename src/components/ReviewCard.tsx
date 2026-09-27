@@ -8,7 +8,7 @@ import type { Testimonial } from "@/types/content";
 export function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
   const [open, setOpen] = useState(false);
   return (
-    <article className="h-full overflow-hidden rounded-card border border-border bg-white shadow-sm transition-all duration-reveal hover:-translate-y-0.5 hover:shadow-lg">
+    <article data-editorial-review className="h-full overflow-hidden rounded-card border border-border bg-white shadow-sm transition-all duration-reveal hover:-translate-y-0.5 hover:shadow-lg">
       <button type="button" aria-haspopup="dialog" aria-label={`Увеличить отзыв: ${testimonial.result}`} onClick={() => setOpen(true)} className="relative block h-[340px] sm:h-[380px] w-full bg-lavender/20 border-b border-border">
         <Image
           src={testimonial.screenshot}

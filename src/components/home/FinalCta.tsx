@@ -5,7 +5,7 @@ export function FinalCta() {
   const ctaHref = primaryContactHref() ?? "/offline";
 
   return (
-    <section className="py-section-sm lg:py-section-lg bg-violet-deep">
+    <section data-editorial-tone="dark" data-editorial-final className="py-section-sm lg:py-section-lg bg-violet-deep">
       <div className="container max-w-container text-center">
         <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
           Готовы начать понимать логику работы?

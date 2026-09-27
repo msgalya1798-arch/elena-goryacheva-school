@@ -46,6 +46,7 @@ export function QualificationProof() {
           <div className="lg:col-span-8 grid gap-4 sm:grid-cols-2">
             {credentials.map((credential, index) => (
               <article
+                data-editorial-credential
                 key={credential.title}
                 className={`rounded-card border border-border bg-white p-5 sm:p-6 shadow-sm ${
                   index === 0 ? "sm:col-span-2" : ""

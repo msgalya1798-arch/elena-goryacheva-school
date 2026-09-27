@@ -1,3 +1,4 @@
+import { EditorialPage } from "@/components/editorial/EditorialPage";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
@@ -37,8 +38,8 @@ const principles = [
 
 export default function AboutPage() {
   return (
-    <>
-      <section className="pt-12 md:pt-16 pb-section-sm">
+    <EditorialPage>
+      <section data-editorial-hero className="pt-12 md:pt-16 pb-section-sm">
         <div className="container max-w-container">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 lg:col-start-7 lg:row-start-1">
@@ -78,7 +79,7 @@ export default function AboutPage() {
 
       <QualificationProof />
 
-      <section className="py-section-sm lg:py-section-lg bg-white">
+      <section data-editorial-tone="dark" className="py-section-sm lg:py-section-lg bg-white">
         <div className="container max-w-container">
           <h2 className="font-display text-3xl lg:text-4xl text-ink mb-10">Методика</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -93,6 +94,6 @@ export default function AboutPage() {
       </section>
 
       <FinalCta />
-    </>
+    </EditorialPage>
   );
 }

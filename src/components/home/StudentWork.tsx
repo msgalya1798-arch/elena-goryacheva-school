@@ -18,16 +18,16 @@ const works: GalleryItem[] = [
   { src: "/images/student-work/work-04.jpg", alt: "Маникюр: малиновый металлик с неоновым жёлтым контуром на стилетах" },
 ];
 
-export function StudentWork({ schoolContext = false }: { schoolContext?: boolean }) {
+export function StudentWork({ schoolContext = false, title = "Работы моих учеников", hideDescription = false }: { schoolContext?: boolean; title?: string; hideDescription?: boolean }) {
   return (
     <section className="py-10 sm:py-section-sm lg:py-section-lg bg-white">
-      <div className="container max-w-container">
+      <div className={`container max-w-container ${hideDescription ? "mb-6 sm:mb-10" : ""}`}>
         <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink mb-2">
-          Работы моих учеников
+          {title}
         </h2>
-        <p className="text-graphite max-w-xl mb-6 sm:mb-10">
+        {!hideDescription && <p className="text-graphite max-w-xl mb-6 sm:mb-10">
           {schoolContext ? "Работы учеников с разных курсов школы. Галерея знакомит с обучением у Елены и не относится только к этой программе." : "Реальные работы, выполненные на курсах."}
-        </p>
+        </p>}
       </div>
       <HorizontalGallery items={works} />
     </section>
