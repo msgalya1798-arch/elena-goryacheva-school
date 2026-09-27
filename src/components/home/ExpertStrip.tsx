@@ -4,7 +4,7 @@ import { siteConfig } from "@/content/site";
 
 export function ExpertStrip() {
   return (
-    <section className="py-8 sm:py-10">
+    <section data-editorial-expert-strip className="py-8 sm:py-10">
       <div className="container max-w-container">
         <div className="flex items-center gap-4 rounded-card border border-border bg-white p-4 sm:p-5">
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-full overflow-hidden">

@@ -1,3 +1,4 @@
+import { EditorialPage } from "@/components/editorial/EditorialPage";
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Reveal } from "@/components/Reveal";
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function ReviewsPage() {
   return (
-    <>
-      <section className="pt-12 md:pt-16 pb-section-sm">
+    <EditorialPage>
+      <section data-editorial-hero className="pt-12 md:pt-16 pb-section-sm">
         <div className="container max-w-container">
           <Reveal>
             <Eyebrow className="mb-4">Отзывы</Eyebrow>
@@ -49,6 +50,6 @@ export default function ReviewsPage() {
       </section>
 
       <FinalCta />
-    </>
+    </EditorialPage>
   );
 }

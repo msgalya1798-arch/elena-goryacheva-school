@@ -1,15 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import styles from "./SiteHeader.module.css";
 import { MobileMenu } from "@/components/MobileMenu";
 import { primaryNav, siteConfig } from "@/content/site";
 
 export function SiteHeader() {
-  const isHome = usePathname() === "/";
   return (
-    <header data-site-header className={`border-b border-border bg-paper/95 backdrop-blur sticky top-0 z-40 ${isHome ? styles.dark : ""}`}>
+    <header data-site-header className={`border-b border-border bg-paper/95 backdrop-blur sticky top-0 z-40 ${styles.dark}`}>
       <div className="container max-w-container flex items-center justify-between h-20">
         <Link href="/" className="flex flex-col leading-tight group">
           <span className="font-display text-base sm:text-xl text-ink group-hover:text-violet transition-colors duration-reveal">

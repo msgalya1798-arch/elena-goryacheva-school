@@ -5,6 +5,7 @@ import { formatPrice } from "@/lib/formatPrice";
 export function CourseCard({ course }: { course: Course }) {
   return (
     <Link
+      data-editorial-course-card
       href={`/${course.format}/${course.slug}`}
       className="group flex flex-col rounded-card border border-border bg-white p-6 shadow-sm transition-all duration-reveal hover:-translate-y-1 hover:border-violet hover:shadow-xl"
     >

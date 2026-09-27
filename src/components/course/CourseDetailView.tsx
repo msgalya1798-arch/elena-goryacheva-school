@@ -1,3 +1,4 @@
+import { EditorialPage } from "@/components/editorial/EditorialPage";
 import Link from "next/link";
 import type { Course } from "@/types/content";
 import { Eyebrow } from "@/components/Eyebrow";
@@ -23,8 +24,8 @@ export function CourseDetailView({ course }: { course: Course }) {
   const ctaHref = primaryContactHref();
 
   return (
-    <>
-      <section className="pt-10 md:pt-16 pb-section-sm">
+    <EditorialPage>
+      <section data-editorial-hero className="pt-10 md:pt-16 pb-section-sm">
         <div className="container max-w-container">
           <Link
             href={catalogHref[course.format]}
@@ -63,7 +64,7 @@ export function CourseDetailView({ course }: { course: Course }) {
                 <p className="text-graphite mt-3">{course.audience}</p>
               </div>
 
-              <div id="program" className="mt-10">
+              <div data-editorial-program id="program" className="mt-10">
                 <h2 className="font-display text-2xl text-ink">Что входит в программу</h2>
                 <ul className="mt-4 space-y-3">
                   {course.whatYouGet.map((item) => (
@@ -96,7 +97,7 @@ export function CourseDetailView({ course }: { course: Course }) {
             </div>
 
             <div id="enrollment" className="lg:col-span-4 lg:col-start-9">
-              <div className="lg:sticky lg:top-28 rounded-card border border-border bg-white p-6 shadow-lg shadow-ink/5">
+              <div data-editorial-tariff className="lg:sticky lg:top-28 rounded-card border border-border bg-white p-6 shadow-lg shadow-ink/5">
                 <h2 className="font-display text-2xl text-ink mb-5">Стоимость и запись</h2>
                 <div className="flex items-center justify-between gap-4 text-sm">
                   <span className="text-graphite">Длительность</span>
@@ -131,7 +132,7 @@ export function CourseDetailView({ course }: { course: Course }) {
         </div>
       </section>
       <ReviewsTeaser />
-      <section className="py-section-sm bg-lavender/30">
+      <section data-editorial-tone="dark" data-editorial-final className="py-section-sm bg-lavender/30">
         <div className="container max-w-container">
           <h2 className="font-display text-2xl sm:text-3xl text-ink">Подходит ли вам «{course.title}»?</h2>
           <p className="mt-3 max-w-2xl text-graphite">Обсудите с Еленой вашу подготовку и задачи. Перед записью уточните, что нужно взять с собой и какие материалы понадобятся.</p>
@@ -141,6 +142,6 @@ export function CourseDetailView({ course }: { course: Course }) {
           </div>
         </div>
       </section>
-    </>
+    </EditorialPage>
   );
 }

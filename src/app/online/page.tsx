@@ -1,8 +1,9 @@
+import { EditorialPage } from "@/components/editorial/EditorialPage";
 export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import { OnlinePageHero } from "@/components/online/OnlinePageHero";
-import { OnlineSalesBlock } from "@/components/home/OnlineSalesBlock";
+import { EditorialCourses } from "@/components/editorial/EditorialCourses";
 import { CourseComparison } from "@/components/online/CourseComparison";
 import { OnlineHowItWorks } from "@/components/online/OnlineHowItWorks";
 import { StudentWork } from "@/components/home/StudentWork";
@@ -19,16 +20,16 @@ export const metadata: Metadata = {
 
 export default function OnlinePage() {
   return (
-    <>
+    <EditorialPage>
       <OnlinePageHero />
-      <OnlineSalesBlock />
+      <EditorialCourses />
       <CourseComparison />
-      <OnlineHowItWorks />
-      <StudentWork />
+      <OnlineHowItWorks accordion />
+      <StudentWork title="Работы моих учениц" hideDescription />
       <ReviewsTeaser />
       <TrustBlock />
-      <FaqSection audience="online" />
       <FinalCta />
-    </>
+      <FaqSection audience="online" />
+    </EditorialPage>
   );
 }

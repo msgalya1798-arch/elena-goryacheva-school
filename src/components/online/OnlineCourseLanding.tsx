@@ -1,3 +1,4 @@
+import { EditorialPage } from "@/components/editorial/EditorialPage";
 import { MaterialOffer } from "@/components/MaterialOffer";
 import Link from "next/link";
 import type { Course } from "@/types/content";
@@ -18,9 +19,9 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
   const hasConfirmedPrice = course.price.status === "confirmed" && course.price.amount !== null;
 
   return (
-    <>
+    <EditorialPage>
       {/* Hero */}
-      <section className="pt-10 md:pt-16 pb-8 sm:pb-section-sm">
+      <section data-editorial-hero className="pt-10 md:pt-16 pb-8 sm:pb-section-sm">
         <div className="container max-w-container">
           <Link href="/online" className="text-sm text-graphite hover:text-violet transition-colors duration-reveal">
             ← Все онлайн-курсы
@@ -93,16 +94,13 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                 ))}
               </div>
 
-              <div className="mt-9 rounded-card bg-violet-deep p-5 sm:p-7 text-white">
+              <div data-editorial-offer className="mt-9 rounded-card bg-violet-deep p-5 sm:p-7 text-white">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
                   <div>
                     <p className="text-sm uppercase tracking-wide text-white/70">Формат обучения</p>
                     <p className="mt-2 text-lg sm:text-xl">{course.durationLabel}</p>
                   </div>
-                  <div className="sm:text-right">
-                    <p className="font-display text-3xl sm:text-4xl">{formatPrice(course.price)}</p>
-                    <p className="mt-1 text-sm text-white/70">один формат — с сопровождением</p>
-                  </div>
+                  {course.slug !== "material-logic-online" && <p className="font-display text-3xl sm:text-4xl">{formatPrice(course.price)}</p>}
                 </div>
                 {course.slug === "material-logic-online" && <MaterialOffer amount={course.price.amount} />}
                 {ctaHref && (
@@ -166,7 +164,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
       )}
 
       {/* Что внутри курса */}
-      <section id="program" className="py-10 sm:py-section-sm bg-white">
+      <section data-editorial-tone="dark" data-editorial-program id="program" className="py-10 sm:py-section-sm bg-white">
         <div className="container max-w-container">
           <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">Программа курса</h2>
           <ul className="space-y-3 max-w-2xl">
@@ -182,7 +180,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
 
       {/* Поддержка */}
       {landing && landing.support.length > 0 && (
-        <section className="py-10 sm:py-section-sm bg-white">
+        <section data-editorial-tone="soft" className="py-10 sm:py-section-sm bg-white">
           <div className="container max-w-container">
             <div className="grid lg:grid-cols-12 gap-6">
               <p className="lg:col-span-3 text-sm text-graphite uppercase tracking-wide">{course.tariffs ? "В тарифе с поддержкой" : "Как проходит обучение"}</p>
@@ -211,7 +209,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
       </section>
 
       <ExpertStrip />
-      <StudentWork schoolContext />
+      <StudentWork schoolContext title="Работы моих учениц" />
       <ReviewsTeaser />
 
       {/* Тарифы */}
@@ -226,6 +224,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             <div className="grid sm:grid-cols-2 gap-6">
               {course.tariffs.map((tariff, i) => (
                 <div
+                  data-editorial-tariff
                   key={tariff.name}
                   className={`flex flex-col rounded-card border p-6 sm:p-8 ${
                     i === 0 ? "border-border bg-white shadow-sm" : "border-violet/50 bg-white shadow-lg shadow-violet/15"
@@ -271,7 +270,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
       )}
 
       {/* Финальный CTA — выбор следующего шага */}
-      <section className="py-section-sm lg:py-section-lg bg-violet-deep">
+      <section data-editorial-tone="dark" data-editorial-final className="py-section-sm lg:py-section-lg bg-violet-deep">
         <div className="container max-w-container text-center">
           <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
             Готовы начать — «{course.title}»
@@ -294,6 +293,6 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
           </div>
         </div>
       </section>
-    </>
+    </EditorialPage>
   );
 }
