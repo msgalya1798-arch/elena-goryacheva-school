@@ -17,11 +17,12 @@ export function EditorialHome() {
       <section className={s.hero}>
         <div className={`${s.wrap} ${s.heroGrid}`}>
           <div className={s.heroCopy}>
-            <p className={s.eyebrow}>Школа Елены Горячевой · онлайн по всей России</p>
+            <p className={s.eyebrow}>Школа Елены Горячевой · онлайн по России · очно в Каменске-Шахтинском</p>
             <h1>Маникюр.<br />Понимать.<br /><span>А не повторять.</span></h1>
-            <p className={s.lead}>Онлайн-курсы по материалам и формам ногтей. Разберитесь в причинах отслоек, подборе системы и архитектуре — вместе с практикующим мастером.</p>
+            <p className={s.lead}>Онлайн — курсы по материалам и формам ногтей. Очно — обучение с нуля и повышение квалификации с практикой на моделях. В основе — понимание причин, материала и архитектуры, а не повторение движений.</p>
             <div className={s.actions}>
-              <Link href="#courses" className={s.button}>Выбрать онлайн-курс <span aria-hidden>↗</span></Link>
+              <Link href="#courses" className={s.button}>Онлайн-курсы <span aria-hidden>↗</span></Link>
+              <Link href="/offline" className={`${s.button} ${s.heroSecondary}`}>Очные курсы <span aria-hidden>↗</span></Link>
               <Link href="#finder" className={s.textLink}>Помочь с выбором →</Link>
             </div>
           </div>
