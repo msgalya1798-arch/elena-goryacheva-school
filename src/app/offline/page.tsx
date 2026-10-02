@@ -1,5 +1,5 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { ExpertStrip } from "@/components/home/ExpertStrip";
 import { ReviewsTeaser } from "@/components/home/ReviewsTeaser";
@@ -10,10 +10,11 @@ import { Reveal } from "@/components/Reveal";
 import { getCoursesByFormat } from "@/content/courses";
 import { siteConfig } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Офлайн-обучение",
   description: `Очные программы маникюра в ${siteConfig.cityPrepositional}: от старта с нуля до сложных исходников и верхних форм.`,
-};
+  path: "/offline",
+});
 
 export default function OfflineCatalogPage() {
   const offlineCourses = getCoursesByFormat("offline");
