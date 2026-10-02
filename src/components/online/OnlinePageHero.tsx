@@ -8,15 +8,14 @@ export function OnlinePageHero() {
       <div className="container max-w-container">
         <div className="max-w-3xl">
           <div className="lg:col-span-7">
-            <Reveal>
-              <Eyebrow className="mb-3">Онлайн-курсы · доступ из любого города</Eyebrow>
+              <Eyebrow className="mb-3">Онлайн-курсы · материалы и формы</Eyebrow>
               <h1 className="font-display text-[30px] sm:text-4xl lg:text-5xl leading-[1.15] text-ink">
                 Онлайн-курсы по материалам и формам ногтей
               </h1>
               <p className="mt-4 text-lg text-graphite max-w-xl">
                 «Логика материалов» — выбор системы и причины нестабильной носки.
                 «Логика форм» — архитектура, моделирование и коррекция.
-                Учитесь в своём темпе; обратная связь зависит от программы и тарифа.
+                Формат и поддержка зависят от программы; актуальные условия указаны на странице каждого курса.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Link
@@ -32,7 +31,6 @@ export function OnlinePageHero() {
                   Помочь с выбором
                 </Link>
               </div>
-            </Reveal>
           </div>
 
         </div>
