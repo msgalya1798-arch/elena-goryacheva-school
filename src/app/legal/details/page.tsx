@@ -1,11 +1,12 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sellerDetails } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Реквизиты ИП",
   description: "Реквизиты индивидуального предпринимателя Горячевой Елены Сергеевны.",
-};
+  path: "/legal/details",
+});
 
 const mainDetails = [
   ["Наименование", sellerDetails.fullName],

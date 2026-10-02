@@ -1,15 +1,16 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { Eyebrow } from "@/components/Eyebrow";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Reveal } from "@/components/Reveal";
 import { FinalCta } from "@/components/home/FinalCta";
 import { faqCategories } from "@/content/faq";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Вопросы",
   description: "Частые вопросы об обучении маникюру: формат, стоимость, запись и сертификат.",
-};
+  path: "/faq",
+});
 
 export default function FaqPage() {
   return (

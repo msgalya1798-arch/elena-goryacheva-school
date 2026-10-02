@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 
 /**
  * Раздел 6.5 ТЗ: opacity + translateY 8–12px, 220–360ms, без каскадов дольше 500ms.
+ * Основной контент остаётся видимым без JS; движение — только progressive enhancement.
  * useReducedMotion гарантирует отключение при prefers-reduced-motion.
  */
 export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
@@ -14,8 +15,8 @@ export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: n
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 10 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.32, delay, ease: "easeOut" }}
     >

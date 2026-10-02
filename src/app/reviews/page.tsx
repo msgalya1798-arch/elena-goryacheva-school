@@ -1,15 +1,16 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Reveal } from "@/components/Reveal";
 import { ReviewCard } from "@/components/ReviewCard";
 import { FinalCta } from "@/components/home/FinalCta";
 import { testimonials } from "@/content/home";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Отзывы",
   description: "Отзывы учениц об обучении маникюру у Елены Горячевой.",
-};
+  path: "/reviews",
+});
 
 export default function ReviewsPage() {
   return (
@@ -28,8 +29,9 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <section className="pb-section-lg">
+      <section className="pb-section-lg" aria-labelledby="reviews-list-title">
         <div className="container max-w-container">
+          <h2 id="reviews-list-title" className="sr-only">Отзывы учениц</h2>
           <div className="grid items-stretch sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.slice(0, 6).map((t) => (
               <ReviewCard key={t.id} testimonial={t} />
