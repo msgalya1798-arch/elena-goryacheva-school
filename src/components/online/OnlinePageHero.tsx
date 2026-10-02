@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
-import { Reveal } from "@/components/Reveal";
 
 export function OnlinePageHero() {
   return (
