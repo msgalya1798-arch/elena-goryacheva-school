@@ -1,6 +1,6 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
 import Link from "next/link";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { Eyebrow } from "@/components/Eyebrow";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
@@ -9,10 +9,11 @@ import { ProofStats } from "@/components/home/ProofStats";
 import { FinalCta } from "@/components/home/FinalCta";
 import { siteConfig } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Об Елене",
   description: `Я, ${siteConfig.expertName}, — мастер и преподаватель маникюра в ${siteConfig.cityPrepositional}. ${siteConfig.experienceYears} лет в профессии, ${siteConfig.teachingYears} лет преподавания.`,
-};
+  path: "/about",
+});
 
 const principles = [
   {
