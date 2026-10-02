@@ -1,7 +1,7 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
 export const dynamic = "force-dynamic";
 
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { OnlinePageHero } from "@/components/online/OnlinePageHero";
 import { EditorialCourses } from "@/components/editorial/EditorialCourses";
 import { CourseComparison } from "@/components/online/CourseComparison";
@@ -12,11 +12,11 @@ import { TrustBlock } from "@/components/online/TrustBlock";
 import { FaqSection } from "@/components/home/FaqSection";
 import { FinalCta } from "@/components/home/FinalCta";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Онлайн-курсы",
-  description:
-    "Онлайн-курсы по маникюру: сравните задачи, программы и условия «Логики материалов» и «Логики форм». Запись через Telegram.",
-};
+  description: "Онлайн-курсы по маникюру: сравните задачи, программы и условия «Логики материалов» и «Логики форм». Запись через Telegram.",
+  path: "/online",
+});
 
 export default function OnlinePage() {
   return (
