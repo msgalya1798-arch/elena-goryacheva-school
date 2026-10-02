@@ -3,7 +3,6 @@ import { MaterialOffer } from "@/components/MaterialOffer";
 import Link from "next/link";
 import type { Course } from "@/types/content";
 import { Eyebrow } from "@/components/Eyebrow";
-import { Reveal } from "@/components/Reveal";
 import { StudentWork } from "@/components/home/StudentWork";
 import { ExpertStrip } from "@/components/home/ExpertStrip";
 import { ReviewsTeaser } from "@/components/home/ReviewsTeaser";
@@ -27,7 +26,6 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             ← Все онлайн-курсы
           </Link>
 
-          <Reveal>
             <Eyebrow className="mt-6 mb-4">Онлайн · {course.level}</Eyebrow>
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-3xl">{course.title}</h1>
             <p className="mt-5 text-lg text-graphite max-w-2xl">{landing?.heroResult ?? course.mainResult}</p>
@@ -71,7 +69,6 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
                 </Link>
               )}
             </div>
-          </Reveal>
         </div>
       </section>
 
