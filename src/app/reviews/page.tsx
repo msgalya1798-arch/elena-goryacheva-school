@@ -1,15 +1,16 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Reveal } from "@/components/Reveal";
 import { ReviewCard } from "@/components/ReviewCard";
 import { FinalCta } from "@/components/home/FinalCta";
 import { testimonials } from "@/content/home";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Отзывы",
   description: "Отзывы учениц об обучении маникюру у Елены Горячевой.",
-};
+  path: "/reviews",
+});
 
 export default function ReviewsPage() {
   return (
