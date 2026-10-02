@@ -17,7 +17,7 @@ export function HorizontalGallery({ items }: { items: GalleryItem[] }) {
     if (!scroller) return;
     scroller.scrollBy({
       left: direction * Math.max(280, scroller.clientWidth * 0.82),
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
     });
   };
 
