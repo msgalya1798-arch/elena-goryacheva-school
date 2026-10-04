@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
+import { EditorialHome } from "@/components/home/EditorialHome";
+
 export const dynamic = "force-dynamic";
 
-import { EditorialHome } from "@/components/home/EditorialHome";
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return <EditorialHome />;

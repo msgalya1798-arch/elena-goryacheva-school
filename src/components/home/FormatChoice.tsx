@@ -36,12 +36,12 @@ export function FormatChoice() {
               </div>
               <h3 className="font-display text-2xl sm:text-3xl text-ink mt-3">Онлайн-курсы</h3>
               <p className="text-graphite mt-3 max-w-xl text-sm sm:text-base">
-                Разбирайтесь в материалах и формах в своём темпе: уроки, задания, разборы и поддержка — в зависимости от программы и тарифа.
+                Разбирайтесь в материалах и формах: уроки, задания, разборы и поддержка — в зависимости от программы.
               </p>
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-graphite">
                 <span>Из любого города</span>
                 <span>Можно пересматривать</span>
-                <span>Поддержка по тарифу</span>
+                <span>Поддержка по программе</span>
               </div>
               <span className="inline-flex items-center gap-2 text-violet font-medium mt-6 group-hover:gap-3 transition-all duration-reveal">
                 Смотреть онлайн-курсы →

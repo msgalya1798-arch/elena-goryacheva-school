@@ -20,7 +20,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
           <details key={item.question} className="group py-5">
             <summary className="flex items-center justify-between cursor-pointer text-ink list-none">
               <span className="font-display text-lg pr-4">{item.question}</span>
-              <span className="text-violet text-xl shrink-0 group-open:rotate-45 transition-transform duration-reveal">
+              <span aria-hidden="true" className="text-violet text-xl shrink-0 group-open:rotate-45 transition-transform duration-reveal">
                 +
               </span>
             </summary>

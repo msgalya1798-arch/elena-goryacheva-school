@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { buildPageMetadata } from "@/lib/metadata";
 import { CourseDetailView } from "@/components/course/CourseDetailView";
 import { getCourseBySlug, getCoursesByFormat } from "@/content/courses";
 
@@ -14,7 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const course = getCourseBySlug(slug);
   if (!course || course.format !== "offline") return {};
 
-  return { title: course.title, description: course.mainResult };
+  return buildPageMetadata({
+    title: `${course.title} — очный курс`,
+    description: course.mainResult,
+    path: `/offline/${course.slug}`,
+  });
 }
 
 export default async function OfflineCoursePage({ params }: { params: Promise<Params> }) {

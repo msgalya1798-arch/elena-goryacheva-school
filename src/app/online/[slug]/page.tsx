@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { buildPageMetadata } from "@/lib/metadata";
 import { CourseDetailView } from "@/components/course/CourseDetailView";
 import { OnlineCourseLanding } from "@/components/online/OnlineCourseLanding";
 import { getCourseBySlug, getCoursesByFormat } from "@/content/courses";
@@ -17,7 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const course = getCourseBySlug(slug);
   if (!course || course.format !== "online") return {};
 
-  return { title: course.title, description: course.mainResult };
+  return buildPageMetadata({
+    title: `${course.title} — онлайн-курс`,
+    description: course.mainResult,
+    path: `/online/${course.slug}`,
+  });
 }
 
 export default async function OnlineCoursePage({ params }: { params: Promise<Params> }) {

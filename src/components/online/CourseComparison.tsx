@@ -51,36 +51,39 @@ export function CourseComparison() {
           ))}
         </div>
         </details>
-        <div className="hidden md:block">
-          <div className="grid grid-cols-[minmax(140px,1fr)_1.2fr_1.2fr] gap-px bg-border rounded-card overflow-hidden border border-border">
-            <div className="bg-paper p-4" />
-            <div className="bg-paper p-4">
-              <p className="font-display text-lg text-ink">{materials.title}</p>
-            </div>
-            <div className="bg-paper p-4">
-              <p className="font-display text-lg text-ink">{forms.title}</p>
-            </div>
-
-            {rows.map((row) => (
-              <div key={row.label} className="contents">
-                <div className="bg-white p-4 text-sm text-graphite">{row.label}</div>
-                <div className="bg-white p-4 text-sm text-ink">{row.materials}</div>
-                <div className="bg-white p-4 text-sm text-ink">{row.forms}</div>
-              </div>
-            ))}
-
-            <div className="bg-white p-4" />
-            <div className="bg-white p-4">
-              <Link href={`/${materials.format}/${materials.slug}`} className="text-violet text-sm hover:underline">
-                Посмотреть программу →
-              </Link>
-            </div>
-            <div className="bg-white p-4">
-              <Link href={`/${forms.format}/${forms.slug}`} className="text-violet text-sm hover:underline">
-                Посмотреть программу →
-              </Link>
-            </div>
-          </div>
+        <div className="hidden md:block overflow-x-auto">
+          <table className="w-full border-separate border-spacing-0 overflow-hidden rounded-card border border-border bg-white text-left">
+            <caption className="sr-only">Сравнение онлайн-курсов по аудитории, доступу, стоимости и продлению</caption>
+            <thead>
+              <tr className="bg-paper">
+                <th scope="col" className="p-4 text-sm text-graphite">Критерий</th>
+                <th scope="col" className="p-4 font-display text-lg text-ink">{materials.title}</th>
+                <th scope="col" className="p-4 font-display text-lg text-ink">{forms.title}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row.label} className="border-t border-border">
+                  <th scope="row" className="border-t border-border p-4 text-sm font-normal text-graphite">{row.label}</th>
+                  <td className="border-t border-border p-4 text-sm text-ink">{row.materials}</td>
+                  <td className="border-t border-border p-4 text-sm text-ink">{row.forms}</td>
+                </tr>
+              ))}
+              <tr>
+                <th scope="row" className="border-t border-border p-4 text-sm font-normal text-graphite">Программа</th>
+                <td className="border-t border-border p-4">
+                  <Link href={`/${materials.format}/${materials.slug}`} className="text-violet text-sm hover:underline">
+                    Посмотреть программу →
+                  </Link>
+                </td>
+                <td className="border-t border-border p-4">
+                  <Link href={`/${forms.format}/${forms.slug}`} className="text-violet text-sm hover:underline">
+                    Посмотреть программу →
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

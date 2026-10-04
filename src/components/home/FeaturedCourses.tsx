@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { courses } from "@/content/courses";
+import { getCourseBySlug } from "@/content/courses";
 import { CourseCard } from "@/components/CourseCard";
 
 // Раздел 9 ТЗ: 3–4 курса — берём по одному ключевому из каждого уровня сложности офлайн + флагман онлайн
@@ -7,7 +7,7 @@ const featuredSlugs = ["nail-master-start", "top-master-universal-2", "form-logi
 
 export function FeaturedCourses() {
   const featured = featuredSlugs
-    .map((slug) => courses.find((c) => c.slug === slug))
+    .map(getCourseBySlug)
     .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   return (

@@ -5,3 +5,5 @@
 .dark nav[aria-label="Основная навигация"] a:hover { color: #d4c9b8; }
 .dark button[aria-label="Открыть меню"] span { background: #faf5ff; }
 .dark > div > div > a { background: #7132ba; color: #fff; box-shadow: 0 0 0 1px #b8aa9255; }
+
+.dark :focus-visible { outline-color: #f5eaff; box-shadow: 0 0 0 2px #16121b, 0 0 0 5px #f5eaff; }
