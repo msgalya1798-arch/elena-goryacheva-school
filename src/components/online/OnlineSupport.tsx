@@ -6,9 +6,8 @@ export function OnlineSupport() {
           <p className="lg:col-span-3 text-sm text-graphite uppercase tracking-wide">Поддержка</p>
           <div className="lg:col-span-9 max-w-2xl">
             <p className="text-graphite">
-              В тарифе «С поддержкой» доступны общий чат, разбор присланных работ и материалов, а также
-              обновляемые уроки. Точный срок поддержки, созвоны и условия продления указаны на странице
-              каждого курса.
+              Формат поддержки зависит от курса. На странице программы указаны подтверждённые
+              условия сопровождения.
             </p>
           </div>
         </div>

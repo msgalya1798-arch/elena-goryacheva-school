@@ -23,7 +23,7 @@ export function HorizontalGallery({ items }: { items: GalleryItem[] }) {
 
   return (
     <div>
-      <div className="container max-w-container mb-4 flex justify-end gap-2" aria-label="Управление галереей">
+      <div className="container max-w-container mb-4 flex justify-end gap-2">
         <button
           type="button"
           onClick={() => scroll(-1)}

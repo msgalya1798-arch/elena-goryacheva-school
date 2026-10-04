@@ -64,7 +64,7 @@ export function CourseFinder() {
     const alsoCourse = alsoSlug ? getCourseBySlug(alsoSlug) : undefined;
 
     return (
-      <div ref={panelRef} tabIndex={-1} aria-label="Результат подбора" className="rounded-card border border-violet bg-white p-6 sm:p-8 shadow-lg shadow-violet/10">
+      <div ref={panelRef} role="group" tabIndex={-1} aria-label="Результат подбора" className="rounded-card border border-violet bg-white p-6 sm:p-8 shadow-lg shadow-violet/10">
         <Eyebrow>Ваш следующий шаг</Eyebrow>
         {course ? (
           <>
@@ -128,7 +128,7 @@ export function CourseFinder() {
   const stepNumber = typeof step === "number" ? step : 2;
 
   return (
-    <div ref={panelRef} tabIndex={-1} aria-label={`Подбор курса, вопрос ${stepNumber + 1} из 3`} className="rounded-card border border-border bg-white p-6 sm:p-8 shadow-sm">
+    <div ref={panelRef} role="group" tabIndex={-1} aria-label={`Подбор курса, вопрос ${stepNumber + 1} из 3`} className="rounded-card border border-border bg-white p-6 sm:p-8 shadow-sm">
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-graphite">Вопрос {stepNumber + 1} из 3</span>
         {stepNumber > 0 && (

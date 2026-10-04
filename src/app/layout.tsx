@@ -3,6 +3,7 @@ import { Unbounded, Onest } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { absoluteUrl, getSiteUrl } from "@/lib/siteUrl";
+import { socialImage } from "@/lib/metadata";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -38,11 +39,13 @@ export const metadata: Metadata = {
     siteName: "Елена Горячева — школа маникюра",
     locale: "ru_RU",
     type: "website",
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
+    images: [socialImage],
   },
   robots: {
     index: true,
