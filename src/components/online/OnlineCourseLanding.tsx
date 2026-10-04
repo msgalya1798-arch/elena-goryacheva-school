@@ -16,6 +16,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
   const ctaHref = primaryContactHref();
   const hasSalesQuestions = Boolean(landing?.salesQuestions?.length);
   const hasConfirmedPrice = course.price.status === "confirmed" && course.price.amount !== null;
+  const isFormsCourse = course.slug === "form-logic-online";
 
   return (
     <EditorialPage>
@@ -26,7 +27,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
             ← Все онлайн-курсы
           </Link>
 
-            <Eyebrow className="mt-6 mb-4">Онлайн · {course.level}</Eyebrow>
+            <Eyebrow className="mt-6 mb-4">Онлайн · {course.slug === "material-logic-online" ? "для начинающих и практикующих мастеров" : course.level}</Eyebrow>
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-3xl">{course.title}</h1>
             <p className="mt-5 text-lg text-graphite max-w-2xl">{landing?.heroResult ?? course.mainResult}</p>
 
@@ -270,11 +271,15 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
       <section data-editorial-tone="dark" data-editorial-final className="py-section-sm lg:py-section-lg bg-violet-deep">
         <div className="container max-w-container text-center">
           <h2 className="font-display text-3xl lg:text-4xl text-white max-w-2xl mx-auto">
-            Готовы начать — «{course.title}»
+            {isFormsCourse ? "Уточнить условия «Логики форм»" : `Готовы начать — «${course.title}»`}
           </h2>
           <p className="text-white mt-4 max-w-2xl mx-auto">
-            Запись через Telegram. Напишите «{course.title}»{course.tariffs ? " и название выбранного тарифа" : " и расскажите о своём опыте"}.
-            Условия оплаты и получения доступа обсудите с Еленой до оформления.
+            {isFormsCourse ? (
+              <>Возможность записи, стоимость и актуальные условия курса уточните у Елены в Telegram.</>
+            ) : (
+              <>Запись через Telegram. Напишите «{course.title}»{course.tariffs ? " и название выбранного тарифа" : " и расскажите о своём опыте"}.
+              Условия оплаты и получения доступа обсудите с Еленой до оформления.</>
+            )}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
             {course.tariffs && (

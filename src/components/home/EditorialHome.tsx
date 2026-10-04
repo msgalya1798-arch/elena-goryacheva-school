@@ -69,8 +69,8 @@ export function EditorialHome() {
       </section>
       <div className={s.finder}><CourseFinderSection /></div>
       <section className={s.offline}><div className={`${s.wrap} ${s.offlineInner}`}><div><p className={s.eyebrow}>Очно / Каменск-Шахтинский</p><h2>Нужна постановка руки?</h2><p>Базовые программы с нуля и повышение квалификации — с практикой на моделях.</p></div><Link href="/offline" className={`${s.button} ${s.outlineButton}`}>Очные программы ↗</Link></div></section>
-      <section className={`${s.section} ${s.final}`}><div className={s.wrap}><p className={s.eyebrow}>Следующий шаг — ваш</p><h2>Разобраться.<br /><span>И двигаться дальше.</span></h2><p>Выберите программу или расскажите Елене о своей задаче.</p><div className={s.actions}><Link href="#courses" className={s.button}>Выбрать онлайн-курс ↗</Link><a href={primaryContactHref() ?? "/online"} className={s.textLink}>Спросить в Telegram →</a></div></div></section>
       <div className={s.faq}><FaqSection audience="online" /></div>
+      <section className={`${s.section} ${s.final}`}><div className={s.wrap}><p className={s.eyebrow}>Следующий шаг — ваш</p><h2>Разобраться.<br /><span>И двигаться дальше.</span></h2><p>Выберите программу или расскажите Елене о своей задаче.</p><div className={s.actions}><Link href="#courses" className={s.button}>Выбрать онлайн-курс ↗</Link><a href={primaryContactHref() ?? "/online"} className={s.textLink}>Спросить в Telegram →</a></div></div></section>
     </div>
   );
 }
