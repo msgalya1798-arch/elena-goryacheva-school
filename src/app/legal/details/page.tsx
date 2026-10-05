@@ -1,6 +1,6 @@
 import { EditorialPage } from "@/components/editorial/EditorialPage";
 import { buildPageMetadata } from "@/lib/metadata";
-import { sellerDetails } from "@/content/site";
+import { legalContactDetails, sellerDetails } from "@/content/site";
 
 export const metadata = buildPageMetadata({
   title: "Реквизиты ИП",
@@ -67,7 +67,7 @@ export default function SellerDetailsPage() {
           </section>
 
           <p className="mt-8 text-xs text-graphite">
-            Адрес регистрации ИП не является адресом проведения очного обучения. Адрес учебного пространства сообщается отдельно при записи.
+            Адрес регистрации ИП не является адресом проведения очного обучения. Адрес проведения очного обучения: {legalContactDetails.trainingAddress}.
           </p>
           </div>
         </div>
