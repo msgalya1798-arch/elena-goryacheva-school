@@ -11,10 +11,14 @@ const sourceHashes = JSON.parse(readFileSync(new URL("./fixtures/legal-docx-hash
 const values = createLegalTextValues(sellerDetails, contactChannels, legalContactDetails);
 
 for (const [slug, expectedHash] of Object.entries(sourceHashes)) {
-  test(`${slug}: all document text and table cells match the approved DOCX`, () => {
+  test(`${slug}: all text matches the DOCX except the owner-approved revision label`, () => {
     const document = documents.find((item) => item.slug === slug);
     assert.ok(document);
-    const actual = createHash("sha256").update(legalDocumentTexts(document, values).join("\n")).digest("hex");
+    const texts = legalDocumentTexts(document, values);
+    assert.equal(texts.filter((text) => text === "Редакция от 05.10.2026").length, 1);
+    // Normalize only this approved label change; every other word and table cell stays protected.
+    const sourceTexts = texts.map((text) => text === "Редакция от 05.10.2026" ? "Рабочий проект · редакция от 05.10.2026" : text);
+    const actual = createHash("sha256").update(sourceTexts.join("\n")).digest("hex");
     assert.equal(actual, expectedHash);
   });
 }
