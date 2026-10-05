@@ -95,6 +95,9 @@
   .page [data-editorial-stats] :global(.gap-8) { gap: 12px; }
   .page [data-editorial-course-card] h3 { font-size: 28px; }
 }
+@media (max-width: 359px) {
+  .page [data-editorial-hero][data-course="top-master-universal-advanced"] h1 { font-size: 38px; }
+}
 @media (prefers-reduced-motion: no-preference) {
   .page [data-editorial-review] { animation: violetFlow 15s ease-in-out infinite alternate; }
   .page a[class~="rounded-full"][class~="bg-violet"]::after, .page a[class~="rounded-full"][class~="bg-white"]::after { content: ''; position: absolute; top: -10%; bottom: -10%; left: 0; width: 45%; pointer-events: none; background: linear-gradient(110deg, transparent 15%, #a6978040 40%, #f6f0e54d 50%, #a6978040 60%, transparent 85%); transform: translateX(-180%) skewX(-20deg); animation: goldSheen 9s ease-in-out infinite; }

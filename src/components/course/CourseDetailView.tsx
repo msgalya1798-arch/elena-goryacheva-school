@@ -25,7 +25,7 @@ export function CourseDetailView({ course }: { course: Course }) {
 
   return (
     <EditorialPage>
-      <section data-editorial-hero className="pt-10 md:pt-16 pb-section-sm">
+      <section data-editorial-hero data-course={course.slug} className="pt-10 md:pt-16 pb-section-sm">
         <div className="container max-w-container">
           <Link
             href={catalogHref[course.format]}
