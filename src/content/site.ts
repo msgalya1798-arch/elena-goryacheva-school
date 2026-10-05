@@ -66,7 +66,17 @@ export const primaryNav: NavLink[] = [
   { href: "/faq", label: "Вопросы" },
 ];
 
-// TODO: Add privacy, terms and refund links only after approved documents have working routes.
+/** Contacts confirmed for the supplied legal documents; course address placeholders stay unchanged. */
+export const legalContactDetails = {
+  email: "elenagoraceva97@gmail.com",
+  trainingAddress: "г. Каменск-Шахтинский, ул. Ворошилова, 4",
+};
+
 export const footerLegalLinks: NavLink[] = [
-  { href: "/legal/details", label: "Реквизиты ИП" },
+  { href: "/legal/details", label: "Реквизиты" },
+  { href: "/legal/offer", label: "Публичная оферта" },
+  { href: "/legal/privacy", label: "Политика обработки персональных данных" },
+  { href: "/legal/refunds", label: "Отмена, перенос и возврат" },
+  { href: "/legal/personal-data-consent", label: "Согласие на обработку персональных данных" },
+  { href: "/legal/media-consent", label: "Согласие на публикацию фото, видео, работ и отзывов" },
 ];
