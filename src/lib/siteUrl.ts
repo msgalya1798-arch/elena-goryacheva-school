@@ -1,4 +1,4 @@
-const FALLBACK_SITE_URL = "https://elena-goryacheva.vercel.app";
+const PRODUCTION_SITE_URL = "https://goryacheva.online";
 
 function normalizeSiteUrl(value: string): string {
   const withProtocol = /^https?:\/\//i.test(value) ? value : `https://${value}`;
@@ -6,15 +6,12 @@ function normalizeSiteUrl(value: string): string {
 }
 
 /**
- * Один источник origin для metadata, sitemap, robots и schema.
- * При подключении собственного домена задайте NEXT_PUBLIC_SITE_URL в Vercel.
+ * Single origin source for metadata, sitemap, robots and structured data.
+ * Production defaults to the canonical custom domain. NEXT_PUBLIC_SITE_URL
+ * remains an explicit override for tests or intentionally isolated environments.
  */
 export function getSiteUrl(): string {
-  const configured =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    FALLBACK_SITE_URL;
-
+  const configured = process.env.NEXT_PUBLIC_SITE_URL || PRODUCTION_SITE_URL;
   return normalizeSiteUrl(configured);
 }
 
