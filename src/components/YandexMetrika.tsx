@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const COUNTER_ID = 113790004;
@@ -13,33 +12,37 @@ type AnalyticsConsent = "accepted" | "rejected" | null;
 
 // Defer automatic page views so each Next.js navigation is tracked only once.
 // Session replay (Webvisor) and ecommerce collection are intentionally disabled.
-const METRIKA_BOOTSTRAP = `
-if (window.location.hostname === "goryacheva.online" && !window.__goryachevaMetrikaInitialized) {
+function initializeCounter() {
+  if (window.__goryachevaMetrikaInitialized) return;
   window.__goryachevaMetrikaInitialized = true;
-  (function(m,e,t,r,i,k,a){
-    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j=0; j<document.scripts.length; j++) {
-      if (document.scripts[j].src === r) return;
-    }
-    k=e.createElement(t);
-    a=e.getElementsByTagName(t)[0];
-    k.async=1;
-    k.src=r;
-    a.parentNode.insertBefore(k,a);
-  })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=113790004", "ym");
 
-  ym(113790004, "init", {
+  if (!window.ym) {
+    type QueuedMetrika = NonNullable<Window["ym"]> & { a?: unknown[][]; l?: number };
+    const queued = ((...args: unknown[]) => {
+      (queued.a ??= []).push(args);
+    }) as QueuedMetrika;
+    queued.l = Date.now();
+    window.ym = queued;
+  }
+
+  const src = "https://mc.yandex.ru/metrika/tag.js?id=113790004";
+  if (!document.querySelector(`script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = src;
+    document.head.appendChild(script);
+  }
+
+  window.ym(COUNTER_ID, "init", {
     ssr: true,
     defer: true,
     clickmap: true,
     trackLinks: true,
     accurateTrackBounce: true,
     webvisor: false,
-    ecommerce: false
+    ecommerce: false,
   });
 }
-`;
 
 declare global {
   interface Window {
@@ -83,6 +86,13 @@ export function YandexMetrika() {
   }, []);
 
   useEffect(() => {
+    if (consent !== "accepted" || !isProduction) return;
+    window.disableYaCounter113790004 = false;
+    initializeCounter();
+    setScriptReady(true);
+  }, [consent, isProduction]);
+
+  useEffect(() => {
     if (!scriptReady || consent !== "accepted" || !isProduction || !window.ym) return;
     const url = window.location.href;
     if (lastTrackedUrl.current === url) return;
@@ -110,14 +120,6 @@ export function YandexMetrika() {
 
   return (
     <>
-      {isProduction && consent === "accepted" && (
-        <Script
-          id="yandex-metrika-113790004"
-          strategy="afterInteractive"
-          onReady={() => setScriptReady(true)}
-          dangerouslySetInnerHTML={{ __html: METRIKA_BOOTSTRAP }}
-        />
-      )}
 
       {isProduction && showSettings && (
         <aside
