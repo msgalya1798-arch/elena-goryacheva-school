@@ -10,14 +10,39 @@ const documents = JSON.parse(readFileSync(new URL("../src/content/legal-document
 const sourceHashes = JSON.parse(readFileSync(new URL("./fixtures/legal-docx-hashes.json", import.meta.url), "utf8"));
 const values = createLegalTextValues(sellerDetails, contactChannels, legalContactDetails);
 
+const originalAnalyticsPlaceholder =
+  "На момент этой редакции отдельные рекламные или аналитические системы на сайте в Политике не заявлены. При их подключении Политика должна быть обновлена до начала соответствующей обработки.";
+
 for (const [slug, expectedHash] of Object.entries(sourceHashes)) {
-  test(`${slug}: all text matches the DOCX except the owner-approved revision label`, () => {
+  test(`${slug}: approved legal source text stays intact outside the explicit analytics amendment`, () => {
     const document = documents.find((item) => item.slug === slug);
     assert.ok(document);
-    const texts = legalDocumentTexts(document, values);
-    assert.equal(texts.filter((text) => text === "Редакция от 05.10.2026").length, 1);
-    // Normalize only this approved label change; every other word and table cell stays protected.
-    const sourceTexts = texts.map((text) => text === "Редакция от 05.10.2026" ? "Рабочий проект · редакция от 05.10.2026" : text);
+    let blocks = document.blocks;
+
+    if (slug === "privacy") {
+      const start = blocks.findIndex((block) =>
+        block.kind === "heading" && block.text === "6.1. Аналитика посещаемости и файлы cookie");
+      assert.ok(start > 0, "The analytics disclosure must be present");
+      const disclosure = blocks.slice(start, start + 4);
+      assert.deepEqual(disclosure.map((block) => block.kind), ["heading", "paragraph", "paragraph", "paragraph"]);
+      assert.match(disclosure[1].text, /Яндекс Метрика/);
+      assert.match(disclosure[2].text, /Разрешить аналитику/);
+      assert.match(disclosure[2].text, /Не разрешать/);
+      assert.match(disclosure[3].text, /Вебвизор/);
+
+      // Reconstruct ONLY the one owner-approved replacement section for DOCX parity.
+      blocks = [
+        ...blocks.slice(0, start),
+        { kind: "paragraph", text: originalAnalyticsPlaceholder },
+        ...blocks.slice(start + disclosure.length),
+      ];
+    }
+
+    const texts = legalDocumentTexts({ ...document, blocks }, values);
+    const edition = slug === "privacy" ? "Редакция от 25.10.2026" : "Редакция от 05.10.2026";
+    assert.equal(texts.filter((text) => text === edition).length, 1);
+    const sourceTexts = texts.map((text) =>
+      text === edition ? "Рабочий проект · редакция от 05.10.2026" : text);
     const actual = createHash("sha256").update(sourceTexts.join("\n")).digest("hex");
     assert.equal(actual, expectedHash);
   });
