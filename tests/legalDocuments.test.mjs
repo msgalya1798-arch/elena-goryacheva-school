@@ -26,8 +26,8 @@ for (const [slug, expectedHash] of Object.entries(sourceHashes)) {
       const disclosure = blocks.slice(start, start + 4);
       assert.deepEqual(disclosure.map((block) => block.kind), ["heading", "paragraph", "paragraph", "paragraph"]);
       assert.match(disclosure[1].text, /Яндекс Метрика/);
-      assert.match(disclosure[2].text, /Разрешить аналитику/);
-      assert.match(disclosure[2].text, /Не разрешать/);
+      assert.match(disclosure[2].text, /«Разрешить»/);
+      assert.match(disclosure[2].text, /«Отказаться»/);
       assert.match(disclosure[3].text, /Вебвизор/);
 
       // Reconstruct ONLY the one owner-approved replacement section for DOCX parity.

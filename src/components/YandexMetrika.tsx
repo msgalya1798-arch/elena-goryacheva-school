@@ -124,14 +124,14 @@ export function YandexMetrika() {
       {isProduction && showSettings && (
         <aside
           role="region"
-          aria-label="Настройки аналитики"
+          aria-label="Настройки файлов cookie"
           className="fixed bottom-4 left-4 right-4 z-[80] mx-auto max-w-xl rounded-2xl border border-border bg-paper px-5 py-4 text-ink shadow-xl sm:px-6"
         >
-          <p className="text-sm font-semibold">Аналитика сайта</p>
+          <p className="text-sm font-semibold">Файлы cookie</p>
           <p className="mt-2 text-sm leading-relaxed text-graphite">
-            Мы используем Яндекс Метрику, чтобы понимать посещаемость и улучшать обучение.
-            С вашего разрешения она сохраняет cookie и собирает сведения о просмотрах страниц и переходах.
-            Без согласия аналитика не включается. Подробнее — в{" "}
+            Мы используем cookie, чтобы понимать, какие страницы и курсы интересны посетителям,
+            и делать сайт удобнее. Вы можете разрешить их использование или отказаться.
+            Подробнее — в{" "}
             <Link href="/legal/privacy" className="underline underline-offset-2">
               политике обработки данных
             </Link>.
@@ -142,14 +142,14 @@ export function YandexMetrika() {
               onClick={() => choose("accepted")}
               className="rounded-full bg-violet px-5 py-2.5 text-sm font-semibold text-white hover:bg-violet-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet"
             >
-              Разрешить аналитику
+              Разрешить
             </button>
             <button
               type="button"
               onClick={() => choose("rejected")}
               className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-ink hover:bg-paper/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet"
             >
-              Не разрешать
+              Отказаться
             </button>
           </div>
         </aside>
