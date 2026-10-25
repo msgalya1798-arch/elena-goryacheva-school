@@ -1,21 +1,11 @@
-const FALLBACK_SITE_URL = "https://elena-goryacheva.vercel.app";
-
-function normalizeSiteUrl(value: string): string {
-  const withProtocol = /^https?:\/\//i.test(value) ? value : `https://${value}`;
-  return withProtocol.replace(/\/$/, "");
-}
+const PRODUCTION_SITE_URL = "https://goryacheva.online";
 
 /**
  * Один источник origin для metadata, sitemap, robots и schema.
- * При подключении собственного домена задайте NEXT_PUBLIC_SITE_URL в Vercel.
+ * Фиксированный основной домен не зависит от Host и переменных окружения хостинга.
  */
 export function getSiteUrl(): string {
-  const configured =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    FALLBACK_SITE_URL;
-
-  return normalizeSiteUrl(configured);
+  return PRODUCTION_SITE_URL;
 }
 
 export function absoluteUrl(path = "/"): string {

@@ -14,6 +14,15 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
+  async redirects() {
+    // Only public aliases with known routing; Amvera probe settings are separate.
+    return ["www.goryacheva.online", "elena-goryacheva.vercel.app"].map((host) => ({
+      source: "/:path*",
+      has: [{ type: "host", value: host.replace(/\./g, "\\.") }],
+      destination: "https://goryacheva.online/:path*",
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {
