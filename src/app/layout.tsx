@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Unbounded, Onest } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { YandexMetrika } from "@/components/YandexMetrika";
 import { absoluteUrl, getSiteUrl } from "@/lib/siteUrl";
 import { socialImage } from "@/lib/metadata";
 import "./globals.css";
@@ -84,6 +86,9 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main-content" className="flex-1" tabIndex={-1}>{children}</main>
         <SiteFooter />
+        <Suspense fallback={null}>
+          <YandexMetrika />
+        </Suspense>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
