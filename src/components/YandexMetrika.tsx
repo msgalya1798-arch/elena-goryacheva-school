@@ -44,7 +44,7 @@ export function YandexMetrika() {
   const searchParams = useSearchParams();
   const [scriptReady, setScriptReady] = useState(false);
   const lastTrackedUrl = useRef<string | null>(null);
-  const query = searchParams.toString();
+  const query = searchParams?.toString() ?? "";
   const route = `${pathname ?? "/"}${query ? `?${query}` : ""}`;
 
   useEffect(() => {
