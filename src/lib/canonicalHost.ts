@@ -9,7 +9,8 @@ const REDIRECT_HOSTS = new Set([
 
 function normalizeHost(value: string | null): string {
   if (!value) return "";
-  return value.split(",")[0].trim().toLowerCase().replace(/\.$/, "").replace(/:\d+$/, "");
+  const [firstHost = ""] = value.split(",");
+  return firstHost.trim().toLowerCase().replace(/\.$/, "").replace(/:\d+$/, "");
 }
 
 export function getCanonicalRedirectTarget(
