@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AnalyticsSettingsButton } from "@/components/AnalyticsSettingsButton";
 import styles from "./SiteFooter.module.css";
 import { primaryContactHref } from "@/lib/contact";
 import { contactChannels, footerLegalLinks, legalContactDetails, primaryNav, sellerDetails, siteConfig } from "@/content/site";
@@ -57,6 +58,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="container max-w-container py-6 text-xs text-graphite">
           © {new Date().getFullYear()} {sellerDetails.fullName}.
+          <AnalyticsSettingsButton />
         </div>
       </div>
     </footer>
