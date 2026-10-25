@@ -2,7 +2,7 @@ import { EditorialPage } from "@/components/editorial/EditorialPage";
 import Link from "next/link";
 import type { Course } from "@/types/content";
 import { Eyebrow } from "@/components/Eyebrow";
-import { siteConfig } from "@/content/site";
+import { legalContactDetails, siteConfig } from "@/content/site";
 import { ExpertStrip } from "@/components/home/ExpertStrip";
 import { ReviewsTeaser } from "@/components/home/ReviewsTeaser";
 import { FaqAccordion } from "@/components/FaqAccordion";
@@ -117,7 +117,8 @@ export function CourseDetailView({ course }: { course: Course }) {
                   </div>
                 )}
 
-                <p className="mt-5 text-sm text-graphite">Напишите «{course.title}» и расскажите о своём опыте. Даты, адрес занятий и условия оплаты уточните у Елены до записи.</p>
+                {course.format === "offline" && <p className="mt-5 text-sm text-graphite">Очное обучение: {legalContactDetails.trainingAddress}.</p>}
+                <p className="mt-5 text-sm text-graphite">Напишите «{course.title}» и расскажите о своём опыте. {course.format === "offline" ? "Даты занятий и организационные детали уточните у Елены. Условия оплаты обсудите до записи." : "Даты, адрес занятий и условия оплаты уточните у Елены до записи."}</p>
                 {ctaHref && (
                   <Link
                     href={ctaHref}

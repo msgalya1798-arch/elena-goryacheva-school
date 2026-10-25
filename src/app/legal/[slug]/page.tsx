@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { slug } = await params;
   const document = legalDocuments.find((item) => item.slug === slug);
   if (!document) return {};
-  return buildPageMetadata({ title: document.title, description: document.description, path: `/legal/${slug}` });
+  return buildPageMetadata(`/legal/${slug}`);
 }
 
 export default async function LegalPage({ params }: { params: Params }) {

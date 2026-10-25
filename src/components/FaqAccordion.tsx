@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { primaryContactHref } from "@/lib/contact";
-
-interface FaqItem {
-  question: string;
-  answer: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-}
+import type { FaqItem } from "@/types/content";
 
 export function FaqAccordion({ items }: { items: FaqItem[] }) {
   const defaultContactHref = primaryContactHref();
@@ -24,7 +18,11 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
                 +
               </span>
             </summary>
-            <p className="text-graphite mt-3 pr-8">{item.answer}</p>
+            <p className="text-graphite mt-3 pr-8">
+              {typeof item.answer === "string" ? item.answer : item.answer.map((part, index) => part.href ? (
+                <Link key={index} href={part.href} className="text-violet underline underline-offset-4">{part.text}</Link>
+              ) : part.text)}
+            </p>
             {item.ctaLabel && ctaHref && (
               <Link
                 href={ctaHref}

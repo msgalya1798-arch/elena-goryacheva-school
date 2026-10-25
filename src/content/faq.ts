@@ -1,8 +1,9 @@
 import { homeFaq } from "@/content/home";
+import type { FaqItem } from "@/types/content";
 
 export interface FaqCategory {
   title: string;
-  items: { question: string; answer: string }[];
+  items: FaqItem[];
 }
 
 /**
@@ -24,7 +25,13 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         question: "Как оплачивается обучение и можно ли перенести участие?",
-        answer: "Условия оплаты и переноса обсуждаем при записи — единых онлайн-правил на сайте пока нет.",
+        answer: [
+          { text: "Запись и организационные вопросы обсуждаем в Telegram. Общие условия изложены в " },
+          { text: "публичной оферте", href: "/legal/offer" },
+          { text: " и " },
+          { text: "правилах отмены, переноса и возврата", href: "/legal/refunds" },
+          { text: ". Параметры конкретной программы уточните у Елены до оплаты." },
+        ],
       },
     ],
   },

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { absoluteUrl } from "./siteUrl";
+import { pageSeo } from "@/content/seo";
 
 const SITE_NAME = "Елена Горячева — школа маникюра";
 
@@ -10,17 +11,12 @@ export const socialImage = {
   alt: "Школа маникюра Елены Горячевой",
 };
 
-export function buildPageMetadata({
-  title,
-  description,
-  path,
-}: {
-  title: string;
-  description: string;
-  path: string;
-}): Metadata {
+export function buildPageMetadata(path: string): Metadata {
+  const content = pageSeo[path];
+  if (!content) throw new Error(`Missing SEO metadata for ${path}`);
+  const { title, description } = content;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: path },
     openGraph: {

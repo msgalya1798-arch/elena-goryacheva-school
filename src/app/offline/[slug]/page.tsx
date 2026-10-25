@@ -15,11 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const course = getCourseBySlug(slug);
   if (!course || course.format !== "offline") return {};
 
-  return buildPageMetadata({
-    title: `${course.title} — очный курс`,
-    description: course.mainResult,
-    path: `/offline/${course.slug}`,
-  });
+  return buildPageMetadata(`/offline/${course.slug}`);
 }
 
 export default async function OfflineCoursePage({ params }: { params: Promise<Params> }) {

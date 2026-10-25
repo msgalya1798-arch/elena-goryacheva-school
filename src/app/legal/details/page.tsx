@@ -2,11 +2,7 @@ import { EditorialPage } from "@/components/editorial/EditorialPage";
 import { buildPageMetadata } from "@/lib/metadata";
 import { legalContactDetails, sellerDetails } from "@/content/site";
 
-export const metadata = buildPageMetadata({
-  title: "Реквизиты ИП",
-  description: "Реквизиты индивидуального предпринимателя Горячевой Елены Сергеевны.",
-  path: "/legal/details",
-});
+export const metadata = buildPageMetadata("/legal/details");
 
 const mainDetails = [
   ["Наименование", sellerDetails.fullName],
