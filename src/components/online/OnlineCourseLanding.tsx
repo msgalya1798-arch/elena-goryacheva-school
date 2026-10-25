@@ -29,6 +29,7 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
 
             <Eyebrow className="mt-6 mb-4">Онлайн · {course.slug === "material-logic-online" ? "для начинающих и практикующих мастеров" : course.level}</Eyebrow>
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-3xl">{course.title}</h1>
+            {landing?.heroSubtitle && <p className="mt-3 text-sm text-graphite max-w-2xl">{landing.heroSubtitle}</p>}
             <p className="mt-5 text-lg text-graphite max-w-2xl">{landing?.heroResult ?? course.mainResult}</p>
 
             {!hasSalesQuestions && (
@@ -166,10 +167,15 @@ export function OnlineCourseLanding({ course }: { course: Course }) {
         <div className="container max-w-container">
           <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">Программа курса</h2>
           <ul className="space-y-3 max-w-2xl">
-            {course.whatYouGet.map((item) => (
+            {course.whatYouGet.map((item, index) => (
               <li key={item} className="flex gap-3 text-graphite">
                 <span className="text-violet mt-1">—</span>
-                <span>{item}</span>
+                {landing?.programDescriptions?.[index] ? (
+                  <div>
+                    <h3 className="text-lg text-ink">{item}</h3>
+                    <p className="mt-2 text-graphite">{landing.programDescriptions[index]}</p>
+                  </div>
+                ) : <span>{item}</span>}
               </li>
             ))}
           </ul>

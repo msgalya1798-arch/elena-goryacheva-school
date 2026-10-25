@@ -97,6 +97,7 @@
 }
 @media (max-width: 359px) {
   .page [data-editorial-hero][data-course="top-master-universal-advanced"] h1 { font-size: 38px; }
+  .page [data-editorial-about-hero] h1 { font-size: 36px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .page [data-editorial-review] { animation: violetFlow 15s ease-in-out infinite alternate; }

@@ -33,6 +33,8 @@ export interface Tariff {
 
 /** Контент для полноценного продающего лендинга онлайн-курса. */
 export interface OnlineLandingContent {
+  heroSubtitle?: string;
+  programDescriptions?: string[];
   heroResult: string;
   painPoints: string[];
   outcomes: string[];
@@ -82,4 +84,11 @@ export interface ContactChannel {
   type: "phone" | "telegram" | "whatsapp" | "email";
   value: string | null;
   isPrimary: boolean;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string | { text: string; href?: string }[];
+  ctaLabel?: string;
+  ctaHref?: string;
 }

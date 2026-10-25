@@ -6,11 +6,7 @@ import { ReviewCard } from "@/components/ReviewCard";
 import { FinalCta } from "@/components/home/FinalCta";
 import { testimonials } from "@/content/home";
 
-export const metadata = buildPageMetadata({
-  title: "Отзывы",
-  description: "Отзывы учениц об обучении маникюру у Елены Горячевой.",
-  path: "/reviews",
-});
+export const metadata = buildPageMetadata("/reviews");
 
 export default function ReviewsPage() {
   return (
@@ -20,7 +16,7 @@ export default function ReviewsPage() {
           <Reveal>
             <Eyebrow className="mb-4">Отзывы</Eyebrow>
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-2xl">
-              Что говорят ученицы
+              Отзывы учениц об обучении у Елены Горячевой
             </h1>
             <p className="mt-4 text-lg text-graphite max-w-2xl">
               Отзывы об обучении в школе Елены. Нажмите на скриншот, чтобы прочитать оригинал крупно.

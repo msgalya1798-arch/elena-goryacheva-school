@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./SiteFooter.module.css";
 import { primaryContactHref } from "@/lib/contact";
-import { contactChannels, footerLegalLinks, primaryNav, sellerDetails, siteConfig } from "@/content/site";
+import { contactChannels, footerLegalLinks, legalContactDetails, primaryNav, sellerDetails, siteConfig } from "@/content/site";
 
 export function SiteFooter() {
   const contactHref = primaryContactHref();
@@ -15,6 +15,7 @@ export function SiteFooter() {
           <p className="text-sm text-graphite mt-4">
             Онлайн · Россия <br /> Офлайн · {siteConfig.city}
           </p>
+          <p className="text-sm text-graphite mt-3 break-words">Очное обучение:<br />{legalContactDetails.trainingAddress}</p>
           <div className="mt-4 flex flex-col items-start gap-2 text-sm">
             {contactHref && <Link href={contactHref} className="text-violet underline py-2">Написать в Telegram</Link>}
             {phone && <a href={`tel:${phone.replace(/[^+\d]/g, "")}`} className="text-ink underline py-2">{phone}</a>}

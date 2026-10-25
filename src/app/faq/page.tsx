@@ -6,11 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { FinalCta } from "@/components/home/FinalCta";
 import { faqCategories } from "@/content/faq";
 
-export const metadata = buildPageMetadata({
-  title: "Вопросы",
-  description: "Частые вопросы об обучении маникюру: формат, стоимость, запись и сертификат.",
-  path: "/faq",
-});
+export const metadata = buildPageMetadata("/faq");
 
 export default function FaqPage() {
   return (
@@ -19,7 +15,7 @@ export default function FaqPage() {
         <div className="container max-w-container">
           <Reveal>
             <Eyebrow className="mb-4">Вопросы</Eyebrow>
-            <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-2xl">Частые вопросы</h1>
+            <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-2xl">Вопросы об обучении маникюру</h1>
           </Reveal>
         </div>
       </section>

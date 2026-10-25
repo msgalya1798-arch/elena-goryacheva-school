@@ -8,13 +8,9 @@ import { CourseCard } from "@/components/CourseCard";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Reveal } from "@/components/Reveal";
 import { getCoursesByFormat } from "@/content/courses";
-import { siteConfig } from "@/content/site";
+import { contactChannels, legalContactDetails, siteConfig } from "@/content/site";
 
-export const metadata = buildPageMetadata({
-  title: "Офлайн-обучение",
-  description: `Очные программы маникюра в ${siteConfig.cityPrepositional}: от старта с нуля до сложных исходников и верхних форм.`,
-  path: "/offline",
-});
+export const metadata = buildPageMetadata("/offline");
 
 export default function OfflineCatalogPage() {
   const offlineCourses = getCoursesByFormat("offline");
@@ -23,6 +19,7 @@ export default function OfflineCatalogPage() {
     { id: "advanced", title: "Развиваться после базового обучения", description: "Выбирайте под задачу: комплексная практика, скорость и портфолио или работа с верхними формами.", courses: offlineCourses.filter((course) => course.level !== "с нуля") },
   ];
   const ctaHref = primaryContactHref();
+  const phone = contactChannels.find((channel) => channel.type === "phone")?.value;
 
   return (
     <EditorialPage>
@@ -31,7 +28,7 @@ export default function OfflineCatalogPage() {
           <Reveal>
             <Eyebrow className="mb-4">Офлайн-обучение</Eyebrow>
             <h1 className="font-display text-4xl lg:text-5xl text-ink max-w-2xl">
-              Очные программы в {siteConfig.cityPrepositional}
+              Курсы маникюра в Каменске-Шахтинском
             </h1>
             <p className="mt-4 text-lg text-graphite max-w-xl">
               Живая работа на моделях, разбор руки и постановка формы вместе со мной —
@@ -59,10 +56,19 @@ export default function OfflineCatalogPage() {
       ))}
       <ExpertStrip />
       <ReviewsTeaser />
+      <aside aria-label="Место очного обучения" className="py-8 bg-lavender/30">
+        <div className="container max-w-container">
+          <p className="max-w-3xl text-graphite">Очное обучение проходит в {legalContactDetails.trainingAddress.replace(`г. ${siteConfig.city}`, siteConfig.cityPrepositional)}. Елена ведёт программы лично. Даты занятий и организационные вопросы обсудите в Telegram.</p>
+          <div className="mt-4 flex flex-col sm:flex-row gap-4">
+            {phone && <a href={`tel:${phone.replace(/[^+\d]/g, "")}`} className="text-violet underline underline-offset-4">{phone}</a>}
+            {ctaHref && <Link href={ctaHref} className="text-violet underline underline-offset-4">Написать в Telegram</Link>}
+          </div>
+        </div>
+      </aside>
       <section data-editorial-tone="dark" data-editorial-final className="py-section-sm bg-lavender/30">
         <div className="container max-w-container">
           <h2 className="font-display text-2xl sm:text-3xl text-ink">Обсудим программу и даты</h2>
-          <p className="mt-3 text-graphite max-w-2xl">Напишите Елене, какой у вас опыт, чему хотите научиться и когда можете приехать. Перед записью уточните расписание, адрес занятий и что понадобится для обучения.</p>
+          <p className="mt-3 text-graphite max-w-2xl">Напишите Елене, какой у вас опыт, чему хотите научиться и когда можете приехать. Перед записью уточните расписание и что понадобится для обучения.</p>
           {ctaHref && <Link href={ctaHref} className="mt-6 inline-flex justify-center rounded-full bg-violet px-6 py-3.5 text-white hover:bg-violet-deep">Подобрать очный курс в Telegram →</Link>}
         </div>
       </section>

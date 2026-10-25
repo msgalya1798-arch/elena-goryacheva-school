@@ -9,7 +9,7 @@ export function OnlinePageHero() {
           <div className="lg:col-span-7">
               <Eyebrow className="mb-3">Онлайн-курсы · материалы и формы</Eyebrow>
               <h1 className="font-display text-[30px] sm:text-4xl lg:text-5xl leading-[1.15] text-ink">
-                Онлайн-курсы по материалам и формам ногтей
+                Онлайн-курсы маникюра: материалы и формы ногтей
               </h1>
               <p className="mt-4 text-lg text-graphite max-w-xl">
                 «Логика материалов» — выбор системы и причины нестабильной носки.

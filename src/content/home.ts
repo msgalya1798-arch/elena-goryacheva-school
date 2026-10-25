@@ -1,4 +1,4 @@
-import type { BeforeAfterCase, Testimonial } from "@/types/content";
+import type { BeforeAfterCase, FaqItem, Testimonial } from "@/types/content";
 
 export interface AudienceRecommendation {
   courseSlug: string;
@@ -228,11 +228,16 @@ export const testimonials: Testimonial[] = [
 /** Реальные работы до/после пока не предоставлены — раздел скрыт. */
 export const beforeAfterCases: BeforeAfterCase[] = [];
 
-export const homeFaq = [
+export const homeFaq: FaqItem[] = [
   {
     question: "Подойдёт ли мне курс, если я совсем с нуля?",
-    answer:
-      "Да. Для обучения с нуля есть два варианта: «Nail-мастер: старт» — базовый курс без наращивания; «ТОП мастер универсал — 2 ступень» — более полная программа с наращиванием.",
+    answer: [
+      { text: "Для полного старта в профессии есть очные программы в Каменске-Шахтинском: " },
+      { text: "„Nail-мастер: старт“", href: "/offline/nail-master-start" },
+      { text: " — без наращивания и " },
+      { text: "„ТОП мастер универсал — 2 ступень“", href: "/offline/top-master-universal-2" },
+      { text: " — с базой и наращиванием. Онлайн „Логика материалов“ — тематический курс по материалам; он не заменяет полное базовое обучение." },
+    ],
   },
   {
     question: "Как выбрать между офлайн- и онлайн-форматом?",

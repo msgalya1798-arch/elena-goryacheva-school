@@ -9,11 +9,7 @@ import { ProofStats } from "@/components/home/ProofStats";
 import { FinalCta } from "@/components/home/FinalCta";
 import { siteConfig } from "@/content/site";
 
-export const metadata = buildPageMetadata({
-  title: "Об Елене",
-  description: `Я, ${siteConfig.expertName}, — мастер и преподаватель маникюра в ${siteConfig.cityPrepositional}. ${siteConfig.experienceYears} лет в профессии, ${siteConfig.teachingYears} лет преподавания.`,
-  path: "/about",
-});
+export const metadata = buildPageMetadata("/about");
 
 const principles = [
   {
@@ -40,13 +36,13 @@ const principles = [
 export default function AboutPage() {
   return (
     <EditorialPage>
-      <section data-editorial-hero className="pt-12 md:pt-16 pb-section-sm">
+      <section data-editorial-hero data-editorial-about-hero className="pt-12 md:pt-16 pb-section-sm">
         <div className="container max-w-container">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6 lg:col-start-7 lg:row-start-1">
               <Reveal delay={0.08}>
                 <Eyebrow className="mb-4">Об Елене</Eyebrow>
-                <h1 className="font-display text-4xl lg:text-5xl text-ink">{siteConfig.expertName}</h1>
+                <h1 className="font-display text-4xl lg:text-5xl text-ink">Елена Горячева — мастер и преподаватель маникюра</h1>
                 <p className="mt-5 text-lg text-graphite max-w-lg">
                   Я мастер и преподаватель маникюра в {siteConfig.cityPrepositional}. Строю свои
                   программы на логике материалов и архитектуры ногтя — а не на копировании готовых
